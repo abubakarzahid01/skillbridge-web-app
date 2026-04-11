@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Hire a student for your project on SkillBridge." />
-  <title>Hire a Student — SkillBridge</title>
+  <title>Hire a Student | SkillBridge</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -117,7 +117,7 @@
                 class="form-textarea"
                 id="projectDesc"
                 name="projectDesc"
-                placeholder="Describe your project in detail — what you need, what outcome you're expecting, any technical requirements..."
+                placeholder="Describe your project in detail, what you need, what outcome you're expecting, any technical requirements..."
                 rows="6"
                 aria-required="true"
                 aria-describedby="descError"
@@ -245,7 +245,7 @@
         <div class="order-summary" id="orderSummary">
           <div class="order-summary__title">Selected Talent</div>
 
-          <!-- Student card — TODO: Load from URL param ?student=1 → GET /api/students/1 -->
+          <!-- Student card, TODO: Load from URL param ?student=1 → GET /api/students/1 -->
           <div class="order-student">
             <div class="order-student__avatar">AJ</div>
             <div>
@@ -563,7 +563,7 @@ document.addEventListener('DOMContentLoaded', function () {
       } else {
         // Fallback if api.js not available
         if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Continue to Payment →'; }
-        window.SkillBridge?.PaymentModal?.open({ id: 'hire-1', name: 'Alex Johnson — ' + title, price: budget.startsWith('£') ? budget : '£' + budget, desc: 'Full Stack Developer · UCL' });
+        window.SkillBridge?.PaymentModal?.open({ id: 'hire-1', name: 'Alex Johnson, ' + title, price: budget.startsWith('£') ? budget : '£' + budget, desc: 'Full Stack Developer · UCL' });
       }
     });
   }

@@ -1,6 +1,6 @@
 // js/api.js — SkillBridge API connector
 // Change this one URL when you deploy the backend to Render
-const API_BASE = 'http://localhost:5000';
+const API_BASE = 'https://skillbridge-backend-wpo5.onrender.com';
 
 // ── Token helpers ─────────────────────────────────────────────────
 const Auth = {

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SkillBridge Dashboard — Manage your projects, earnings, and profile." />
+  <title>Dashboard — SkillBridge</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <link rel="stylesheet" href="css/payment.css" />
+</head>
+<body>
+
+<!-- Mobile sidebar toggle -->
+<button class="sidebar-toggle" id="sidebarToggle" aria-label="Open sidebar">
+  <span></span><span></span><span></span>
+</button>
+
+<!-- Sidebar overlay -->
+<div id="sidebarOverlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:499"
+  aria-hidden="true"></div>
+
+<div class="dashboard-page">
+
+  <!-- ═══════════════════════════════════════════════════════
+       SIDEBAR
+  ════════════════════════════════════════════════════════ -->
+  <aside class="sidebar" id="sidebar" role="navigation" aria-label="Dashboard navigation">
+
+    <!-- Logo -->
+    <a href="index.html" class="sidebar__logo">
+      <div class="sidebar__logo-icon">⚡</div>
+      Skill<span>Bridge</span>
+    </a>
+
+    <!-- User info — TODO: Load from auth session / GET /api/me -->
+    <div class="sidebar__user">
+      <div class="sidebar__user-avatar" style="overflow:hidden">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80&fit=crop&crop=face"
+          alt="Alex Johnson"
+          loading="lazy"
+          style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block" />
+      </div>
+      <div>
+        <div class="sidebar__user-name">Alex Johnson</div>
+        <div class="sidebar__user-role">Student · Full Stack Dev</div>
+      </div>
+      <div class="sidebar__user-badge">
+        <span class="badge badge-success" style="font-size:10px">Online</span>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sidebar__nav" aria-label="Dashboard menu">
+
+      <div class="sidebar__nav-section">
+        <div class="sidebar__nav-label">Main</div>
+        <a href="dashboard.html" class="sidebar__nav-link active" aria-current="page">
+          <span class="sidebar__nav-icon">🏠</span>
+          Overview
+        </a>
+        <a href="#" class="sidebar__nav-link">
+          <span class="sidebar__nav-icon">💼</span>
+          My Projects
+          <span class="sidebar__nav-badge">3</span>
+        </a>
+        <a href="#" class="sidebar__nav-link">
+          <span class="sidebar__nav-icon">💬</span>
+          Messages
+          <span class="sidebar__nav-badge">5</span>
+        </a>
+        <a href="#" class="sidebar__nav-link">
+          <span class="sidebar__nav-icon">💰</span>
+          Earnings
+        </a>
+        <a href="#" class="sidebar__nav-link">
+          <span class="sidebar__nav-icon">📊</span>
+          Analytics
+        </a>
+      </div>
+
+      <div class="sidebar__nav-section">
+        <div class="sidebar__nav-label">Profile</div>
+        <a href="student-profile.html" class="sidebar__nav-link">
+          <span class="sidebar__nav-icon">👤</span>
+          My Profile
+        </a>
+        <a href="#" class="sidebar__nav-link">
+          <span class="sidebar__nav-icon">⭐</span>
+          Reviews
+        </a>
+        <a href="premium-guides.html" class="sidebar__nav-link">
+          <span class="sidebar__nav-icon">📚</span>
+          My Guides
+        </a>
+      </div>
+
+      <div class="sidebar__nav-section">
+        <div class="sidebar__nav-label">Discover</div>
+        <a href="explore.html" class="sidebar__nav-link">
+          <span class="sidebar__nav-icon">🔍</span>
+          Browse Jobs
+        </a>
+        <a href="premium-guides.html" class="sidebar__nav-link">
+          <span class="sidebar__nav-icon">🚀</span>
+          Career Guides
+        </a>
+      </div>
+
+      <div class="sidebar__nav-section">
+        <div class="sidebar__nav-label">Account</div>
+        <a href="#" class="sidebar__nav-link">
+          <span class="sidebar__nav-icon">⚙️</span>
+          Settings
+        </a>
+        <a href="#" class="sidebar__nav-link">
+          <span class="sidebar__nav-icon">🔔</span>
+          Notifications
+          <span class="sidebar__nav-badge">2</span>
+        </a>
+        <a href="login.html" class="sidebar__nav-link" style="color:var(--danger)">
+          <span class="sidebar__nav-icon">🚪</span>
+          Log Out
+        </a>
+      </div>
+
+    </nav>
+
+    <!-- Profile completion -->
+    <div class="sidebar__bottom">
+      <div class="sidebar__profile-completion">
+        <div class="sidebar__profile-completion-header">
+          <span class="sidebar__profile-completion-title">Profile Strength</span>
+          <span class="sidebar__profile-completion-percent">72%</span>
+        </div>
+        <div class="sidebar__progress-bar" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100">
+          <div class="sidebar__progress-fill" style="width:0%"></div>
+        </div>
+      </div>
+      <a href="student-profile.html" class="btn btn-ghost btn-sm" style="width:100%">
+        Complete Profile
+      </a>
+    </div>
+
+  </aside>
+
+  <!-- ═══════════════════════════════════════════════════════
+       MAIN CONTENT
+  ════════════════════════════════════════════════════════ -->
+  <main class="dashboard-main" id="dashMain">
+
+    <!-- Top bar -->
+    <div class="dashboard-topbar">
+      <div>
+        <div class="dashboard-topbar__greeting" id="dashGreeting">Good morning, Alex 👋</div>
+        <div class="dashboard-topbar__sub">Here's what's happening with your work today</div>
+      </div>
+      <div class="dashboard-topbar__actions">
+        <a href="explore.html" class="btn btn-primary btn-sm">+ Find Projects</a>
+        <a href="#" class="topbar-icon-btn" aria-label="Notifications">
+          🔔
+          <span class="topbar-icon-btn__dot" aria-hidden="true"></span>
+        </a>
+        <a href="student-profile.html" class="topbar-icon-btn" aria-label="Profile">👤</a>
+      </div>
+    </div>
+
+    <!-- Dashboard mode tabs -->
+    <div class="dash-tab-switcher" role="tablist" aria-label="Dashboard view">
+      <button class="dash-tab active" data-tab="student" role="tab" aria-selected="true">Student View</button>
+      <button class="dash-tab"        data-tab="client"  role="tab" aria-selected="false">Client View</button>
+    </div>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         STUDENT DASHBOARD
+    ═══════════════════════════════════════════════════════ -->
+    <div id="studentDash" role="tabpanel" aria-labelledby="student tab">
+
+      <!-- Stats cards — populated by dashboard.js -->
+      <div class="dash-stats" id="studentStats">
+        <!-- Dynamic content -->
+      </div>
+
+      <!-- Row 1: Earnings chart + Skills -->
+      <div class="dashboard-grid" style="grid-template-columns:2fr 1fr;margin-bottom:var(--space-6)">
+
+        <!-- Earnings chart -->
+        <div class="dash-widget">
+          <div class="dash-widget__header">
+            <div class="dash-widget__title">💰 Earnings Overview</div>
+            <div style="display:flex;gap:var(--space-2);align-items:center">
+              <select style="padding:var(--space-1) var(--space-3);border:1px solid var(--gray-200);border-radius:var(--radius-md);font-size:var(--text-xs);color:var(--gray-600);background:var(--white)">
+                <option>Last 6 months</option>
+                <option>Last 12 months</option>
+                <option>This year</option>
+              </select>
+              <a href="#" class="dash-widget__action">View All</a>
+            </div>
+          </div>
+          <!-- Chart inserted by dashboard.js -->
+          <div id="earningsChart"></div>
+
+          <div class="chart-legend" style="margin-top:var(--space-3)">
+            <div class="chart-legend__item">
+              <div class="chart-legend__dot" style="background:var(--primary)"></div>
+              Monthly Earnings
+            </div>
+            <div class="chart-legend__item">
+              <div class="chart-legend__dot" style="background:var(--gray-200)"></div>
+              Previous Period
+            </div>
+          </div>
+        </div>
+
+        <!-- Skills progress -->
+        <div class="dash-widget">
+          <div class="dash-widget__header">
+            <div class="dash-widget__title">⭐ Skill Level</div>
+            <a href="#" class="dash-widget__action">Update Skills</a>
+          </div>
+          <!-- Populated by dashboard.js -->
+          <div id="skillsProgress"></div>
+        </div>
+
+      </div>
+
+      <!-- Row 2: Recent projects + Activity -->
+      <div class="dashboard-grid" style="margin-bottom:var(--space-6)">
+
+        <!-- Recent projects -->
+        <div class="dash-widget">
+          <div class="dash-widget__header">
+            <div class="dash-widget__title">📋 Recent Projects</div>
+            <a href="#" class="dash-widget__action">View All</a>
+          </div>
+          <!-- Populated by dashboard.js -->
+          <div id="recentProjects"></div>
+        </div>
+
+        <!-- Activity feed -->
+        <div class="dash-widget">
+          <div class="dash-widget__header">
+            <div class="dash-widget__title">🔔 Recent Activity</div>
+            <a href="#" class="dash-widget__action">Mark all read</a>
+          </div>
+          <!-- Populated by dashboard.js -->
+          <div id="activityFeed"></div>
+        </div>
+
+      </div>
+
+      <!-- Row 3: Recommended opportunities (full width) -->
+      <div class="dash-widget" style="margin-bottom:var(--space-6)">
+        <div class="dash-widget__header">
+          <div class="dash-widget__title">🎯 Recommended for You</div>
+          <a href="explore.html" class="dash-widget__action">Browse All</a>
+        </div>
+        <!-- Populated by dashboard.js -->
+        <div id="recommendedGrid"></div>
+      </div>
+
+    </div><!-- /#studentDash -->
+
+
+    <!-- ══════════════════════════════════════════════════════
+         CLIENT DASHBOARD
+    ═══════════════════════════════════════════════════════ -->
+    <div id="clientDash" style="display:none" role="tabpanel">
+
+      <!-- Stats -->
+      <div class="dash-stats" id="clientStats"></div>
+
+      <!-- Row 1: Posted projects + Saved talent -->
+      <div class="dashboard-grid" style="grid-template-columns:2fr 1fr;margin-bottom:var(--space-6)">
+
+        <!-- Posted projects -->
+        <div class="dash-widget">
+          <div class="dash-widget__header">
+            <div class="dash-widget__title">📋 Posted Projects</div>
+            <a href="hire.html" class="btn btn-primary btn-sm">+ Post New</a>
+          </div>
+          <div id="postedProjects"></div>
+        </div>
+
+        <!-- Saved talent -->
+        <div class="dash-widget">
+          <div class="dash-widget__header">
+            <div class="dash-widget__title">❤️ Saved Talent</div>
+            <a href="explore.html" class="dash-widget__action">Browse More</a>
+          </div>
+          <div id="savedTalent"></div>
+        </div>
+
+      </div>
+
+      <!-- Row 2: Budget overview + Activity -->
+      <div class="dashboard-grid" style="margin-bottom:var(--space-6)">
+
+        <div class="dash-widget">
+          <div class="dash-widget__header">
+            <div class="dash-widget__title">💸 Budget Overview</div>
+            <a href="#" class="dash-widget__action">Details</a>
+          </div>
+          <div id="budgetOverview"></div>
+        </div>
+
+        <div class="dash-widget">
+          <div class="dash-widget__header">
+            <div class="dash-widget__title">🔔 Recent Activity</div>
+          </div>
+          <div id="clientActivity" style="font-size:var(--text-sm);color:var(--gray-500);padding:var(--space-4)">
+            <div style="display:flex;flex-direction:column;gap:var(--space-4)">
+              <div style="display:flex;gap:var(--space-3);align-items:flex-start">
+                <div style="width:36px;height:36px;border-radius:50%;background:#EFF6FF;display:flex;align-items:center;justify-content:center;flex-shrink:0">📩</div>
+                <div><div style="color:var(--gray-800);font-size:var(--text-sm)"><strong>Alex Johnson</strong> sent a proposal for Website Rebuild.</div><div style="color:var(--gray-400);font-size:var(--text-xs);margin-top:2px">2 hours ago</div></div>
+              </div>
+              <div style="display:flex;gap:var(--space-3);align-items:flex-start">
+                <div style="width:36px;height:36px;border-radius:50%;background:#F0FDF4;display:flex;align-items:center;justify-content:center;flex-shrink:0">✅</div>
+                <div><div style="color:var(--gray-800);font-size:var(--text-sm)"><strong>SEO Setup</strong> project marked as complete.</div><div style="color:var(--gray-400);font-size:var(--text-xs);margin-top:2px">Yesterday</div></div>
+              </div>
+              <div style="display:flex;gap:var(--space-3);align-items:flex-start">
+                <div style="width:36px;height:36px;border-radius:50%;background:#FFF7ED;display:flex;align-items:center;justify-content:center;flex-shrink:0">💰</div>
+                <div><div style="color:var(--gray-800);font-size:var(--text-sm)">Payment of <strong>£480</strong> released to Sophie M.</div><div style="color:var(--gray-400);font-size:var(--text-xs);margin-top:2px">3 days ago</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div><!-- /#clientDash -->
+
+  </main><!-- /.dashboard-main -->
+</div><!-- /.dashboard-page -->
+
+
+<!-- Payment Modal -->
+<div class="modal-overlay" id="paymentOverlay" role="dialog" aria-modal="true" aria-labelledby="paymentModalTitle">
+  <div class="modal" id="paymentModal">
+    <div class="modal__header">
+      <div><div class="modal__title" id="paymentModalTitle">Complete Purchase</div><div class="modal__subtitle">Secure checkout</div></div>
+      <button class="modal__close" data-modal-close="payment" aria-label="Close">✕</button>
+    </div>
+    <div class="modal__body">
+      <div id="paymentFormWrapper">
+        <div class="modal-order-summary">
+          <div class="modal-order-item">
+            <div class="modal-order-item__icon">📄</div>
+            <div>
+              <div class="modal-order-item__name" id="modalItemName">Item</div>
+              <div class="modal-order-item__desc" id="modalItemDesc">SkillBridge</div>
+            </div>
+            <div class="modal-order-item__price" id="modalItemPrice">£0</div>
+          </div>
+          <div class="modal-price-rows">
+            <div class="modal-price-row"><span class="modal-price-row__label">Subtotal</span><span class="modal-price-row__value" id="basePrice" data-price="0">£0</span></div>
+            <div class="modal-price-row" id="discountRow" style="display:none"><span class="modal-price-row__label">Discount</span><span class="modal-price-row__value" id="discountValue" style="color:var(--success)">-£0</span></div>
+            <div class="modal-price-row modal-price-row--total"><span class="modal-price-row__label">Total</span><span class="modal-price-row__value" id="totalAmount">£0</span></div>
+          </div>
+        </div>
+        <div class="promo-code"><input type="text" class="promo-code__input" id="promoInput" placeholder="Promo code" /><button class="promo-code__btn" id="applyPromo">Apply</button></div>
+        <div class="promo-code__success" id="promoMsg"></div>
+        <div class="payment-methods-label">Payment Method</div>
+        <div class="payment-methods-tabs">
+          <button class="payment-method-tab active" data-method="card"><span class="payment-method-tab__icon">💳</span>Card</button>
+          <button class="payment-method-tab" data-method="apple"><span class="payment-method-tab__icon">🍎</span>Apple</button>
+          <button class="payment-method-tab" data-method="google"><span class="payment-method-tab__icon">G</span>Google</button>
+          <button class="payment-method-tab" data-method="paypal"><span class="payment-method-tab__icon">🅿</span>PayPal</button>
+        </div>
+        <div class="payment-form-section" data-method="card">
+          <div class="payment-form">
+            <div><label class="payment-form__label" for="cardHolder">Cardholder Name</label><input type="text" class="payment-form__input" id="cardHolder" placeholder="John Smith" autocomplete="cc-name" /></div>
+            <div><label class="payment-form__label" for="cardNumber">Card Number</label><div class="card-number-field"><input type="text" class="payment-form__input" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" /><span class="card-brand-icon" id="cardBrandIcon">💳</span></div></div>
+            <div class="card-row">
+              <div><label class="payment-form__label" for="expiryDate">Expiry</label><input type="text" class="payment-form__input" id="expiryDate" placeholder="MM/YY" maxlength="5" /></div>
+              <div><label class="payment-form__label" for="cvvCode">CVV</label><input type="password" class="payment-form__input" id="cvvCode" placeholder="•••" maxlength="4" /></div>
+            </div>
+          </div>
+        </div>
+        <div class="payment-form-section" data-method="apple" style="display:none"><div class="alt-payment-method"><div class="alt-payment-method__icon">🍎</div><div class="alt-payment-method__title">Apple Pay</div><div class="alt-payment-method__desc">Authenticate with Touch ID or Face ID.</div></div></div>
+        <div class="payment-form-section" data-method="google" style="display:none"><div class="alt-payment-method"><div class="alt-payment-method__icon" style="font-weight:700;font-size:2rem;color:#4285F4">G</div><div class="alt-payment-method__title">Google Pay</div><div class="alt-payment-method__desc">Pay with your saved Google Pay method.</div></div></div>
+        <div class="payment-form-section" data-method="paypal" style="display:none"><div class="alt-payment-method"><div class="alt-payment-method__icon">🅿</div><div class="alt-payment-method__title">PayPal</div><div class="alt-payment-method__desc">You'll be redirected to PayPal.</div></div></div>
+        <button class="pay-btn" id="payNowBtn"><span class="pay-btn__text">Pay Now</span><span class="pay-btn__spinner" aria-hidden="true"></span></button>
+        <div class="secure-badge"><span>🔒</span>256-bit SSL · PCI DSS compliant</div>
+      </div>
+      <div id="paymentSuccess" style="display:none">
+        <div class="payment-success">
+          <div class="payment-success__icon">✓</div>
+          <div class="payment-success__title">Payment Successful!</div>
+          <div class="payment-success__desc">Your purchase is confirmed and ready to access.</div>
+          <div class="payment-success__ref">Reference: <strong id="paymentRef">SB-XXXXXXX</strong></div>
+          <div class="payment-success__btns"><button class="btn btn-primary" data-modal-close="payment">Done</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sidebar overlay click-to-close for mobile -->
+<script>
+document.getElementById('sidebarOverlay').addEventListener('click', function () {
+  document.getElementById('sidebar').classList.remove('open');
+  this.style.display = 'none';
+});
+</script>
+
+<script src="js/api.js"></script>
+<script src="js/modal.js"></script>
+<script src="js/payment.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

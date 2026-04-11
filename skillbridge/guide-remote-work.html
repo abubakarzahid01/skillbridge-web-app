@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Remote Work Mastery — SkillBridge</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/payment.css">
+</head>
+<body>
+
+<script>
+// Access control
+(function() {
+  var key = 'guide-remote-work';
+  try {
+    var purchases = JSON.parse(localStorage.getItem('sb_purchases') || '{}');
+    if (!purchases[key]) {
+      window.location.replace('premium-guides.html?locked=' + key);
+    }
+  } catch(e) {
+    window.location.replace('premium-guides.html?locked=' + key);
+  }
+})();
+</script>
+
+<nav class="navbar" id="navbar">
+  <div class="container navbar__inner">
+    <a href="index.html" class="navbar__logo">
+      <div class="navbar__logo-icon">⚡</div>
+      Skill<span>Bridge</span>
+    </a>
+    <div class="navbar__nav">
+      <a href="explore.html" class="navbar__link">Explore Skills</a>
+      <a href="premium-guides.html" class="navbar__link">Premium Guides</a>
+    </div>
+    <div class="navbar__auth">
+      <a href="premium-guides.html" class="btn btn-ghost btn-sm">← All Guides</a>
+    </div>
+    <button class="navbar__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="navbar__mobile" id="mobileMenu">
+  <a href="explore.html" class="navbar__mobile-link">Explore Skills</a>
+  <a href="premium-guides.html" class="navbar__mobile-link">Premium Guides</a>
+  <div class="navbar__mobile-divider"></div>
+  <div class="navbar__mobile-auth">
+    <a href="premium-guides.html" class="btn btn-ghost">← All Guides</a>
+  </div>
+</div>
+
+<div class="guide-page">
+
+  <!-- Hero -->
+  <div class="guide-hero" style="background: linear-gradient(135deg, #0C4A6E 0%, #06B6D4 100%)">
+    <div class="container">
+      <a href="premium-guides.html" style="color:rgba(255,255,255,0.7);font-size:var(--text-sm);text-decoration:none">← Back to Guides</a>
+      <div style="display:flex;align-items:center;gap:var(--space-4);margin:var(--space-6) 0 var(--space-4)">
+        <div style="font-size:3rem">🌍</div>
+        <div>
+          <div style="font-size:var(--text-xs);text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.6);margin-bottom:var(--space-1)">Premium Guide</div>
+          <h1 style="font-size:clamp(1.5rem,4vw,2.5rem);font-weight:800;color:white;margin:0">Remote Work Mastery</h1>
+        </div>
+      </div>
+      <p style="font-size:var(--text-base);color:rgba(255,255,255,0.8);max-width:600px;margin-bottom:var(--space-6)">Thrive in remote and hybrid environments from day one — productivity systems, communication frameworks, and professional visibility tools.</p>
+
+      <div class="guide-progress-bar" id="guideProgress" role="navigation" aria-label="Guide sections">
+        <div class="guide-progress-step active" data-section="0">1</div>
+        <div class="guide-progress-divider"></div>
+        <div class="guide-progress-step" data-section="1">2</div>
+        <div class="guide-progress-divider"></div>
+        <div class="guide-progress-step" data-section="2">3</div>
+        <div class="guide-progress-divider"></div>
+        <div class="guide-progress-step" data-section="3">4</div>
+        <div class="guide-progress-divider"></div>
+        <div class="guide-progress-step" data-section="4">5</div>
+        <div class="guide-progress-divider"></div>
+        <div class="guide-progress-step" data-section="5">6</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Body -->
+  <div class="container guide-layout">
+
+    <div class="guide-content">
+
+      <div class="guide-section" id="section-1" data-section-index="0">
+        <div class="guide-section__num">01</div>
+        <h2 class="guide-section__title">The Remote Revolution — Why the Rules Have Changed</h2>
+        <div class="guide-section__body">
+          <p>Remote work is no longer a pandemic-era experiment or a perk for senior employees. It has become a permanent structural feature of the professional landscape, and for students entering the workforce, understanding how to thrive in remote and hybrid environments is not optional — it's a core professional competency. The research is unambiguous: remote workers who excel are not those with the best home office setups or the fastest broadband. They are the ones who have mastered asynchronous communication, who build trust through consistent delivery rather than physical presence, and who actively manage their professional visibility in environments where "out of sight" can easily become "out of mind".</p>
+          <p>For students and recent graduates, remote work presents a unique double opportunity. First, it dramatically expands the geographic range of roles available to you — you can work for a London-based company from Edinburgh, or take on international clients from your student flat. Second, it develops a skillset that every employer — whether remote, hybrid, or in-person — increasingly values: self-direction, written communication clarity, and disciplined time management. The graduates who arrive at their first remote roles having already developed these competencies consistently outperform peers who need to develop them on the job. This guide gives you the frameworks to do that from day one.</p>
+        </div>
+      </div>
+
+      <div class="guide-section" id="section-2" data-section-index="1">
+        <div class="guide-section__num">02</div>
+        <h2 class="guide-section__title">Mastering Asynchronous Communication</h2>
+        <div class="guide-section__body">
+          <p>Asynchronous communication — where messages are sent and received with a time delay, rather than in real-time — is the backbone of successful remote work. Email, Slack, project management tools, recorded video updates, and shared documents are all asynchronous channels. The fundamental shift that async communication requires is moving from "thinking out loud" to "thinking before communicating." In an office, you can ask a quick question and get an immediate answer. In a remote environment, that same interaction might span six hours and two time zones. Every message you send should therefore contain enough context for the recipient to understand and respond fully without needing a back-and-forth clarification exchange.</p>
+          <p>The framework for high-quality async communication is simple but demanding: before sending any message, ask whether it contains the full context needed for a decision or action, whether it is clear about what you need and by when, and whether it is written in a tone that reads well without the non-verbal cues of in-person conversation. Write longer messages than feel necessary — in remote environments, over-communication is almost always better than under-communication. Default to written updates rather than meetings for status updates and information sharing. Reserve synchronous meetings for decisions that genuinely require real-time discussion, collaborative problem-solving, or relationship building. Every meeting that could have been an email is an hour stolen from everyone involved.</p>
+        </div>
+      </div>
+
+      <div class="guide-section" id="section-3" data-section-index="2">
+        <div class="guide-section__num">03</div>
+        <h2 class="guide-section__title">Productivity Systems for Remote Environments</h2>
+        <div class="guide-section__body">
+          <p>The single biggest challenge for most remote workers — especially students transitioning from the structured environment of university — is self-directed time management without external accountability. In a classroom, your attendance is noted. In an office, your presence is visible. Working remotely removes these environmental cues and requires you to develop intrinsic systems for managing your attention, energy, and output. The good news is that the techniques that work best for remote productivity are the same ones that high performers in all environments use — remote work just makes them non-optional.</p>
+          <p>Time-blocking is the most effective productivity system for knowledge workers. At the end of each day, block the next day into three to five chunks of focused work, each assigned to a specific project or task. Protect these blocks from interruption by setting your status to "Do Not Disturb" on communication tools and closing email and Slack during deep work periods. Use the Pomodoro technique — 25 minutes of focused work followed by a 5-minute break — to maintain concentration within blocks. Weekly planning is equally important: every Monday morning, identify the three to five outcomes you need to achieve by Friday and reverse-engineer your daily blocks from those outcomes. Track your output rather than your hours — the question is not "did I sit at my desk for eight hours?" but "did I accomplish what I committed to?" This shift in measurement is liberating and produces consistently better results than time-based accountability.</p>
+        </div>
+      </div>
+
+      <div class="guide-section" id="section-4" data-section-index="3">
+        <div class="guide-section__num">04</div>
+        <h2 class="guide-section__title">Building Professional Visibility Without a Physical Presence</h2>
+        <div class="guide-section__body">
+          <p>One of the most underestimated challenges in remote work is visibility — the risk that your contributions go unnoticed because you're not physically present for the spontaneous moments of recognition that happen naturally in offices. Promotion decisions, project assignments, and performance reviews in remote organisations are disproportionately influenced by visibility, not just output. Managers cannot advocate for team members they rarely interact with, even when those team members are doing excellent work. Managing your visibility is therefore not a political game — it is a fundamental professional responsibility.</p>
+          <p>There are five high-impact visibility practices for remote workers. First: write weekly updates — a brief, well-structured Friday summary of what you accomplished, what you learned, and what you're planning for next week. Even if it's not required, doing this consistently signals initiative and builds a written record of your contributions. Second: speak up in meetings — remote meetings have awkward silences that nobody fills. Be the person who asks a thoughtful question or offers a perspective. It takes courage but it shapes how you are perceived. Third: share your work before it's finished — share work-in-progress with context about your thinking. This builds trust and invites collaboration. Fourth: build one-on-one relationships — request regular informal catch-ups with your manager and key collaborators. Relationships in remote environments require intentional investment. Fifth: document your achievements — keep a running document of your contributions, the impact of your work, and feedback you receive. This becomes invaluable during performance reviews and promotion conversations.</p>
+        </div>
+      </div>
+
+      <div class="guide-section" id="section-5" data-section-index="4">
+        <div class="guide-section__num">05</div>
+        <h2 class="guide-section__title">Home Office Setup and Digital Toolstack</h2>
+        <div class="guide-section__body">
+          <p>Your physical and digital environment profoundly affects the quality of your remote work, your ability to concentrate, and the professionalism you project in video calls. You don't need an expensive setup to work effectively from home — but you do need to be deliberate about it. The non-negotiables for a functional home workspace are good lighting (natural light from the side is ideal; overhead lighting is harsh and unflattering on video), a reliable internet connection (wired Ethernet is always more stable than Wi-Fi for important calls), a neutral or professional-looking background for video calls, and a dedicated working space that signals to your brain that you are in "work mode."</p>
+          <p>The essential remote work toolstack in 2024: for communication, Slack or Microsoft Teams; for video calls, Zoom or Google Meet with a good USB microphone (audio quality matters more than video quality — invest in a £40–80 microphone before anything else); for project management, Notion, Linear, Asana, or Trello depending on your organisation; for document collaboration, Google Workspace or Microsoft 365; for async video updates, Loom; for time management, Toggl or Clockify for tracking how you actually spend your time. Master the tools your organisation uses before you start — most provide free onboarding tutorials. The person who doesn't know how to share their screen in a video call or how to use @mentions in Slack is creating friction that disproportionately damages their perceived competence.</p>
+        </div>
+      </div>
+
+      <div class="guide-section" id="section-6" data-section-index="5">
+        <div class="guide-section__num">06</div>
+        <h2 class="guide-section__title">Work-Life Balance and Long-Term Remote Wellbeing</h2>
+        <div class="guide-section__body">
+          <p>The most common long-term challenge for remote workers is not productivity — it's boundary maintenance. When your home is your office, the psychological separation between work and personal life erodes. Without a commute to serve as a transition ritual, without colleagues who leave at 5:30 as a social cue to stop working, without a physical office to walk out of, remote workers are statistically more likely to overwork than underwork. The burnout that results from blurred boundaries is real, progressive, and — critically — invisible until it's advanced. Protecting your wellbeing is not a nice-to-have in a remote career: it is a performance requirement.</p>
+          <p>Build explicit transition rituals to replace the structure that a commute and physical office provide. A start ritual might be: make coffee, review your daily plan, write your top three priorities for the day. An end ritual might be: write your end-of-day update, close all work applications, change your Slack status to offline, and go for a fifteen-minute walk. These rituals signal to your nervous system that a mode shift is happening. Set hard communication boundaries — a time after which you do not check work messages, and communicate this clearly to your team. Most remote organisations respect and even admire boundary-setting when it's done openly and consistently. Build in social connection deliberately — remote work removes the incidental social contact of office life, which matters more to wellbeing than most people realise. Weekly virtual coffee chats with colleagues, co-working spaces, and professional community involvement all help maintain the social dimension of professional life that isolated remote work can erode.</p>
+        </div>
+      </div>
+
+      <div class="guide-takeaways">
+        <div class="guide-takeaways__title">⚡ Key Takeaways</div>
+        <ul class="guide-takeaways__list">
+          <li>Master async communication — write messages with enough context for recipients to act without back-and-forth.</li>
+          <li>Time-block your calendar and measure output, not hours — the shift is liberating and produces better results.</li>
+          <li>Manage your visibility actively: weekly updates, speaking up in meetings, and one-on-one relationships.</li>
+          <li>Invest in audio quality first — a £50 microphone does more for your remote presence than a £500 webcam.</li>
+          <li>Build explicit start and end rituals to protect your boundaries and sustain your long-term wellbeing.</li>
+        </ul>
+      </div>
+
+      <div class="guide-completion" id="completionSection">
+        <div class="guide-completion__icon">🎉</div>
+        <h2 class="guide-completion__title">Guide Complete!</h2>
+        <p class="guide-completion__desc">How would you rate this guide?</p>
+        <div class="star-rating" id="starRating" aria-label="Rate this guide">
+          <span class="star-rating__star" data-rating="1">★</span>
+          <span class="star-rating__star" data-rating="2">★</span>
+          <span class="star-rating__star" data-rating="3">★</span>
+          <span class="star-rating__star" data-rating="4">★</span>
+          <span class="star-rating__star" data-rating="5">★</span>
+        </div>
+        <p id="ratingMsg" style="font-size:var(--text-sm);color:var(--gray-500);min-height:1.5em"></p>
+        <div style="display:flex;gap:var(--space-3);justify-content:center;flex-wrap:wrap;margin-top:var(--space-4)">
+          <button onclick="shareGuide('twitter')" class="btn btn-ghost btn-sm">𝕏 Share</button>
+          <button onclick="shareGuide('linkedin')" class="btn btn-ghost btn-sm">in Share</button>
+          <button onclick="shareGuide('copy')" class="btn btn-ghost btn-sm" id="copyBtn">🔗 Copy Link</button>
+        </div>
+        <div style="margin-top:var(--space-6)">
+          <a href="premium-guides.html" class="btn btn-primary btn-lg">← Explore More Guides</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TOC Sidebar -->
+    <aside class="guide-toc" aria-label="Table of contents">
+      <div class="guide-toc__title">Contents</div>
+      <ul class="guide-toc__list">
+        <li><a class="guide-toc__link active" href="#section-1">1. The Remote Revolution</a></li>
+        <li><a class="guide-toc__link" href="#section-2">2. Async Communication Mastery</a></li>
+        <li><a class="guide-toc__link" href="#section-3">3. Productivity Systems</a></li>
+        <li><a class="guide-toc__link" href="#section-4">4. Professional Visibility</a></li>
+        <li><a class="guide-toc__link" href="#section-5">5. Home Office and Tools</a></li>
+        <li><a class="guide-toc__link" href="#section-6">6. Work-Life Balance</a></li>
+      </ul>
+      <div style="margin-top:var(--space-6);padding-top:var(--space-4);border-top:1px solid var(--gray-200)">
+        <a href="premium-guides.html" class="btn btn-ghost btn-sm" style="width:100%;text-align:center">← All Guides</a>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+const GUIDE_KEY   = 'guide-remote-work';
+const GUIDE_TITLE = 'Remote Work Mastery';
+
+document.addEventListener('DOMContentLoaded', function () {
+  const sections = document.querySelectorAll('[data-section-index]');
+  const tocLinks = document.querySelectorAll('.guide-toc__link');
+  const steps    = document.querySelectorAll('.guide-progress-step');
+
+  if ('IntersectionObserver' in window && sections.length) {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const idx = parseInt(entry.target.dataset.sectionIndex);
+          tocLinks.forEach((l, i) => l.classList.toggle('active', i === idx));
+          steps.forEach((s, i) => s.classList.toggle('active', i <= idx));
+        }
+      });
+    }, { threshold: 0.3, rootMargin: '-60px 0px -40% 0px' });
+    sections.forEach(s => obs.observe(s));
+  }
+
+  const stars    = document.querySelectorAll('.star-rating__star');
+  const ratingEl = document.getElementById('ratingMsg');
+  const saved    = localStorage.getItem(GUIDE_KEY + '-rating');
+  if (saved) highlightStars(parseInt(saved));
+
+  stars.forEach(star => {
+    star.addEventListener('click', function () {
+      const r = parseInt(this.dataset.rating);
+      localStorage.setItem(GUIDE_KEY + '-rating', r);
+      highlightStars(r);
+      if (ratingEl) ratingEl.textContent = 'Thanks for your ' + r + '-star rating!';
+    });
+    star.addEventListener('mouseenter', () => highlightStars(parseInt(star.dataset.rating)));
+    star.parentElement.addEventListener('mouseleave', () => {
+      highlightStars(parseInt(localStorage.getItem(GUIDE_KEY + '-rating') || 0));
+    });
+  });
+
+  function highlightStars(n) {
+    stars.forEach((s, i) => s.classList.toggle('active', i < n));
+  }
+});
+
+function shareGuide(platform) {
+  const url   = window.location.href;
+  const title = GUIDE_TITLE + ' — SkillBridge';
+  if (platform === 'twitter') {
+    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(title) + '&url=' + encodeURIComponent(url), '_blank');
+  } else if (platform === 'linkedin') {
+    window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(url), '_blank');
+  } else {
+    navigator.clipboard?.writeText(url).then(() => {
+      const btn = document.getElementById('copyBtn');
+      if (btn) { btn.textContent = '✓ Copied!'; setTimeout(() => btn.textContent = '🔗 Copy Link', 2000); }
+    });
+  }
+}
+</script>
+
+</body>
+</html>

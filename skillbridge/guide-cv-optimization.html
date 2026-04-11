@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Optimization Guide — SkillBridge</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/payment.css">
+</head>
+<body>
+
+<script>
+// Access control
+(function() {
+  var key = 'guide-cv-optimization';
+  try {
+    var purchases = JSON.parse(localStorage.getItem('sb_purchases') || '{}');
+    if (!purchases[key]) {
+      window.location.replace('premium-guides.html?locked=' + key);
+    }
+  } catch(e) {
+    window.location.replace('premium-guides.html?locked=' + key);
+  }
+})();
+</script>
+
+<nav class="navbar" id="navbar">
+  <div class="container navbar__inner">
+    <a href="index.html" class="navbar__logo">
+      <div class="navbar__logo-icon">⚡</div>
+      Skill<span>Bridge</span>
+    </a>
+    <div class="navbar__nav">
+      <a href="explore.html" class="navbar__link">Explore Skills</a>
+      <a href="premium-guides.html" class="navbar__link">Premium Guides</a>
+    </div>
+    <div class="navbar__auth">
+      <a href="premium-guides.html" class="btn btn-ghost btn-sm">← All Guides</a>
+    </div>
+    <button class="navbar__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="navbar__mobile" id="mobileMenu">
+  <a href="explore.html" class="navbar__mobile-link">Explore Skills</a>
+  <a href="premium-guides.html" class="navbar__mobile-link">Premium Guides</a>
+  <div class="navbar__mobile-divider"></div>
+  <div class="navbar__mobile-auth">
+    <a href="premium-guides.html" class="btn btn-ghost">← All Guides</a>
+  </div>
+</div>
+
+<div class="guide-page">
+
+  <!-- Hero -->
+  <div class="guide-hero" style="background: linear-gradient(135deg, #1E3A5F 0%, #2563EB 100%)">
+    <div class="container">
+      <a href="premium-guides.html" style="color:rgba(255,255,255,0.7);font-size:var(--text-sm);text-decoration:none">← Back to Guides</a>
+      <div style="display:flex;align-items:center;gap:var(--space-4);margin:var(--space-6) 0 var(--space-4)">
+        <div style="font-size:3rem">📄</div>
+        <div>
+          <div style="font-size:var(--text-xs);text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.6);margin-bottom:var(--space-1)">Premium Guide</div>
+          <h1 style="font-size:clamp(1.5rem,4vw,2.5rem);font-weight:800;color:white;margin:0">CV Optimization Guide</h1>
+        </div>
+      </div>
+      <p style="font-size:var(--text-base);color:rgba(255,255,255,0.8);max-width:600px;margin-bottom:var(--space-6)">Transform your CV into an interview magnet with proven templates and ATS-beating strategies.</p>
+
+      <div class="guide-progress-bar" id="guideProgress" role="navigation" aria-label="Guide sections">
+        <div class="guide-progress-step active" data-section="0">1</div>
+        <div class="guide-progress-divider"></div>
+        <div class="guide-progress-step" data-section="1">2</div>
+        <div class="guide-progress-divider"></div>
+        <div class="guide-progress-step" data-section="2">3</div>
+        <div class="guide-progress-divider"></div>
+        <div class="guide-progress-step" data-section="3">4</div>
+        <div class="guide-progress-divider"></div>
+        <div class="guide-progress-step" data-section="4">5</div>
+        <div class="guide-progress-divider"></div>
+        <div class="guide-progress-step" data-section="5">6</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Body -->
+  <div class="container guide-layout">
+
+    <!-- Main content -->
+    <div class="guide-content">
+
+      <div class="guide-section" id="section-1" data-section-index="0">
+        <div class="guide-section__num">01</div>
+        <h2 class="guide-section__title">Understanding What Recruiters Actually Want</h2>
+        <div class="guide-section__body">
+          <p>Recruiters spend an average of 6 seconds on a CV before deciding whether to read further or discard it. This isn't a myth — it's been validated by eye-tracking studies across thousands of hiring decisions. Your CV must immediately signal that you are the right candidate before a human being has consciously engaged with a single word. The most common mistake students make is treating a CV as a historical document — a list of everything they've done. Professional recruiters do not want a biography. They want evidence of fit. Every line on your CV should answer one question: "Does this person have what we need for this specific role?"</p>
+          <p>Start by understanding the two audiences your CV must satisfy. The first audience is the Applicant Tracking System (ATS) — software used by 98% of Fortune 500 companies and most large UK employers to filter applications before a human sees them. ATS systems scan for keywords, formatting compliance, and structural cues. A beautifully designed CV with graphics, tables, and unusual fonts can score zero on an ATS scan and never reach a recruiter's desk. The second audience is the human recruiter — typically overworked, reviewing hundreds of applications, and looking for reasons to say no rather than yes. Your CV needs to make their job easier by being scannable, clearly structured, and immediately relevant.</p>
+        </div>
+      </div>
+
+      <div class="guide-section" id="section-2" data-section-index="1">
+        <div class="guide-section__num">02</div>
+        <h2 class="guide-section__title">Structure and Format: The Architecture of a High-Performing CV</h2>
+        <div class="guide-section__body">
+          <p>The format of your CV is not an aesthetic choice — it is a strategic decision. The layout you choose directly determines whether your CV passes ATS screening, whether a recruiter can find the information they need in under 6 seconds, and whether you are perceived as organised and professional. Use a clean, single-column or light two-column layout with clear section headings. Font size should be 10–12pt for body text, with headings at 14–16pt. Use a single professional font — Calibri, Garamond, or Georgia are safe choices. Margins should be between 1.5cm and 2cm on all sides. Never use text boxes, tables within tables, headers/footers, or images — these break ATS parsing.</p>
+          <p>Your CV should be saved as a .docx file when applying through ATS-enabled portals, and as PDF for direct email applications to human recruiters. The ideal length for a student or recent graduate CV is one page. If you have more than three years of directly relevant experience, two pages is acceptable. Every section should earn its place: Personal Statement (4–6 lines maximum), Education, Work Experience, Skills, Projects/Portfolio, and Interests (only if genuinely relevant).</p>
+        </div>
+      </div>
+
+      <div class="guide-section" id="section-3" data-section-index="2">
+        <div class="guide-section__num">03</div>
+        <h2 class="guide-section__title">Writing a Personal Statement That Stops Recruiters</h2>
+        <div class="guide-section__body">
+          <p>The personal statement — also called the professional summary or profile — is the most underused and most misused section on the typical student CV. Most personal statements are vague, generic, and interchangeable: "A motivated and hardworking student seeking to develop my skills in a dynamic organisation." This says nothing, signals nothing, and makes the recruiter's hand move toward the discard pile.</p>
+          <p>A powerful personal statement does three things in four to six lines: it states who you are (your identity and level), what you offer (your key skills and capabilities), and what you're seeking (the type of role and organisation). It should be tailored to the specific role and company — a personal statement that works for every application works for none. The formula is: [Identity] + [Key capability 1] + [Key capability 2] + [Proof point] + [What you're seeking]. For example: "Final-year Computer Science student at UCL with a focus on full-stack web development. Demonstrated ability to build production-ready React and Node.js applications through 24 completed freelance projects, including an e-commerce platform used by 2,000 active users. Seeking a graduate software engineering role where I can contribute to scalable digital products."</p>
+        </div>
+      </div>
+
+      <div class="guide-section" id="section-4" data-section-index="3">
+        <div class="guide-section__num">04</div>
+        <h2 class="guide-section__title">Quantifying Experience: The Numbers That Get You Hired</h2>
+        <div class="guide-section__body">
+          <p>The single most impactful change most students can make to their CVs is quantification. Recruiters are trained to look for evidence, and numbers are the clearest form of evidence available. Generic bullet points like "Assisted with social media management" tell recruiters nothing about your capability or impact. Specific bullet points like "Grew Instagram engagement by 47% over three months by implementing a data-driven content strategy" tell them exactly what you did, how you did it, and what it produced.</p>
+          <p>Apply quantification systematically across your experience section. Ask three questions about every bullet point: How many? How much? What changed? Even for roles where you didn't have direct access to metrics, you can quantify the scope of your work: the number of customers you served, the size of the team you supported, the volume of items you processed, the number of events you organised. For student projects and freelance work, include the scale of what you built: users, revenue, lines of code, pages of content, percentage improvements. If you genuinely cannot find a number, use a qualifier that signals scale: "complex", "high-volume", "enterprise-level".</p>
+        </div>
+      </div>
+
+      <div class="guide-section" id="section-5" data-section-index="4">
+        <div class="guide-section__num">05</div>
+        <h2 class="guide-section__title">Tailoring Your CV: The Multiplier Effect</h2>
+        <div class="guide-section__body">
+          <p>A generic CV sent to 100 employers produces worse results than a tailored CV sent to 20. This is counterintuitive to most students, who assume volume maximises their chances. The reality is that recruiters can identify a generic CV almost instantly — and it signals a lack of genuine interest in their specific opportunity. Tailoring does not mean rewriting your CV from scratch for every application. It means making three to five targeted changes that align your CV with the specific role.</p>
+          <p>Start with the job description. Identify the five to seven most important requirements. These are usually mentioned first, mentioned multiple times, or listed under "essential" rather than "desirable". These requirements are your targeting keywords. Ensure each keyword appears naturally in your CV — in your personal statement, your skills section, and your experience bullet points. Reorder your bullet points so that the most relevant experience appears first within each role. If you're applying to a tech role, lead with your technical achievements. If you're applying to a marketing role, lead with your communication and campaign achievements. Create a base CV that contains all your experience and skills — a "master document" — from which you extract and arrange the most relevant sections for each specific application.</p>
+        </div>
+      </div>
+
+      <div class="guide-section" id="section-6" data-section-index="5">
+        <div class="guide-section__num">06</div>
+        <h2 class="guide-section__title">Common Mistakes and Final Checks</h2>
+        <div class="guide-section__body">
+          <p>Before submitting any CV, run it through this checklist. First: no spelling or grammatical errors. Read your CV backwards from the last word to the first — this forces your brain to read what is actually there rather than what you expect to see. Ask someone else to proofread it. Second: no generic personal statement. If your personal statement could belong to anyone applying for any job, rewrite it. Third: contact information is complete and correct. This sounds obvious, but incorrect phone numbers and outdated email addresses are common causes of missed opportunities.</p>
+          <p>Fourth: every claim is supportable. If a recruiter asks you about any line on your CV in an interview, you should be able to discuss it confidently and in detail. Do not embellish or fabricate. Fifth: the formatting is consistent. Check that all bullet points use the same style, all dates are formatted the same way, and all section headings use the same font and size. Sixth: the file name is professional. Name your file FirstName_LastName_CV.pdf — never "My_CV_final_v3_ACTUALLY_FINAL.pdf". Seventh: it renders correctly. Open the PDF on a different device to verify that your formatting hasn't shifted.</p>
+        </div>
+      </div>
+
+      <div class="guide-takeaways">
+        <div class="guide-takeaways__title">⚡ Key Takeaways</div>
+        <ul class="guide-takeaways__list">
+          <li>Your CV has two audiences: ATS software and human recruiters — optimise for both.</li>
+          <li>Lead with a tailored personal statement that states who you are, what you offer, and what you seek.</li>
+          <li>Quantify every piece of experience — numbers are the clearest evidence of impact.</li>
+          <li>Tailor your CV for each application by matching the job description's key requirements.</li>
+          <li>Proofread meticulously and get a second pair of eyes before every submission.</li>
+        </ul>
+      </div>
+
+      <div class="guide-completion" id="completionSection">
+        <div class="guide-completion__icon">🎉</div>
+        <h2 class="guide-completion__title">Guide Complete!</h2>
+        <p class="guide-completion__desc">How would you rate this guide?</p>
+        <div class="star-rating" id="starRating" aria-label="Rate this guide">
+          <span class="star-rating__star" data-rating="1">★</span>
+          <span class="star-rating__star" data-rating="2">★</span>
+          <span class="star-rating__star" data-rating="3">★</span>
+          <span class="star-rating__star" data-rating="4">★</span>
+          <span class="star-rating__star" data-rating="5">★</span>
+        </div>
+        <p id="ratingMsg" style="font-size:var(--text-sm);color:var(--gray-500);min-height:1.5em"></p>
+        <div style="display:flex;gap:var(--space-3);justify-content:center;flex-wrap:wrap;margin-top:var(--space-4)">
+          <button onclick="shareGuide('twitter')" class="btn btn-ghost btn-sm">𝕏 Share</button>
+          <button onclick="shareGuide('linkedin')" class="btn btn-ghost btn-sm">in Share</button>
+          <button onclick="shareGuide('copy')" class="btn btn-ghost btn-sm" id="copyBtn">🔗 Copy Link</button>
+        </div>
+        <div style="margin-top:var(--space-6)">
+          <a href="premium-guides.html" class="btn btn-primary btn-lg">← Explore More Guides</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TOC Sidebar -->
+    <aside class="guide-toc" aria-label="Table of contents">
+      <div class="guide-toc__title">Contents</div>
+      <ul class="guide-toc__list">
+        <li><a class="guide-toc__link active" href="#section-1">1. Understanding What Recruiters Actually Want</a></li>
+        <li><a class="guide-toc__link" href="#section-2">2. Structure and Format</a></li>
+        <li><a class="guide-toc__link" href="#section-3">3. Writing a Personal Statement</a></li>
+        <li><a class="guide-toc__link" href="#section-4">4. Quantifying Experience</a></li>
+        <li><a class="guide-toc__link" href="#section-5">5. Tailoring Your CV</a></li>
+        <li><a class="guide-toc__link" href="#section-6">6. Common Mistakes and Final Checks</a></li>
+      </ul>
+      <div style="margin-top:var(--space-6);padding-top:var(--space-4);border-top:1px solid var(--gray-200)">
+        <a href="premium-guides.html" class="btn btn-ghost btn-sm" style="width:100%;text-align:center">← All Guides</a>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+const GUIDE_KEY   = 'guide-cv-optimization';
+const GUIDE_TITLE = 'CV Optimization Guide';
+
+document.addEventListener('DOMContentLoaded', function () {
+  const sections = document.querySelectorAll('[data-section-index]');
+  const tocLinks = document.querySelectorAll('.guide-toc__link');
+  const steps    = document.querySelectorAll('.guide-progress-step');
+
+  if ('IntersectionObserver' in window && sections.length) {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const idx = parseInt(entry.target.dataset.sectionIndex);
+          tocLinks.forEach((l, i) => l.classList.toggle('active', i === idx));
+          steps.forEach((s, i) => {
+            s.classList.toggle('active', i <= idx);
+          });
+        }
+      });
+    }, { threshold: 0.3, rootMargin: '-60px 0px -40% 0px' });
+    sections.forEach(s => obs.observe(s));
+  }
+
+  // Star rating
+  const stars    = document.querySelectorAll('.star-rating__star');
+  const ratingEl = document.getElementById('ratingMsg');
+  const saved    = localStorage.getItem(GUIDE_KEY + '-rating');
+  if (saved) highlightStars(parseInt(saved));
+
+  stars.forEach(star => {
+    star.addEventListener('click', function () {
+      const r = parseInt(this.dataset.rating);
+      localStorage.setItem(GUIDE_KEY + '-rating', r);
+      highlightStars(r);
+      if (ratingEl) ratingEl.textContent = 'Thanks for your ' + r + '-star rating!';
+    });
+    star.addEventListener('mouseenter', () => highlightStars(parseInt(star.dataset.rating)));
+    star.parentElement.addEventListener('mouseleave', () => {
+      highlightStars(parseInt(localStorage.getItem(GUIDE_KEY + '-rating') || 0));
+    });
+  });
+
+  function highlightStars(n) {
+    stars.forEach((s, i) => s.classList.toggle('active', i < n));
+  }
+});
+
+function shareGuide(platform) {
+  const url   = window.location.href;
+  const title = GUIDE_TITLE + ' — SkillBridge';
+  if (platform === 'twitter') {
+    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(title) + '&url=' + encodeURIComponent(url), '_blank');
+  } else if (platform === 'linkedin') {
+    window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(url), '_blank');
+  } else {
+    navigator.clipboard?.writeText(url).then(() => {
+      const btn = document.getElementById('copyBtn');
+      if (btn) { btn.textContent = '✓ Copied!'; setTimeout(() => btn.textContent = '🔗 Copy Link', 2000); }
+    });
+  }
+}
+</script>
+
+</body>
+</html>

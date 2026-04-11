@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Hire a student for your project on SkillBridge." />
+  <title>Hire a Student — SkillBridge</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/payment.css" />
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar" id="navbar">
+  <div class="container navbar__inner">
+    <a href="index.html" class="navbar__logo">
+      <div class="navbar__logo-icon">⚡</div>
+      Skill<span>Bridge</span>
+    </a>
+    <div class="navbar__nav">
+      <a href="explore.html"        class="navbar__link">Explore Skills</a>
+      <a href="hire.html"           class="navbar__link active">Hire Students</a>
+      <a href="premium-guides.html" class="navbar__link">Premium Guides</a>
+    </div>
+    <div class="navbar__auth">
+      <a href="login.html"  class="btn btn-ghost btn-sm">Log In</a>
+      <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+    </div>
+    <button class="navbar__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="navbar__mobile" id="mobileMenu">
+  <a href="explore.html"   class="navbar__mobile-link">Explore Skills</a>
+  <a href="hire.html"      class="navbar__mobile-link">Hire Students</a>
+  <a href="premium-guides.html" class="navbar__mobile-link">Premium Guides</a>
+  <div class="navbar__mobile-divider"></div>
+  <div class="navbar__mobile-auth">
+    <a href="login.html"  class="btn btn-ghost">Log In</a>
+    <a href="signup.html" class="btn btn-primary">Sign Up</a>
+  </div>
+</div>
+
+
+<!-- ── Main Hire Page ──────────────────────────────────────── -->
+<div class="hire-page">
+  <div class="container">
+
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" style="margin-bottom:var(--space-6);font-size:var(--text-sm);color:var(--gray-400)">
+      <a href="explore.html" style="color:var(--primary)">← Back to Talent</a>
+      <span style="margin:0 var(--space-2)">·</span>
+      <span>Hire Student</span>
+    </nav>
+
+    <!-- Company banner image -->
+    <div class="hire-banner" style="margin-bottom:var(--space-8);border-radius:var(--radius-2xl);overflow:hidden;height:220px">
+      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80&fit=crop"
+        alt="Modern office workspace"
+        loading="lazy"
+        class="hire-banner"
+        style="width:100%;height:100%;object-fit:cover;display:block" />
+    </div>
+
+    <h1 class="hire-page__title">Post a Project</h1>
+    <p class="hire-page__sub">
+      Fill in your project details and we'll connect you with the right student talent.
+    </p>
+
+    <div class="hire-layout">
+
+      <!-- ── Project form ────────────────────────────────── -->
+      <div>
+        <!-- Step 1: Project Details -->
+        <div class="hire-form" id="hireFormSection">
+          <h2 class="hire-form__title">📋 Project Details</h2>
+
+          <!--
+            TODO: On submit → POST /api/projects {
+              title, description, budget, timeline, studentId, uploadedFiles
+            }
+            with Authorization: Bearer {token}
+          -->
+          <form id="hireForm" novalidate aria-label="Hire student form">
+
+            <!-- Project title -->
+            <div class="form-group">
+              <label class="form-label" for="projectTitle">
+                Project Title <span class="required">*</span>
+              </label>
+              <input
+                type="text"
+                class="form-input"
+                id="projectTitle"
+                name="projectTitle"
+                placeholder="e.g. Build a React E-commerce Website"
+                maxlength="100"
+                aria-required="true"
+                aria-describedby="titleError"
+              />
+              <div class="form-error" id="titleError" role="alert"></div>
+            </div>
+
+            <!-- Description -->
+            <div class="form-group">
+              <label class="form-label" for="projectDesc">
+                Project Description <span class="required">*</span>
+              </label>
+              <textarea
+                class="form-textarea"
+                id="projectDesc"
+                name="projectDesc"
+                placeholder="Describe your project in detail — what you need, what outcome you're expecting, any technical requirements..."
+                rows="6"
+                aria-required="true"
+                aria-describedby="descError"
+              ></textarea>
+              <div class="form-hint">Aim for at least 100 words for better proposals.</div>
+              <div class="form-error" id="descError" role="alert"></div>
+            </div>
+
+            <!-- Budget + Timeline -->
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="budget">
+                  Budget <span class="required">*</span>
+                </label>
+                <input
+                  type="text"
+                  class="form-input"
+                  id="budget"
+                  name="budget"
+                  placeholder="e.g. £500 or £35/hr"
+                  aria-required="true"
+                  aria-describedby="budgetError"
+                />
+                <div class="form-error" id="budgetError" role="alert"></div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="timeline">
+                  Timeline <span class="required">*</span>
+                </label>
+                <select class="form-select" id="timeline" name="timeline" aria-required="true">
+                  <option value="">Select timeline...</option>
+                  <option value="1-week">Less than 1 week</option>
+                  <option value="2-weeks">1–2 weeks</option>
+                  <option value="1-month">2–4 weeks</option>
+                  <option value="2-months">1–2 months</option>
+                  <option value="3-months+">3+ months</option>
+                  <option value="ongoing">Ongoing / Part-time</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Work type + Skill category -->
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="workType">Work Type</label>
+                <select class="form-select" id="workType" name="workType">
+                  <option value="remote">Remote</option>
+                  <option value="hybrid">Hybrid</option>
+                  <option value="onsite">On-site (London)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="skillCategory">Skill Category</label>
+                <select class="form-select" id="skillCategory" name="skillCategory">
+                  <option value="">Any</option>
+                  <option value="web-dev">Web Development</option>
+                  <option value="ui-ux">UI/UX Design</option>
+                  <option value="graphic-design">Graphic Design</option>
+                  <option value="data-analysis">Data Analysis</option>
+                  <option value="social-media">Social Media</option>
+                  <option value="video-editing">Video Editing</option>
+                  <option value="writing">Content Writing</option>
+                  <option value="ai-ml">AI &amp; ML</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- File upload -->
+            <div class="form-group">
+              <label class="form-label">Project Brief (Optional)</label>
+              <div class="upload-area" id="uploadArea" role="button" tabindex="0" aria-label="Upload project brief">
+                <div class="upload-area__icon">📎</div>
+                <div class="upload-area__text">
+                  <strong>Click to upload</strong> or drag and drop<br/>
+                  PDF, DOCX, PNG, JPG up to 10MB
+                </div>
+                <!-- TODO: Connect to file upload API → POST /api/upload -->
+                <input type="file" id="fileUpload" name="fileUpload" class="sr-only"
+                  accept=".pdf,.docx,.png,.jpg,.jpeg" aria-label="Upload file" />
+              </div>
+              <div id="uploadedFileName" style="font-size:var(--text-sm);color:var(--success);margin-top:var(--space-2);display:none"></div>
+            </div>
+
+            <!-- Additional notes -->
+            <div class="form-group">
+              <label class="form-label" for="additionalNotes">Additional Notes</label>
+              <textarea
+                class="form-textarea"
+                id="additionalNotes"
+                name="additionalNotes"
+                placeholder="Any other information you'd like the student to know..."
+                rows="3"
+                style="min-height:80px"
+              ></textarea>
+            </div>
+
+            <!-- Contact preference -->
+            <div class="form-group">
+              <label class="form-label" for="contactPref">How should the student contact you?</label>
+              <select class="form-select" id="contactPref" name="contactPref">
+                <option value="platform">Via SkillBridge messaging</option>
+                <option value="email">By email</option>
+                <option value="video-call">Video call first</option>
+              </select>
+            </div>
+
+            <!-- Submit -->
+            <div style="display:flex;gap:var(--space-4);flex-wrap:wrap">
+              <button type="submit" class="btn btn-primary btn-lg" id="hireSubmitBtn">
+                Continue to Payment →
+              </button>
+              <button type="button" class="btn btn-ghost btn-lg" id="saveDraftBtn">
+                Save as Draft
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+      <!-- ── Order summary sidebar ──────────────────────── -->
+      <div>
+        <div class="order-summary" id="orderSummary">
+          <div class="order-summary__title">Selected Talent</div>
+
+          <!-- Student card — TODO: Load from URL param ?student=1 → GET /api/students/1 -->
+          <div class="order-student">
+            <div class="order-student__avatar">AJ</div>
+            <div>
+              <div class="order-student__name">Alex Johnson</div>
+              <div class="order-student__role">Full Stack Developer · UCL</div>
+              <div style="display:flex;align-items:center;gap:4px;margin-top:4px;font-size:12px;color:var(--warning)">
+                ★★★★★ <span style="color:var(--gray-500)">(4.9 · 24 reviews)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- No student selected state -->
+          <div id="noStudentSelected" style="display:none;text-align:center;padding:var(--space-6);color:var(--gray-400)">
+            <div style="font-size:2rem;margin-bottom:var(--space-2)">👤</div>
+            <p style="font-size:var(--text-sm)">No student selected yet.<br/>
+              <a href="explore.html" style="color:var(--primary)">Browse talent →</a>
+            </p>
+          </div>
+
+          <!-- Price breakdown -->
+          <div class="price-breakdown">
+            <div class="price-row">
+              <span class="price-row__label">Hourly Rate</span>
+              <span class="price-row__value">£35/hr</span>
+            </div>
+            <div class="price-row">
+              <span class="price-row__label">Platform Fee</span>
+              <span class="price-row__value" style="color:var(--success)">Free</span>
+            </div>
+            <div class="price-row" id="estimatedRow">
+              <span class="price-row__label">Estimated Cost</span>
+              <span class="price-row__value">TBC</span>
+            </div>
+            <div class="price-row price-row--total">
+              <span class="price-row__label">Total (upfront)</span>
+              <span class="price-row__value">£0</span>
+            </div>
+          </div>
+
+          <div style="font-size:var(--text-xs);color:var(--gray-400);line-height:1.6;margin-bottom:var(--space-4)">
+            💡 Payment is held in escrow and released only when you approve the work.
+          </div>
+
+          <!-- Trust badges -->
+          <div style="display:flex;flex-direction:column;gap:var(--space-2)">
+            <div style="display:flex;align-items:center;gap:var(--space-2);font-size:var(--text-xs);color:var(--gray-500)">
+              <span>✅</span> University-verified student
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--space-2);font-size:var(--text-xs);color:var(--gray-500)">
+              <span>🔒</span> Secure escrow payment
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--space-2);font-size:var(--text-xs);color:var(--gray-500)">
+              <span>🛡️</span> Dispute resolution included
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--space-2);font-size:var(--text-xs);color:var(--gray-500)">
+              <span>💬</span> 24/7 support available
+            </div>
+          </div>
+
+          <div style="border-top:1px solid var(--gray-100);margin-top:var(--space-5);padding-top:var(--space-4)">
+            <a href="explore.html" style="font-size:var(--text-sm);color:var(--primary);font-weight:var(--font-medium)">
+              ← Choose a different student
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- Payment Modal (shared) -->
+<div class="modal-overlay" id="paymentOverlay" role="dialog" aria-modal="true" aria-labelledby="paymentModalTitle">
+  <div class="modal" id="paymentModal">
+    <div class="modal__header">
+      <div>
+        <div class="modal__title" id="paymentModalTitle">Complete Hire Payment</div>
+        <div class="modal__subtitle">Funds held securely in escrow</div>
+      </div>
+      <button class="modal__close" data-modal-close="payment" aria-label="Close">✕</button>
+    </div>
+    <div class="modal__body">
+      <div id="paymentFormWrapper">
+        <div class="modal-order-summary">
+          <div class="modal-order-item">
+            <div class="modal-order-item__icon">👤</div>
+            <div>
+              <div class="modal-order-item__name" id="modalItemName">Alex Johnson</div>
+              <div class="modal-order-item__desc" id="modalItemDesc">Full Stack Developer</div>
+            </div>
+            <div class="modal-order-item__price" id="modalItemPrice">£0</div>
+          </div>
+          <div class="modal-price-rows">
+            <div class="modal-price-row">
+              <span class="modal-price-row__label">Subtotal</span>
+              <span class="modal-price-row__value" id="basePrice" data-price="0">£0</span>
+            </div>
+            <div class="modal-price-row" id="discountRow" style="display:none">
+              <span class="modal-price-row__label">Discount</span>
+              <span class="modal-price-row__value" id="discountValue" style="color:var(--success)">-£0</span>
+            </div>
+            <div class="modal-price-row modal-price-row--total">
+              <span class="modal-price-row__label">Total</span>
+              <span class="modal-price-row__value" id="totalAmount">£0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="promo-code">
+          <input type="text" class="promo-code__input" id="promoInput" placeholder="Promo code" />
+          <button class="promo-code__btn" id="applyPromo">Apply</button>
+        </div>
+        <div class="promo-code__success" id="promoMsg"></div>
+
+        <div class="payment-methods-label">Payment Method</div>
+        <div class="payment-methods-tabs">
+          <button class="payment-method-tab active" data-method="card"><span class="payment-method-tab__icon">💳</span>Card</button>
+          <button class="payment-method-tab" data-method="apple"><span class="payment-method-tab__icon">🍎</span>Apple</button>
+          <button class="payment-method-tab" data-method="google"><span class="payment-method-tab__icon">G</span>Google</button>
+          <button class="payment-method-tab" data-method="paypal"><span class="payment-method-tab__icon">🅿</span>PayPal</button>
+        </div>
+
+        <div class="payment-form-section" data-method="card">
+          <div class="payment-form">
+            <div>
+              <label class="payment-form__label" for="cardHolder">Cardholder Name</label>
+              <input type="text" class="payment-form__input" id="cardHolder" placeholder="John Smith" autocomplete="cc-name" />
+            </div>
+            <div>
+              <label class="payment-form__label" for="cardNumber">Card Number</label>
+              <div class="card-number-field">
+                <input type="text" class="payment-form__input" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" inputmode="numeric" />
+                <span class="card-brand-icon" id="cardBrandIcon">💳</span>
+              </div>
+            </div>
+            <div class="card-row">
+              <div>
+                <label class="payment-form__label" for="expiryDate">Expiry</label>
+                <input type="text" class="payment-form__input" id="expiryDate" placeholder="MM/YY" maxlength="5" inputmode="numeric" />
+              </div>
+              <div>
+                <label class="payment-form__label" for="cvvCode">CVV</label>
+                <input type="password" class="payment-form__input" id="cvvCode" placeholder="•••" maxlength="4" inputmode="numeric" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="payment-form-section" data-method="apple" style="display:none">
+          <div class="alt-payment-method">
+            <div class="alt-payment-method__icon">🍎</div>
+            <div class="alt-payment-method__title">Apple Pay</div>
+            <div class="alt-payment-method__desc">Complete with Touch ID or Face ID.</div>
+          </div>
+        </div>
+        <div class="payment-form-section" data-method="google" style="display:none">
+          <div class="alt-payment-method">
+            <div class="alt-payment-method__icon" style="font-weight:700;font-size:2rem;color:#4285F4">G</div>
+            <div class="alt-payment-method__title">Google Pay</div>
+            <div class="alt-payment-method__desc">Pay quickly with your saved Google Pay method.</div>
+          </div>
+        </div>
+        <div class="payment-form-section" data-method="paypal" style="display:none">
+          <div class="alt-payment-method">
+            <div class="alt-payment-method__icon">🅿</div>
+            <div class="alt-payment-method__title">PayPal</div>
+            <div class="alt-payment-method__desc">You'll be redirected to PayPal to pay securely.</div>
+          </div>
+        </div>
+
+        <button class="pay-btn" id="payNowBtn">
+          <span class="pay-btn__text">Pay &amp; Hire Now</span>
+          <span class="pay-btn__spinner" aria-hidden="true"></span>
+        </button>
+
+        <div class="secure-badge">
+          <span class="secure-badge__icon">🔒</span>
+          Escrow protected · PCI DSS compliant
+        </div>
+      </div>
+
+      <div id="paymentSuccess" style="display:none">
+        <div class="payment-success">
+          <div class="payment-success__icon">✓</div>
+          <div class="payment-success__title">Hire Confirmed!</div>
+          <div class="payment-success__desc">
+            Your hiring request has been sent to Alex Johnson. They'll respond within 24 hours.
+            Payment is held securely in escrow.
+          </div>
+          <div class="payment-success__ref">
+            Reference: <strong id="paymentRef">SB-XXXXXXX</strong>
+          </div>
+          <div class="payment-success__btns">
+            <a href="dashboard.html" class="btn btn-primary">Go to Dashboard</a>
+            <button class="btn btn-ghost" data-modal-close="payment">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__logo"><div class="footer__logo-icon">⚡</div>Skill<span style="color:var(--primary-light)">Bridge</span></div>
+        <p class="footer__tagline">Student talent. Real results.</p>
+      </div>
+      <nav aria-label="Platform"><div class="footer__col-title">Platform</div><ul class="footer__links"><li><a href="explore.html" class="footer__link">Explore Talent</a></li><li><a href="premium-guides.html" class="footer__link">Guides</a></li></ul></nav>
+      <nav aria-label="Company"><div class="footer__col-title">Company</div><ul class="footer__links"><li><a href="#" class="footer__link">About</a></li><li><a href="#" class="footer__link">Contact</a></li></ul></nav>
+      <nav aria-label="Legal"><div class="footer__col-title">Legal</div><ul class="footer__links"><li><a href="#" class="footer__link">Privacy</a></li><li><a href="#" class="footer__link">Terms</a></li></ul></nav>
+    </div>
+    <div class="footer__bottom"><p class="footer__copy">© 2026 SkillBridge.</p></div>
+  </div>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/modal.js"></script>
+<script src="js/payment.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // File upload area
+  const uploadArea = document.getElementById('uploadArea');
+  const fileInput  = document.getElementById('fileUpload');
+  const fileNameEl = document.getElementById('uploadedFileName');
+
+  if (uploadArea && fileInput) {
+    uploadArea.addEventListener('click', () => fileInput.click());
+    uploadArea.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') fileInput.click(); });
+
+    fileInput.addEventListener('change', function () {
+      if (this.files && this.files[0]) {
+        fileNameEl.textContent = '✓ ' + this.files[0].name;
+        fileNameEl.style.display = 'block';
+      }
+    });
+
+    // Drag and drop
+    uploadArea.addEventListener('dragover', e => {
+      e.preventDefault();
+      uploadArea.style.borderColor = 'var(--primary)';
+      uploadArea.style.background = 'var(--primary-xlight)';
+    });
+    uploadArea.addEventListener('dragleave', () => {
+      uploadArea.style.borderColor = '';
+      uploadArea.style.background = '';
+    });
+    uploadArea.addEventListener('drop', e => {
+      e.preventDefault();
+      uploadArea.style.borderColor = '';
+      uploadArea.style.background = '';
+      const file = e.dataTransfer.files[0];
+      if (file) {
+        fileNameEl.textContent = '✓ ' + file.name;
+        fileNameEl.style.display = 'block';
+      }
+    });
+  }
+
+  // Hire form submit → POST /api/hire
+  const hireForm = document.getElementById('hireForm');
+  if (hireForm) {
+    hireForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const title  = document.getElementById('projectTitle')?.value.trim();
+      const desc   = document.getElementById('projectDesc')?.value.trim();
+      const budget = document.getElementById('budget')?.value.trim();
+
+      let valid = true;
+      if (!title)             { document.getElementById('titleError').textContent  = 'Project title is required.';           document.getElementById('titleError').classList.add('visible'); valid = false; }
+      else                      document.getElementById('titleError').classList.remove('visible');
+      if (!desc || desc.length < 20) { document.getElementById('descError').textContent = 'Please provide a more detailed description.'; document.getElementById('descError').classList.add('visible'); valid = false; }
+      else                      document.getElementById('descError').classList.remove('visible');
+      if (!budget)            { document.getElementById('budgetError').textContent = 'Please enter your budget.';            document.getElementById('budgetError').classList.add('visible'); valid = false; }
+      else                      document.getElementById('budgetError').classList.remove('visible');
+
+      if (!valid) return;
+
+      const submitBtn = document.getElementById('hireSubmitBtn');
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Submitting…'; }
+
+      const user = window.SB ? SB.Auth.getUser() : null;
+      const payload = {
+        companyName:  (user?.company) || 'SkillBridge Client',
+        contactName:  (user?.name)    || 'Client',
+        contactEmail: (user?.email)   || 'client@skillbridge.io',
+        projectTitle: title,
+        description:  desc,
+        budget:       budget,
+        timeline:     document.getElementById('timeline')?.value    || '',
+        workType:     document.getElementById('workType')?.value    || 'remote',
+        skills:       [document.getElementById('skillCategory')?.value].filter(Boolean),
+        studentId:    new URLSearchParams(window.location.search).get('student') || null
+      };
+
+      if (window.SB) {
+        SB.HireAPI.submit(payload)
+          .then(data => {
+            hireForm.innerHTML = `
+              <div style="text-align:center;padding:2rem 0">
+                <div style="font-size:3rem;margin-bottom:1rem">🎉</div>
+                <h3 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">Request Submitted!</h3>
+                <p style="color:var(--gray-500)">${data.message || "We'll be in touch within 24 hours."}</p>
+                <a href="explore.html" class="btn btn-primary" style="margin-top:1.5rem">Browse More Talent</a>
+              </div>`;
+          })
+          .catch(err => {
+            if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Continue to Payment →'; }
+            alert(err.message || 'Submission failed. Please try again.');
+          });
+      } else {
+        // Fallback if api.js not available
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Continue to Payment →'; }
+        window.SkillBridge?.PaymentModal?.open({ id: 'hire-1', name: 'Alex Johnson — ' + title, price: budget.startsWith('£') ? budget : '£' + budget, desc: 'Full Stack Developer · UCL' });
+      }
+    });
+  }
+
+  // Save draft
+  document.getElementById('saveDraftBtn')?.addEventListener('click', function () {
+    // TODO: POST /api/projects/draft with form data
+    window.SkillBridge?.Toast?.('Draft saved successfully!', 'success');
+  });
+});
+</script>
+</body>
+</html>

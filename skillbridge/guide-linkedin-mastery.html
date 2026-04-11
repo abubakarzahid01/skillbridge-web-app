@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinkedIn Mastery Guide — SkillBridge</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/payment.css">
+</head>
+<body>
+
+<script>
+// Access control
+(function() {
+  var key = 'guide-linkedin-mastery';
+  try {
+    var purchases = JSON.parse(localStorage.getItem('sb_purchases') || '{}');
+    if (!purchases[key]) {
+      window.location.replace('premium-guides.html?locked=' + key);
+    }
+  } catch(e) {
+    window.location.replace('premium-guides.html?locked=' + key);
+  }
+})();
+</script>
+
+<nav class="navbar" id="navbar">
+  <div class="container navbar__inner">
+    <a href="index.html" class="navbar__logo">
+      <div class="navbar__logo-icon">⚡</div>
+      Skill<span>Bridge</span>
+    </a>
+    <div class="navbar__nav">
+      <a href="explore.html" class="navbar__link">Explore Skills</a>
+      <a href="premium-guides.html" class="navbar__link">Premium Guides</a>
+    </div>
+    <div class="navbar__auth">
+      <a href="premium-guides.html" class="btn btn-ghost btn-sm">← All Guides</a>
+    </div>
+    <button class="navbar__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="navbar__mobile" id="mobileMenu">
+  <a href="explore.html" class="navbar__mobile-link">Explore Skills</a>
+  <a href="premium-guides.html" class="navbar__mobile-link">Premium Guides</a>
+  <div class="navbar__mobile-divider"></div>
+  <div class="navbar__mobile-auth">
+    <a href="premium-guides.html" class="btn btn-ghost">← All Guides</a>
+  </div>
+</div>
+
+<div class="guide-page">
+
+  <!-- Hero -->
+  <div class="guide-hero" style="background: linear-gradient(135deg, #0A1628 0%, #0077B5 100%)">
+    <div class="container">
+      <a href="premium-guides.html" style="color:rgba(255,255,255,0.7);font-size:var(--text-sm);text-decoration:none">← Back to Guides</a>
+      <div style="display:flex;align-items:center;gap:var(--space-4);margin:var(--space-6) 0 var(--space-4)">
+        <div style="font-size:3rem">💼</div>
+        <div>
+          <div style="font-size:var(--text-xs);text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.6);margin-bottom:var(--space-1)">Premium Guide</div>
+          <h1 style="font-size:clamp(1.5rem,4vw,2.5rem);font-weight:800;color:white;margin:0">LinkedIn Mastery Guide</h1>
+        </div>
+      </div>
+      <p style="font-size:var(--text-base);color:rgba(255,255,255,0.8);max-width:600px;margin-bottom:var(--space-6)">Build a LinkedIn profile that attracts recruiters and grows your professional network organically.</p>
+
+      <div class="guide-progress-bar" id="guideProgress" role="navigation" aria-label="Guide sections">
+        <div class="guide-progress-step active" data-section="0">1</div>
+        <div class="guide-progress-divider"></div>
+        <div class="guide-progress-step" data-section="1">2</div>
+        <div class="guide-progress-divider"></div>
+        <div class="guide-progress-step" data-section="2">3</div>
+        <div class="guide-progress-divider"></div>
+        <div class="guide-progress-step" data-section="3">4</div>
+        <div class="guide-progress-divider"></div>
+        <div class="guide-progress-step" data-section="4">5</div>
+        <div class="guide-progress-divider"></div>
+        <div class="guide-progress-step" data-section="5">6</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Body -->
+  <div class="container guide-layout">
+
+    <!-- Main content -->
+    <div class="guide-content">
+
+      <div class="guide-section" id="section-1" data-section-index="0">
+        <div class="guide-section__num">01</div>
+        <h2 class="guide-section__title">Why LinkedIn Is Your Most Valuable Career Asset</h2>
+        <div class="guide-section__body">
+          <p>LinkedIn has fundamentally changed how careers are built. In 2024, over 87% of recruiters use LinkedIn as their primary tool for finding candidates. More importantly, 70% of jobs are filled through networking — and LinkedIn is where that networking now happens at scale. For students and recent graduates, LinkedIn represents an extraordinary opportunity that most fail to capitalise on. While your peers are applying through crowded job boards competing against thousands, a well-optimised LinkedIn profile puts you in front of recruiters who are actively seeking talent — before a vacancy is even posted publicly.</p>
+          <p>The platform operates on an algorithm that rewards engagement, completeness, and connection density. Understanding this algorithm is the first step to making LinkedIn work for you rather than against you. Profiles that are 100% complete receive 40 times more opportunities than incomplete ones, according to LinkedIn's own data.</p>
+        </div>
+      </div>
+
+      <div class="guide-section" id="section-2" data-section-index="1">
+        <div class="guide-section__num">02</div>
+        <h2 class="guide-section__title">Optimising Your Profile: The Five Elements That Matter Most</h2>
+        <div class="guide-section__body">
+          <p>Your LinkedIn profile is not your CV transferred to a website. It is a living, searchable professional brand that works for you 24 hours a day. Five elements have the greatest impact on whether your profile appears in recruiter searches and whether those recruiters click through. The headline is the most important. It appears in every search result, in every notification, and under your name whenever you comment or post. Most students use their headline as a job title: "Student at UCL". This is wasted space. Your headline should position you as a professional: "Full Stack Developer | React & Node.js | UCL Computer Science | Open to Opportunities". Use keywords from job descriptions you want to appear in.</p>
+          <p>The profile photo is second. Profiles with professional photos receive 21 times more profile views. This does not mean a formal portrait — it means a clear, well-lit headshot where you look approachable and competent. The background banner is third. This is your billboard. Use it to reinforce your professional identity with a relevant image or graphic. The About section is fourth. Write it in first person, focus on what you do and what you're passionate about, and include a clear call to action: "Feel free to connect if you're looking for..." Experience and education round out the five.</p>
+        </div>
+      </div>
+
+      <div class="guide-section" id="section-3" data-section-index="2">
+        <div class="guide-section__num">03</div>
+        <h2 class="guide-section__title">Building Your Network: The Connection Strategy</h2>
+        <div class="guide-section__body">
+          <p>LinkedIn's algorithm is fundamentally a network density game. The more first-degree connections you have, the more likely you are to appear in searches, to see relevant opportunities, and to have your content seen. The target for most students entering the professional world is 500 connections — this is the threshold at which LinkedIn stops showing your exact count, creating a subtle social proof signal. But connection count without quality is meaningless.</p>
+          <p>Build your network strategically. Start with people you know: classmates, lecturers, colleagues from part-time jobs, family contacts. These are your warmest connections and they are more likely to respond to outreach and to introduce you to their networks. Next, connect with professionals at companies where you want to work. When connecting, always send a personalised note — generic connection requests have much lower acceptance rates and make no impression. Your note should be brief, specific, and give a reason to connect: "Hi Sarah, I've been following TechCorp's work on sustainable infrastructure and I'd love to connect as I'm exploring roles in this space. I'm a final-year engineering student at UCL."</p>
+        </div>
+      </div>
+
+      <div class="guide-section" id="section-4" data-section-index="3">
+        <div class="guide-section__num">04</div>
+        <h2 class="guide-section__title">Content Strategy: How to Build Visibility Without Being Cringe</h2>
+        <div class="guide-section__body">
+          <p>The biggest barrier most students have to posting on LinkedIn is fear of looking naive, self-promotional, or irrelevant. This is understandable — the platform has a reputation for performative humility and questionable inspirational posts. But the reality is that thoughtful, genuine content from students is valued precisely because it is rare. You don't need to post every day. Posting two to three times per week with quality content will put you in the top 1% of LinkedIn users by activity.</p>
+          <p>The content that performs best for students falls into four categories: Learning posts (what you discovered from a course, project, or book, and why it matters), Project updates (what you built, learned, or shipped, with specific details), Industry insights (your perspective on a trend or development in your field), and Career milestones (starting a new role, finishing a degree, achieving a certification). Always write for humans, not for the algorithm. Be specific — "I learned X, and here's why it changed how I think about Y" outperforms vague reflections every time.</p>
+        </div>
+      </div>
+
+      <div class="guide-section" id="section-5" data-section-index="4">
+        <div class="guide-section__num">05</div>
+        <h2 class="guide-section__title">Recruiter Outreach: How to Get on the Radar of People Who Can Hire You</h2>
+        <div class="guide-section__body">
+          <p>Waiting for recruiters to find you is a passive strategy that leaves your career progression to chance. A proactive outreach strategy — done well — dramatically accelerates your opportunities. The key word is "done well". Most LinkedIn outreach from students is generic, self-centred, and poorly timed. Messages like "Hi, I'm looking for a job. Do you have any opportunities?" get ignored. Effective outreach is specific, gives before it asks, and acknowledges the recipient's context.</p>
+          <p>The warm-up approach: before reaching out to a target recruiter or hiring manager, spend two weeks interacting genuinely with their content — commenting thoughtfully, sharing their posts. When you do reach out, they already recognise your name. The value-first approach: offer something before asking for anything. This could be sharing a relevant article, mentioning a specific project of theirs that impressed you, or asking a genuine question about their experience. The referral approach: ask a mutual connection for an introduction — this increases response rates by 500% compared to cold outreach.</p>
+        </div>
+      </div>
+
+      <div class="guide-section" id="section-6" data-section-index="5">
+        <div class="guide-section__num">06</div>
+        <h2 class="guide-section__title">Sustaining Momentum: LinkedIn as a Long-Term Career System</h2>
+        <div class="guide-section__body">
+          <p>The biggest mistake professionals make with LinkedIn is treating it as a tool they use only when job-hunting. This creates boom-and-bust cycles where your network goes cold between job searches, making your outreach feel opportunistic and reducing its effectiveness. The students and graduates who get the best results from LinkedIn maintain consistent, low-effort engagement year-round. This means: spending 15 minutes a day engaging with relevant content, connecting with two to three new people each week, posting once or twice a week, and updating your profile whenever your experience or skills change.</p>
+          <p>Set a reminder every three months to audit your profile: update your headline, refresh your About section, add recent experience and skills, request new recommendations from people you've worked with. LinkedIn's algorithm rewards accounts that are consistently active over accounts that post intensely for a week then disappear for months.</p>
+        </div>
+      </div>
+
+      <div class="guide-takeaways">
+        <div class="guide-takeaways__title">⚡ Key Takeaways</div>
+        <ul class="guide-takeaways__list">
+          <li>87% of recruiters use LinkedIn — it is your most powerful career tool.</li>
+          <li>Your headline is your most important piece of real estate — use keywords, not just your job title.</li>
+          <li>Send personalised connection requests with a specific reason to connect.</li>
+          <li>Post two to three times per week with specific, human content — not generic inspiration.</li>
+          <li>Maintain LinkedIn year-round as a career system, not just a job-search tool.</li>
+        </ul>
+      </div>
+
+      <div class="guide-completion" id="completionSection">
+        <div class="guide-completion__icon">🎉</div>
+        <h2 class="guide-completion__title">Guide Complete!</h2>
+        <p class="guide-completion__desc">How would you rate this guide?</p>
+        <div class="star-rating" id="starRating" aria-label="Rate this guide">
+          <span class="star-rating__star" data-rating="1">★</span>
+          <span class="star-rating__star" data-rating="2">★</span>
+          <span class="star-rating__star" data-rating="3">★</span>
+          <span class="star-rating__star" data-rating="4">★</span>
+          <span class="star-rating__star" data-rating="5">★</span>
+        </div>
+        <p id="ratingMsg" style="font-size:var(--text-sm);color:var(--gray-500);min-height:1.5em"></p>
+        <div style="display:flex;gap:var(--space-3);justify-content:center;flex-wrap:wrap;margin-top:var(--space-4)">
+          <button onclick="shareGuide('twitter')" class="btn btn-ghost btn-sm">𝕏 Share</button>
+          <button onclick="shareGuide('linkedin')" class="btn btn-ghost btn-sm">in Share</button>
+          <button onclick="shareGuide('copy')" class="btn btn-ghost btn-sm" id="copyBtn">🔗 Copy Link</button>
+        </div>
+        <div style="margin-top:var(--space-6)">
+          <a href="premium-guides.html" class="btn btn-primary btn-lg">← Explore More Guides</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TOC Sidebar -->
+    <aside class="guide-toc" aria-label="Table of contents">
+      <div class="guide-toc__title">Contents</div>
+      <ul class="guide-toc__list">
+        <li><a class="guide-toc__link active" href="#section-1">1. Why LinkedIn Is Your Most Valuable Career Asset</a></li>
+        <li><a class="guide-toc__link" href="#section-2">2. Optimising Your Profile</a></li>
+        <li><a class="guide-toc__link" href="#section-3">3. Building Your Network</a></li>
+        <li><a class="guide-toc__link" href="#section-4">4. Content Strategy</a></li>
+        <li><a class="guide-toc__link" href="#section-5">5. Recruiter Outreach</a></li>
+        <li><a class="guide-toc__link" href="#section-6">6. Sustaining Momentum</a></li>
+      </ul>
+      <div style="margin-top:var(--space-6);padding-top:var(--space-4);border-top:1px solid var(--gray-200)">
+        <a href="premium-guides.html" class="btn btn-ghost btn-sm" style="width:100%;text-align:center">← All Guides</a>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+const GUIDE_KEY   = 'guide-linkedin-mastery';
+const GUIDE_TITLE = 'LinkedIn Mastery Guide';
+
+document.addEventListener('DOMContentLoaded', function () {
+  const sections = document.querySelectorAll('[data-section-index]');
+  const tocLinks = document.querySelectorAll('.guide-toc__link');
+  const steps    = document.querySelectorAll('.guide-progress-step');
+
+  if ('IntersectionObserver' in window && sections.length) {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const idx = parseInt(entry.target.dataset.sectionIndex);
+          tocLinks.forEach((l, i) => l.classList.toggle('active', i === idx));
+          steps.forEach((s, i) => {
+            s.classList.toggle('active', i <= idx);
+          });
+        }
+      });
+    }, { threshold: 0.3, rootMargin: '-60px 0px -40% 0px' });
+    sections.forEach(s => obs.observe(s));
+  }
+
+  // Star rating
+  const stars    = document.querySelectorAll('.star-rating__star');
+  const ratingEl = document.getElementById('ratingMsg');
+  const saved    = localStorage.getItem(GUIDE_KEY + '-rating');
+  if (saved) highlightStars(parseInt(saved));
+
+  stars.forEach(star => {
+    star.addEventListener('click', function () {
+      const r = parseInt(this.dataset.rating);
+      localStorage.setItem(GUIDE_KEY + '-rating', r);
+      highlightStars(r);
+      if (ratingEl) ratingEl.textContent = 'Thanks for your ' + r + '-star rating!';
+    });
+    star.addEventListener('mouseenter', () => highlightStars(parseInt(star.dataset.rating)));
+    star.parentElement.addEventListener('mouseleave', () => {
+      highlightStars(parseInt(localStorage.getItem(GUIDE_KEY + '-rating') || 0));
+    });
+  });
+
+  function highlightStars(n) {
+    stars.forEach((s, i) => s.classList.toggle('active', i < n));
+  }
+});
+
+function shareGuide(platform) {
+  const url   = window.location.href;
+  const title = GUIDE_TITLE + ' — SkillBridge';
+  if (platform === 'twitter') {
+    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(title) + '&url=' + encodeURIComponent(url), '_blank');
+  } else if (platform === 'linkedin') {
+    window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(url), '_blank');
+  } else {
+    navigator.clipboard?.writeText(url).then(() => {
+      const btn = document.getElementById('copyBtn');
+      if (btn) { btn.textContent = '✓ Copied!'; setTimeout(() => btn.textContent = '🔗 Copy Link', 2000); }
+    });
+  }
+}
+</script>
+
+</body>
+</html>

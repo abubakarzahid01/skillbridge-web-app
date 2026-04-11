@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Secure checkout — SkillBridge payment page." />
+  <title>Checkout — SkillBridge</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/payment.css" />
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar" id="navbar">
+  <div class="container navbar__inner">
+    <a href="index.html" class="navbar__logo">
+      <div class="navbar__logo-icon">⚡</div>
+      Skill<span>Bridge</span>
+    </a>
+    <div class="navbar__auth">
+      <a href="login.html"  class="btn btn-ghost btn-sm">Log In</a>
+      <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+    </div>
+    <button class="navbar__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="navbar__mobile" id="mobileMenu">
+  <a href="index.html" class="navbar__mobile-link">Home</a>
+  <div class="navbar__mobile-divider"></div>
+  <div class="navbar__mobile-auth">
+    <a href="login.html"  class="btn btn-ghost">Log In</a>
+    <a href="signup.html" class="btn btn-primary">Sign Up</a>
+  </div>
+</div>
+
+
+<!-- ── Payment Page ────────────────────────────────────────── -->
+<div class="payment-page">
+  <div class="container">
+
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" style="margin-bottom:var(--space-6);font-size:var(--text-sm);color:var(--gray-400)">
+      <a href="index.html" style="color:var(--primary)">← Back</a>
+      <span style="margin:0 var(--space-2)">·</span>
+      <span>Checkout</span>
+    </nav>
+
+    <!-- Progress steps -->
+    <div class="payment-steps" aria-label="Checkout progress" style="margin-bottom:var(--space-8)">
+      <div class="payment-step completed">
+        <div class="payment-step__num">✓</div>
+        <span>Cart</span>
+      </div>
+      <div class="payment-step-divider"></div>
+      <div class="payment-step active">
+        <div class="payment-step__num">2</div>
+        <span>Payment</span>
+      </div>
+      <div class="payment-step-divider"></div>
+      <div class="payment-step">
+        <div class="payment-step__num">3</div>
+        <span>Confirmation</span>
+      </div>
+    </div>
+
+    <div class="payment-page__layout">
+
+      <!-- ── Left: Payment form ────────────────────────────── -->
+      <div class="payment-page__main">
+        <div class="payment-page__title">Complete Your Purchase</div>
+
+        <!-- Promo code -->
+        <div style="margin-bottom:var(--space-6)">
+          <label style="font-size:var(--text-sm);font-weight:var(--font-semibold);color:var(--gray-700);display:block;margin-bottom:var(--space-2)">
+            Promo Code
+          </label>
+          <div class="promo-code">
+            <input type="text" class="promo-code__input" id="promoInput"
+              placeholder="Enter promo code" aria-label="Promo code" />
+            <button class="promo-code__btn" id="applyPromo">Apply</button>
+          </div>
+          <div class="promo-code__success" id="promoMsg"></div>
+        </div>
+
+        <!-- Payment methods -->
+        <div class="payment-methods-label">Payment Method</div>
+        <div class="payment-methods-tabs" role="tablist" aria-label="Payment methods">
+          <button class="payment-method-tab active" data-method="card" role="tab" aria-selected="true">
+            <span class="payment-method-tab__icon">💳</span>Card
+          </button>
+          <button class="payment-method-tab" data-method="apple" role="tab" aria-selected="false">
+            <span class="payment-method-tab__icon">🍎</span>Apple Pay
+          </button>
+          <button class="payment-method-tab" data-method="google" role="tab" aria-selected="false">
+            <span class="payment-method-tab__icon">G</span>Google Pay
+          </button>
+          <button class="payment-method-tab" data-method="paypal" role="tab" aria-selected="false">
+            <span class="payment-method-tab__icon">🅿</span>PayPal
+          </button>
+        </div>
+
+        <!-- Card form -->
+        <div class="payment-form-section" data-method="card">
+          <div class="payment-form">
+
+            <div>
+              <label class="payment-form__label" for="cardHolder">Cardholder Name</label>
+              <input type="text" class="payment-form__input" id="cardHolder"
+                placeholder="Full name as on card"
+                autocomplete="cc-name"
+                aria-required="true" />
+            </div>
+
+            <div>
+              <label class="payment-form__label" for="cardNumber">Card Number</label>
+              <div class="card-number-field">
+                <input type="text" class="payment-form__input" id="cardNumber"
+                  placeholder="1234 5678 9012 3456"
+                  autocomplete="cc-number"
+                  inputmode="numeric"
+                  maxlength="19"
+                  aria-required="true" />
+                <span class="card-brand-icon" id="cardBrandIcon" aria-hidden="true">💳</span>
+              </div>
+            </div>
+
+            <div class="card-row">
+              <div>
+                <label class="payment-form__label" for="expiryDate">Expiry Date</label>
+                <input type="text" class="payment-form__input" id="expiryDate"
+                  placeholder="MM/YY"
+                  autocomplete="cc-exp"
+                  inputmode="numeric"
+                  maxlength="5"
+                  aria-required="true" />
+              </div>
+              <div>
+                <label class="payment-form__label" for="cvvCode">CVV / CVC</label>
+                <input type="password" class="payment-form__input" id="cvvCode"
+                  placeholder="•••"
+                  autocomplete="cc-csc"
+                  inputmode="numeric"
+                  maxlength="4"
+                  aria-required="true" />
+              </div>
+            </div>
+
+            <!-- Billing address toggle -->
+            <div style="display:flex;align-items:center;gap:var(--space-2);margin-top:var(--space-2)">
+              <input type="checkbox" id="sameAddress" checked style="width:16px;height:16px;accent-color:var(--primary)" />
+              <label for="sameAddress" style="font-size:var(--text-sm);color:var(--gray-600)">
+                Billing address same as account address
+              </label>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Apple Pay section -->
+        <div class="payment-form-section" data-method="apple" style="display:none">
+          <div class="alt-payment-method">
+            <div class="alt-payment-method__icon">🍎</div>
+            <div class="alt-payment-method__title">Apple Pay</div>
+            <div class="alt-payment-method__desc">
+              Complete your payment securely with Touch ID or Face ID.
+              Your card details are never shared with SkillBridge.
+            </div>
+          </div>
+        </div>
+
+        <!-- Google Pay section -->
+        <div class="payment-form-section" data-method="google" style="display:none">
+          <div class="alt-payment-method">
+            <div class="alt-payment-method__icon" style="font-weight:800;font-size:2.5rem;color:#4285F4">G</div>
+            <div class="alt-payment-method__title">Google Pay</div>
+            <div class="alt-payment-method__desc">
+              Pay quickly with your saved Google Pay method.
+              Fast, secure, and no card details to enter.
+            </div>
+          </div>
+        </div>
+
+        <!-- PayPal section -->
+        <div class="payment-form-section" data-method="paypal" style="display:none">
+          <div class="alt-payment-method">
+            <div class="alt-payment-method__icon" style="font-size:2.5rem">🅿</div>
+            <div class="alt-payment-method__title">PayPal</div>
+            <div class="alt-payment-method__desc">
+              You'll be redirected to PayPal to complete your payment.
+              Return here after paying to get your confirmation.
+            </div>
+          </div>
+        </div>
+
+        <!-- Pay button -->
+        <button class="pay-btn" id="payNowBtn" aria-label="Complete payment">
+          <span class="pay-btn__text">Pay Now</span>
+          <span class="pay-btn__spinner" aria-hidden="true"></span>
+        </button>
+
+        <!-- Secure badge -->
+        <div class="secure-badge">
+          <span class="secure-badge__icon">🔒</span>
+          All transactions encrypted with 256-bit SSL · PCI DSS Level 1 compliant
+        </div>
+
+        <!-- Accepted cards -->
+        <div style="text-align:center;margin-top:var(--space-4);font-size:var(--text-xs);color:var(--gray-400)">
+          Accepted: Visa · Mastercard · Amex · Discover · Apple Pay · Google Pay · PayPal
+        </div>
+
+      </div>
+
+      <!-- ── Right: Order summary ──────────────────────────── -->
+      <div class="payment-page__sidebar">
+        <div class="payment-page__sidebar-title">Order Summary</div>
+
+        <!-- TODO: Load item details from URL params or session storage
+             e.g. const params = new URLSearchParams(window.location.search);
+             const itemId = params.get('item');
+             Then → GET /api/products/:itemId
+        -->
+        <div class="modal-order-summary">
+          <div class="modal-order-item">
+            <div class="modal-order-item__icon" id="summaryIcon">📄</div>
+            <div>
+              <div class="modal-order-item__name" id="summaryItemName">CV Optimization Guide</div>
+              <div class="modal-order-item__desc" id="summaryItemDesc">12 templates + ATS strategies</div>
+            </div>
+            <div class="modal-order-item__price" id="summaryItemPrice">£19</div>
+          </div>
+
+          <div class="modal-price-rows">
+            <div class="modal-price-row">
+              <span class="modal-price-row__label">Subtotal</span>
+              <span class="modal-price-row__value" id="basePrice" data-price="19">£19</span>
+            </div>
+            <div class="modal-price-row" id="discountRow" style="display:none">
+              <span class="modal-price-row__label">Discount</span>
+              <span class="modal-price-row__value" id="discountValue" style="color:var(--success)">-£0</span>
+            </div>
+            <div class="modal-price-row">
+              <span class="modal-price-row__label">VAT (20%)</span>
+              <span class="modal-price-row__value" id="vatAmount">£3.80</span>
+            </div>
+            <div class="modal-price-row modal-price-row--total">
+              <span class="modal-price-row__label">Total</span>
+              <span class="modal-price-row__value" id="totalAmount">£22.80</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- What's included -->
+        <div style="margin-top:var(--space-5)">
+          <div style="font-size:var(--text-xs);font-weight:var(--font-semibold);text-transform:uppercase;letter-spacing:0.07em;color:var(--gray-500);margin-bottom:var(--space-3)">
+            What's included
+          </div>
+          <div style="display:flex;flex-direction:column;gap:var(--space-2)">
+            <div style="display:flex;align-items:center;gap:var(--space-2);font-size:var(--text-sm);color:var(--gray-600)">
+              <span style="color:var(--success);font-weight:bold">✓</span> Instant PDF download
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--space-2);font-size:var(--text-sm);color:var(--gray-600)">
+              <span style="color:var(--success);font-weight:bold">✓</span> 1 year of free updates
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--space-2);font-size:var(--text-sm);color:var(--gray-600)">
+              <span style="color:var(--success);font-weight:bold">✓</span> 7-day money-back guarantee
+            </div>
+            <div style="display:flex;align-items:center;gap:var(--space-2);font-size:var(--text-sm);color:var(--gray-600)">
+              <span style="color:var(--success);font-weight:bold">✓</span> Email support included
+            </div>
+          </div>
+        </div>
+
+        <!-- Trust badges -->
+        <div style="border-top:1px solid var(--gray-100);margin-top:var(--space-5);padding-top:var(--space-4);display:flex;flex-direction:column;gap:var(--space-2)">
+          <div style="display:flex;align-items:center;gap:var(--space-2);font-size:var(--text-xs);color:var(--gray-400)">
+            🔒 Secure 256-bit SSL encryption
+          </div>
+          <div style="display:flex;align-items:center;gap:var(--space-2);font-size:var(--text-xs);color:var(--gray-400)">
+            🛡️ PCI DSS Level 1 certified
+          </div>
+          <div style="display:flex;align-items:center;gap:var(--space-2);font-size:var(--text-xs);color:var(--gray-400)">
+            💳 No card details stored
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.payment-page__layout -->
+  </div><!-- /.container -->
+</div><!-- /.payment-page -->
+
+
+<!-- Success overlay (full-page) — shown after payment -->
+<div class="modal-overlay" id="paymentSuccessOverlay" style="display:none;pointer-events:none;opacity:0">
+  <div class="modal" style="max-width:480px">
+    <div class="modal__body" style="padding:var(--space-8)">
+      <div class="payment-success">
+        <div class="payment-success__icon">✓</div>
+        <div class="payment-success__title">Payment Successful!</div>
+        <div class="payment-success__desc">
+          Your purchase is confirmed. A receipt and download link
+          have been sent to your email address.
+        </div>
+        <div class="payment-success__ref">
+          Reference: <strong id="paymentRef">SB-XXXXXXX</strong>
+        </div>
+        <div class="payment-success__btns">
+          <a href="dashboard.html" class="btn btn-primary">Go to Dashboard</a>
+          <a href="index.html" class="btn btn-ghost">Return to Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="js/modal.js"></script>
+<script src="js/payment.js"></script>
+<script src="js/main.js"></script>
+<script>
+// Override pay button to show full-page success on this standalone page
+document.addEventListener('DOMContentLoaded', function () {
+  const payBtn = document.getElementById('payNowBtn');
+  if (!payBtn) return;
+
+  // Re-bind to show full-page success
+  payBtn.addEventListener('click', function () {
+    // Validate (reuse from payment.js via module pattern)
+    // For standalone page: show full-page overlay
+    const original = payBtn.onclick;
+
+    // Quick card validation
+    const holder = document.getElementById('cardHolder')?.value.trim();
+    const number = document.getElementById('cardNumber')?.value.replace(/\s/g,'');
+    const expiry = document.getElementById('expiryDate')?.value.trim();
+    const cvv    = document.getElementById('cvvCode')?.value.trim();
+
+    // Tab check
+    const activeTab = document.querySelector('.payment-method-tab.active')?.dataset.method;
+
+    if (activeTab === 'card') {
+      if (!holder || !number || number.length < 13 || !expiry || !cvv) {
+        window.SkillBridge?.Toast?.('Please fill in all card details.', 'error');
+        return;
+      }
+    }
+
+    payBtn.classList.add('loading');
+    payBtn.disabled = true;
+
+    // TODO: Call payment gateway API here
+    setTimeout(() => {
+      payBtn.classList.remove('loading');
+      payBtn.disabled = false;
+
+      // Show full-page success
+      const overlay = document.getElementById('paymentSuccessOverlay');
+      if (overlay) {
+        overlay.style.display = 'flex';
+        overlay.style.pointerEvents = 'all';
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => { overlay.style.opacity = '1'; }, 10);
+
+        // Generate reference
+        const ref = 'SB-' + Date.now().toString(36).toUpperCase();
+        document.getElementById('paymentRef').textContent = ref;
+      }
+    }, 2200);
+  }, { once: true }); // once to prevent double-binding
+});
+</script>
+</body>
+</html>

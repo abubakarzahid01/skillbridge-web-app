@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SkillBridge — The student freelancing and hiring platform. Sell your skills, hire top talent, grow your career." />
+  <title>SkillBridge — Your Gateway to Professional Excellence</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/payment.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     NAVBAR
+════════════════════════════════════════════════════════════ -->
+<nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container navbar__inner">
+
+    <!-- Logo -->
+    <a href="index.html" class="navbar__logo" aria-label="SkillBridge home">
+      <div class="navbar__logo-icon" aria-hidden="true">⚡</div>
+      Skill<span>Bridge</span>
+    </a>
+
+    <!-- Desktop nav links -->
+    <div class="navbar__nav" role="menubar">
+      <a href="explore.html"        class="navbar__link" role="menuitem">Explore Skills</a>
+      <a href="hire.html"           class="navbar__link" role="menuitem">Hire Students</a>
+      <a href="premium-guides.html" class="navbar__link" role="menuitem">Premium Guides</a>
+      <a href="#about"              class="navbar__link" role="menuitem">About Us</a>
+    </div>
+
+    <!-- Auth buttons -->
+    <div class="navbar__auth">
+      <a href="login.html"  class="btn btn-ghost btn-sm">Log In</a>
+      <a href="signup.html" class="btn btn-primary btn-sm">Sign Up Free</a>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button class="navbar__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="navbar__mobile" id="mobileMenu" role="menu" aria-label="Mobile navigation">
+  <a href="explore.html"        class="navbar__mobile-link" role="menuitem">Explore Skills</a>
+  <a href="hire.html"           class="navbar__mobile-link" role="menuitem">Hire Students</a>
+  <a href="premium-guides.html" class="navbar__mobile-link" role="menuitem">Premium Guides</a>
+  <a href="#about"              class="navbar__mobile-link" role="menuitem">About Us</a>
+  <div class="navbar__mobile-divider"></div>
+  <div class="navbar__mobile-auth">
+    <a href="login.html"  class="btn btn-ghost">Log In</a>
+    <a href="signup.html" class="btn btn-primary">Sign Up Free</a>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     HERO SECTION
+════════════════════════════════════════════════════════════ -->
+<section class="hero" id="hero" aria-label="Hero">
+  <div class="container hero__inner">
+
+    <!-- Left: text -->
+    <div class="hero__text">
+      <div class="hero__eyebrow">
+        <span class="hero__eyebrow-dot" aria-hidden="true"></span>
+        Trusted by 10,000+ students &amp; companies
+      </div>
+
+      <h1 class="hero__title">
+        Your Gateway to<br/>
+        <span class="highlight">Professional Excellence</span>
+      </h1>
+
+      <p class="hero__desc">
+        SkillBridge connects university students with real companies looking
+        for fresh talent. Sell your skills, earn while you study, and build
+        the career you've always wanted.
+      </p>
+
+      <div class="hero__cta">
+        <a href="signup.html?role=student" class="btn btn-primary btn-lg">
+          ⚡ Start Selling Your Skills
+        </a>
+        <a href="explore.html" class="btn btn-secondary btn-lg">
+          🔍 Hire Top Talent
+        </a>
+      </div>
+
+      <div class="hero__social-proof">
+        <div class="hero__avatars" aria-label="Student avatars">
+          <div class="hero__avatar" aria-hidden="true">AJ</div>
+          <div class="hero__avatar" aria-hidden="true">SM</div>
+          <div class="hero__avatar" aria-hidden="true">MK</div>
+          <div class="hero__avatar" aria-hidden="true">EW</div>
+          <div class="hero__avatar" aria-hidden="true">+</div>
+        </div>
+        <div class="hero__social-text">
+          <strong>2,400+</strong> projects completed this month
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: visual card -->
+    <div class="hero__visual" aria-hidden="true">
+      <!-- Hero background image -->
+      <div class="hero__img-wrap">
+        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=700&q=80&fit=crop"
+          alt="Students collaborating on a laptop"
+          loading="lazy"
+          style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-2xl)" />
+      </div>
+
+      <!-- Floating badge top-left -->
+      <div class="hero__float hero__float--tl">
+        <div class="hero__float-icon" style="background:#ECFDF5">⭐</div>
+        <div>
+          <div style="font-size:11px;color:var(--gray-500)">Top Rated</div>
+          <div style="font-size:13px;color:var(--gray-900)">4.9/5.0 Rating</div>
+        </div>
+      </div>
+
+      <!-- Main profile card -->
+      <div class="hero__card-main">
+        <div class="hero__profile-row">
+          <div class="hero__profile-avatar">AJ</div>
+          <div>
+            <div class="hero__profile-name">Alex Johnson</div>
+            <div class="hero__profile-role">Full Stack Developer · UCL</div>
+          </div>
+          <span class="badge badge-success" style="margin-left:auto">Available</span>
+        </div>
+
+        <div class="hero__skills">
+          <span class="hero__skill-tag">React</span>
+          <span class="hero__skill-tag">Node.js</span>
+          <span class="hero__skill-tag">TypeScript</span>
+          <span class="hero__skill-tag">MongoDB</span>
+          <span class="hero__skill-tag">AWS</span>
+        </div>
+
+        <div class="hero__rate-row">
+          <div>
+            <div class="hero__rate">£35 <span>/ hour</span></div>
+            <div style="font-size:12px;color:var(--gray-400)">24 projects completed</div>
+          </div>
+          <a href="hire.html?student=1" class="btn btn-primary btn-sm">Hire Now</a>
+        </div>
+      </div>
+
+      <!-- Floating badge bottom-right -->
+      <div class="hero__float hero__float--br">
+        <div class="hero__float-icon" style="background:#EFF6FF">💰</div>
+        <div>
+          <div style="font-size:11px;color:var(--gray-500)">Avg. earnings</div>
+          <div style="font-size:13px;color:var(--gray-900)">£2,400/month</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     STATS STRIP
+════════════════════════════════════════════════════════════ -->
+<section class="stats" aria-label="Platform statistics">
+  <div class="container">
+    <div class="stats__grid">
+      <div class="stats__item">
+        <div class="stats__number" data-count="10,000+">0</div>
+        <div class="stats__label">Students Connected</div>
+      </div>
+      <div class="stats__item">
+        <div class="stats__number" data-count="500+">0</div>
+        <div class="stats__label">Projects Available</div>
+      </div>
+      <div class="stats__item">
+        <div class="stats__number" data-count="200+">0</div>
+        <div class="stats__label">Partner Companies</div>
+      </div>
+      <div class="stats__item">
+        <div class="stats__number" data-count="98%">0</div>
+        <div class="stats__label">Satisfaction Rate</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     FEATURED CATEGORIES
+════════════════════════════════════════════════════════════ -->
+<section class="categories" id="categories" aria-label="Skill categories">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Browse by Category</span>
+      <h2 class="section-title">Find the Right Skill<br/>for Your Project</h2>
+      <p class="section-subtitle">
+        From web development to creative design — explore thousands of students
+        ready to bring your ideas to life.
+      </p>
+    </div>
+
+    <!-- Populated by main.js → SkillBridge.Categories.init() -->
+    <div class="categories__grid" id="categoriesGrid" aria-label="Category list">
+      <!-- Dynamic content inserted here -->
+    </div>
+
+    <div style="text-align:center;margin-top:var(--space-10)">
+      <a href="explore.html" class="btn btn-secondary btn-lg">View All Categories →</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     BENEFITS SECTION
+════════════════════════════════════════════════════════════ -->
+<section class="benefits" id="about" aria-label="Platform benefits">
+  <div class="container benefits__inner">
+
+    <!-- Left: benefit list -->
+    <div>
+      <span class="section-label">Why SkillBridge</span>
+      <h2 class="section-title">Built for Students.<br/>Trusted by Companies.</h2>
+      <p class="section-subtitle" style="margin-bottom:var(--space-10)">
+        We've built the most efficient pipeline between ambitious students
+        and forward-thinking companies.
+      </p>
+
+      <div class="benefits__list">
+        <div class="benefit-item" data-animate>
+          <div class="benefit-item__icon">🎓</div>
+          <div>
+            <div class="benefit-item__title">Verified University Students</div>
+            <div class="benefit-item__desc">Every profile is verified with a university email. Hire with confidence knowing you're working with real, enrolled students.</div>
+          </div>
+        </div>
+
+        <div class="benefit-item" data-animate>
+          <div class="benefit-item__icon">⚡</div>
+          <div>
+            <div class="benefit-item__title">Rapid Deployment</div>
+            <div class="benefit-item__desc">Post a project brief today and get matched with qualified students within 24 hours. No long agency onboarding required.</div>
+          </div>
+        </div>
+
+        <div class="benefit-item" data-animate>
+          <div class="benefit-item__icon">💡</div>
+          <div>
+            <div class="benefit-item__title">Cost-Effective Innovation</div>
+            <div class="benefit-item__desc">Access cutting-edge skills at student-friendly rates — saving up to 70% compared to traditional freelancers or agencies.</div>
+          </div>
+        </div>
+
+        <div class="benefit-item" data-animate>
+          <div class="benefit-item__icon">🔒</div>
+          <div>
+            <div class="benefit-item__title">Secure Payments</div>
+            <div class="benefit-item__desc">Funds are held in escrow and released only when you're satisfied. Full dispute resolution support included.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: visual -->
+    <div class="benefits__visual" aria-hidden="true">
+      <div class="benefits__visual-title">How SkillBridge Works</div>
+      <div class="benefits__steps">
+        <div class="benefits__step">
+          <div class="benefits__step-num">1</div>
+          <div>Post your project brief or create your student profile in minutes.</div>
+        </div>
+        <div class="benefits__step">
+          <div class="benefits__step-num">2</div>
+          <div>Browse verified students or receive proposals from qualified talent.</div>
+        </div>
+        <div class="benefits__step">
+          <div class="benefits__step-num">3</div>
+          <div>Collaborate, deliver, and build a track record that lasts.</div>
+        </div>
+        <div class="benefits__step">
+          <div class="benefits__step-num">4</div>
+          <div>Pay securely on completion — students earn, companies grow.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     PREMIUM GUIDES PREVIEW
+════════════════════════════════════════════════════════════ -->
+<section class="guides" id="guides" aria-label="Premium career guides">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Premium Resources</span>
+      <h2 class="section-title">Guides That Actually<br/>Get You Hired</h2>
+      <p class="section-subtitle">
+        Expert-crafted career guides designed to transform your job search —
+        from CV to offer letter.
+      </p>
+    </div>
+
+    <!-- Populated by main.js → SkillBridge.GuidePreview.init() -->
+    <div class="guides__grid" id="guidesGrid" aria-label="Guide cards">
+      <!-- Dynamic content inserted here -->
+    </div>
+
+    <div style="text-align:center;margin-top:var(--space-10)">
+      <a href="premium-guides.html" class="btn btn-secondary btn-lg">Browse All Guides →</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     TESTIMONIALS
+════════════════════════════════════════════════════════════ -->
+<section class="testimonials" id="testimonials" aria-label="Student and client testimonials">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Success Stories</span>
+      <h2 class="section-title">Real Results from Real<br/>Students &amp; Companies</h2>
+      <p class="section-subtitle">
+        Join thousands of students and companies who have already transformed
+        their professional journeys through SkillBridge.
+      </p>
+    </div>
+
+    <!-- Populated by main.js → SkillBridge.Testimonials.init() -->
+    <div class="testimonials__grid" id="testimonialsGrid" aria-label="Testimonials">
+      <!-- Dynamic content inserted here -->
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     CTA BANNER
+════════════════════════════════════════════════════════════ -->
+<section class="cta-banner" aria-label="Call to action">
+  <div class="container cta-banner__inner">
+    <span class="cta-banner__label">🚀 Join Today — It's Free</span>
+    <h2 class="cta-banner__title">
+      Ready to Bridge the Gap Between<br/>Education &amp; Opportunity?
+    </h2>
+    <p class="cta-banner__subtitle">
+      Whether you're a student looking to earn and grow, or a company searching
+      for fresh talent — SkillBridge is the platform for you.
+    </p>
+    <div class="cta-banner__btns">
+      <a href="signup.html?role=student" class="btn btn-white btn-lg">Start as a Student</a>
+      <a href="signup.html?role=client"  class="btn btn-secondary btn-lg"
+         style="background:transparent;border-color:rgba(255,255,255,0.6);color:var(--white)">
+        Hire as a Company
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════════════ -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+
+      <!-- Brand -->
+      <div class="footer__brand">
+        <div class="footer__logo">
+          <div class="footer__logo-icon" aria-hidden="true">⚡</div>
+          Skill<span style="color:var(--primary-light)">Bridge</span>
+        </div>
+        <p class="footer__tagline">
+          Connecting ambitious students with forward-thinking companies.
+          Build your future, one project at a time.
+        </p>
+        <div class="footer__socials">
+          <a href="#" class="footer__social-btn" aria-label="Twitter/X">𝕏</a>
+          <a href="#" class="footer__social-btn" aria-label="LinkedIn">in</a>
+          <a href="#" class="footer__social-btn" aria-label="Instagram">📷</a>
+          <a href="#" class="footer__social-btn" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+
+      <!-- Links: Platform -->
+      <nav aria-label="Platform links">
+        <div class="footer__col-title">Platform</div>
+        <ul class="footer__links">
+          <li><a href="explore.html"        class="footer__link">Explore Talent</a></li>
+          <li><a href="hire.html"           class="footer__link">Hire a Student</a></li>
+          <li><a href="premium-guides.html" class="footer__link">Premium Guides</a></li>
+          <li><a href="signup.html"         class="footer__link">Create Profile</a></li>
+          <li><a href="dashboard.html"      class="footer__link">Dashboard</a></li>
+        </ul>
+      </nav>
+
+      <!-- Links: Students -->
+      <nav aria-label="Student resources">
+        <div class="footer__col-title">Students</div>
+        <ul class="footer__links">
+          <li><a href="#" class="footer__link">Getting Started</a></li>
+          <li><a href="#" class="footer__link">Skill Verification</a></li>
+          <li><a href="#" class="footer__link">Portfolio Builder</a></li>
+          <li><a href="#" class="footer__link">Earnings Guide</a></li>
+          <li><a href="#" class="footer__link">Community</a></li>
+        </ul>
+      </nav>
+
+      <!-- Links: Company -->
+      <nav aria-label="Company resources">
+        <div class="footer__col-title">Company</div>
+        <ul class="footer__links">
+          <li><a href="#" class="footer__link">About SkillBridge</a></li>
+          <li><a href="#" class="footer__link">Blog</a></li>
+          <li><a href="#" class="footer__link">Careers</a></li>
+          <li><a href="#" class="footer__link">Press Kit</a></li>
+          <li><a href="#" class="footer__link">Contact</a></li>
+        </ul>
+      </nav>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer__bottom">
+      <p class="footer__copy">© 2026 SkillBridge. All rights reserved.</p>
+      <div class="footer__legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAYMENT MODAL (shared across pages)
+════════════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="paymentOverlay" role="dialog" aria-modal="true" aria-labelledby="paymentModalTitle">
+  <div class="modal" id="paymentModal">
+
+    <!-- Header -->
+    <div class="modal__header">
+      <div>
+        <div class="modal__title" id="paymentModalTitle">Complete Purchase</div>
+        <div class="modal__subtitle">Secure checkout powered by SkillBridge Pay</div>
+      </div>
+      <button class="modal__close" data-modal-close="payment" aria-label="Close payment modal">✕</button>
+    </div>
+
+    <!-- Body -->
+    <div class="modal__body">
+      <div id="paymentFormWrapper">
+
+        <!-- Order summary -->
+        <div class="modal-order-summary">
+          <div class="modal-order-item">
+            <div class="modal-order-item__icon">📄</div>
+            <div>
+              <div class="modal-order-item__name" id="modalItemName">Item Name</div>
+              <div class="modal-order-item__desc" id="modalItemDesc">SkillBridge Premium</div>
+            </div>
+            <div class="modal-order-item__price" id="modalItemPrice">£0</div>
+          </div>
+
+          <div class="modal-price-rows">
+            <div class="modal-price-row">
+              <span class="modal-price-row__label">Subtotal</span>
+              <span class="modal-price-row__value" id="basePrice" data-price="0">£0</span>
+            </div>
+            <div class="modal-price-row" id="discountRow" style="display:none">
+              <span class="modal-price-row__label">Discount</span>
+              <span class="modal-price-row__value" id="discountValue" style="color:var(--success)">-£0</span>
+            </div>
+            <div class="modal-price-row">
+              <span class="modal-price-row__label">Platform fee</span>
+              <span class="modal-price-row__value">Free</span>
+            </div>
+            <div class="modal-price-row modal-price-row--total">
+              <span class="modal-price-row__label">Total</span>
+              <span class="modal-price-row__value" id="totalAmount">£0</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Promo code -->
+        <div class="promo-code">
+          <input type="text" class="promo-code__input" id="promoInput"
+            placeholder="Promo code" aria-label="Promo code" />
+          <button class="promo-code__btn" id="applyPromo">Apply</button>
+        </div>
+        <div class="promo-code__success" id="promoMsg"></div>
+
+        <!-- Payment methods -->
+        <div class="payment-methods-label">Payment Method</div>
+        <div class="payment-methods-tabs" role="tablist" aria-label="Payment methods">
+          <button class="payment-method-tab active" data-method="card" role="tab" aria-selected="true">
+            <span class="payment-method-tab__icon">💳</span>Card
+          </button>
+          <button class="payment-method-tab" data-method="apple" role="tab" aria-selected="false">
+            <span class="payment-method-tab__icon">🍎</span>Apple Pay
+          </button>
+          <button class="payment-method-tab" data-method="google" role="tab" aria-selected="false">
+            <span class="payment-method-tab__icon">G</span>Google Pay
+          </button>
+          <button class="payment-method-tab" data-method="paypal" role="tab" aria-selected="false">
+            <span class="payment-method-tab__icon">🅿</span>PayPal
+          </button>
+        </div>
+
+        <!-- Card form -->
+        <div class="payment-form-section" data-method="card">
+          <div class="payment-form">
+
+            <div>
+              <label class="payment-form__label" for="cardHolder">Cardholder Name</label>
+              <input type="text" class="payment-form__input" id="cardHolder"
+                placeholder="John Smith" autocomplete="cc-name" />
+            </div>
+
+            <div>
+              <label class="payment-form__label" for="cardNumber">Card Number</label>
+              <div class="card-number-field">
+                <input type="text" class="payment-form__input" id="cardNumber"
+                  placeholder="1234 5678 9012 3456" autocomplete="cc-number"
+                  inputmode="numeric" maxlength="19" />
+                <span class="card-brand-icon" id="cardBrandIcon" aria-hidden="true">💳</span>
+              </div>
+            </div>
+
+            <div class="card-row">
+              <div>
+                <label class="payment-form__label" for="expiryDate">Expiry Date</label>
+                <input type="text" class="payment-form__input" id="expiryDate"
+                  placeholder="MM/YY" autocomplete="cc-exp"
+                  inputmode="numeric" maxlength="5" />
+              </div>
+              <div>
+                <label class="payment-form__label" for="cvvCode">CVV</label>
+                <input type="password" class="payment-form__input" id="cvvCode"
+                  placeholder="•••" autocomplete="cc-csc"
+                  inputmode="numeric" maxlength="4" />
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Apple Pay -->
+        <div class="payment-form-section" data-method="apple" style="display:none">
+          <div class="alt-payment-method">
+            <div class="alt-payment-method__icon">🍎</div>
+            <div class="alt-payment-method__title">Apple Pay</div>
+            <div class="alt-payment-method__desc">
+              Click the button below to complete your purchase using Apple Pay.
+              You'll be asked to authenticate with Touch ID or Face ID.
+            </div>
+          </div>
+        </div>
+
+        <!-- Google Pay -->
+        <div class="payment-form-section" data-method="google" style="display:none">
+          <div class="alt-payment-method">
+            <div class="alt-payment-method__icon" style="font-weight:700;font-size:2rem;color:#4285F4">G</div>
+            <div class="alt-payment-method__title">Google Pay</div>
+            <div class="alt-payment-method__desc">
+              Complete your purchase quickly and securely using your saved Google Pay method.
+            </div>
+          </div>
+        </div>
+
+        <!-- PayPal -->
+        <div class="payment-form-section" data-method="paypal" style="display:none">
+          <div class="alt-payment-method">
+            <div class="alt-payment-method__icon">🅿</div>
+            <div class="alt-payment-method__title">PayPal</div>
+            <div class="alt-payment-method__desc">
+              You'll be redirected to PayPal to complete your payment securely.
+            </div>
+          </div>
+        </div>
+
+        <!-- Pay button -->
+        <button class="pay-btn" id="payNowBtn" aria-label="Complete payment">
+          <span class="pay-btn__text">Pay Now</span>
+          <span class="pay-btn__spinner" aria-hidden="true"></span>
+        </button>
+
+        <!-- Secure badge -->
+        <div class="secure-badge" aria-label="Secure payment information">
+          <span class="secure-badge__icon">🔒</span>
+          256-bit SSL encrypted · PCI DSS compliant · No data stored
+        </div>
+
+      </div><!-- /#paymentFormWrapper -->
+
+      <!-- Success view (hidden initially) -->
+      <div id="paymentSuccess" style="display:none" role="alert" aria-live="polite">
+        <div class="payment-success">
+          <div class="payment-success__icon" aria-hidden="true">✓</div>
+          <div class="payment-success__title">Payment Successful!</div>
+          <div class="payment-success__desc">
+            Your purchase is confirmed. Check your email for your receipt
+            and download link (if applicable).
+          </div>
+          <div class="payment-success__ref">
+            Reference: <strong id="paymentRef">SB-XXXXXXX</strong>
+          </div>
+          <div class="payment-success__btns">
+            <a href="dashboard.html" class="btn btn-primary">Go to Dashboard</a>
+            <button class="btn btn-ghost" data-modal-close="payment">Close</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.modal__body -->
+  </div><!-- /.modal -->
+</div><!-- /.modal-overlay -->
+
+
+<!-- Scripts -->
+<script src="js/api.js"></script>
+<script src="js/modal.js"></script>
+<script src="js/payment.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>

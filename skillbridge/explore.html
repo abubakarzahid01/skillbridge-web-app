@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Browse and hire verified university students on SkillBridge." />
+  <title>Explore Talent — SkillBridge</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/payment.css" />
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar" id="navbar">
+  <div class="container navbar__inner">
+    <a href="index.html" class="navbar__logo">
+      <div class="navbar__logo-icon">⚡</div>
+      Skill<span>Bridge</span>
+    </a>
+    <div class="navbar__nav">
+      <a href="explore.html"        class="navbar__link active">Explore Skills</a>
+      <a href="hire.html"           class="navbar__link">Hire Students</a>
+      <a href="premium-guides.html" class="navbar__link">Premium Guides</a>
+      <a href="index.html#about"    class="navbar__link">About Us</a>
+    </div>
+    <div class="navbar__auth">
+      <a href="login.html"  class="btn btn-ghost btn-sm">Log In</a>
+      <a href="signup.html" class="btn btn-primary btn-sm">Sign Up Free</a>
+    </div>
+    <button class="navbar__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="navbar__mobile" id="mobileMenu">
+  <a href="explore.html"        class="navbar__mobile-link">Explore Skills</a>
+  <a href="hire.html"           class="navbar__mobile-link">Hire Students</a>
+  <a href="premium-guides.html" class="navbar__mobile-link">Premium Guides</a>
+  <a href="index.html#about"    class="navbar__mobile-link">About Us</a>
+  <div class="navbar__mobile-divider"></div>
+  <div class="navbar__mobile-auth">
+    <a href="login.html"  class="btn btn-ghost">Log In</a>
+    <a href="signup.html" class="btn btn-primary">Sign Up Free</a>
+  </div>
+</div>
+
+
+<!-- ── Hero with search ────────────────────────────────────── -->
+<div class="explore-hero" role="banner">
+  <div class="container">
+    <h1 class="explore-hero__title">Find Exceptional Student Talent</h1>
+    <p class="explore-hero__sub">Browse 10,000+ verified university students ready for your next project</p>
+    <div class="search-bar" role="search">
+      <label for="talentSearch" class="sr-only">Search by name, skill, or role</label>
+      <input
+        type="search"
+        class="search-bar__input"
+        id="talentSearch"
+        placeholder="Search by name, skill, or role..."
+        aria-label="Search talent"
+      />
+      <button class="search-bar__btn" id="searchBtn" aria-label="Search">Search</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ── Explore layout ─────────────────────────────────────── -->
+<div class="explore-page">
+  <div class="container">
+    <div class="explore-layout">
+
+      <!-- ── Filters sidebar ──────────────────────────────── -->
+      <aside class="filters" aria-label="Filter talent">
+        <div class="filters__title">
+          Filters
+          <span class="filters__clear" id="clearFilters" role="button" tabindex="0">Clear all</span>
+        </div>
+
+        <!-- Category -->
+        <div class="filter-group">
+          <div class="filter-group__label">Skill Category</div>
+          <select class="filter-select" id="filterCategory" aria-label="Filter by skill category">
+            <option value="">All Categories</option>
+            <option value="web-dev">Web Development</option>
+            <option value="ui-ux">UI/UX Design</option>
+            <option value="graphic-design">Graphic Design</option>
+            <option value="data-analysis">Data Analysis</option>
+            <option value="social-media">Social Media</option>
+            <option value="video-editing">Video Editing</option>
+            <option value="writing">Content Writing</option>
+            <option value="ai-ml">AI &amp; ML</option>
+          </select>
+        </div>
+
+        <!-- University -->
+        <div class="filter-group">
+          <div class="filter-group__label">University</div>
+          <select class="filter-select" id="filterUniversity" aria-label="Filter by university">
+            <option value="">All Universities</option>
+            <option value="UCL">UCL</option>
+            <option value="Imperial">Imperial College</option>
+            <option value="KCL">King's College London</option>
+            <option value="Oxford">Oxford</option>
+            <option value="Cambridge">Cambridge</option>
+            <option value="UAL">UAL</option>
+            <option value="RCA">Royal College of Art</option>
+            <option value="Goldsmiths">Goldsmiths</option>
+            <option value="Edinburgh">Edinburgh</option>
+          </select>
+        </div>
+
+        <!-- Work type -->
+        <div class="filter-group">
+          <div class="filter-group__label">Work Type</div>
+          <div class="filter-checkboxes" role="group" aria-label="Work type">
+            <label class="filter-checkbox">
+              <input type="radio" name="workType" id="workAll" value="" checked />
+              <span>Any type</span>
+            </label>
+          </div>
+          <select class="filter-select" id="filterWorkType" aria-label="Filter by work type" style="margin-top:8px">
+            <option value="">Any Type</option>
+            <option value="remote">Remote</option>
+            <option value="hybrid">Hybrid</option>
+            <option value="onsite">On-site</option>
+          </select>
+        </div>
+
+        <!-- Budget -->
+        <div class="filter-group">
+          <div class="filter-group__label">Budget / Rate</div>
+          <select class="filter-select" id="filterBudget" aria-label="Filter by hourly rate">
+            <option value="">Any Rate</option>
+            <option value="low">Under £30/hr</option>
+            <option value="mid">£30–£45/hr</option>
+            <option value="high">£45+ /hr</option>
+          </select>
+        </div>
+
+        <!-- Post project CTA -->
+        <div style="padding:var(--space-4);background:var(--primary-xlight);border-radius:var(--radius-lg);text-align:center">
+          <div style="font-size:var(--text-sm);font-weight:var(--font-semibold);color:var(--primary);margin-bottom:var(--space-2)">
+            Post a Project
+          </div>
+          <div style="font-size:var(--text-xs);color:var(--gray-500);margin-bottom:var(--space-3)">
+            Let students come to you with proposals
+          </div>
+          <a href="hire.html" class="btn btn-primary btn-sm" style="width:100%">Post Now</a>
+        </div>
+      </aside>
+
+      <!-- ── Main talent grid ────────────────────────────── -->
+      <div>
+        <!-- Results header -->
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--space-5);flex-wrap:wrap;gap:var(--space-3)">
+          <div>
+            <h2 style="font-size:var(--text-xl);font-weight:var(--font-bold);color:var(--gray-900)">
+              Available Students
+            </h2>
+            <p style="font-size:var(--text-sm);color:var(--gray-500);margin-top:var(--space-1)">
+              <span id="talentCount">8 students found</span>
+            </p>
+          </div>
+          <div style="display:flex;gap:var(--space-2);align-items:center">
+            <label for="sortBy" class="sr-only">Sort by</label>
+            <select id="sortBy" style="padding:var(--space-2) var(--space-4);border:1.5px solid var(--gray-200);border-radius:var(--radius-md);font-size:var(--text-sm);background:var(--white);color:var(--gray-700);cursor:pointer">
+              <option>Top Rated</option>
+              <option>Lowest Rate</option>
+              <option>Highest Rate</option>
+              <option>Most Reviews</option>
+              <option>Newest</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Talent cards — populated by main.js → SkillBridge.ExploreFilter.init() -->
+        <div class="talent-grid" id="talentGrid" aria-label="Student talent cards">
+          <!-- Dynamic content inserted here -->
+        </div>
+
+        <!-- Pagination (static for now — TODO: backend pagination) -->
+        <div style="display:flex;justify-content:center;gap:var(--space-2);margin-top:var(--space-10)">
+          <button class="btn btn-ghost btn-sm" disabled aria-label="Previous page">← Prev</button>
+          <button class="btn btn-primary btn-sm" aria-current="page">1</button>
+          <button class="btn btn-ghost btn-sm" aria-label="Page 2">2</button>
+          <button class="btn btn-ghost btn-sm" aria-label="Page 3">3</button>
+          <button class="btn btn-ghost btn-sm" aria-label="Next page">Next →</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ── How it works ────────────────────────────────────────── -->
+<section class="how-it-works" aria-label="How hiring works">
+  <div class="container">
+    <div class="section-header" style="margin-bottom:var(--space-10)">
+      <span class="section-label">Simple Process</span>
+      <h2 class="section-title" style="font-size:var(--text-3xl)">How Hiring Works</h2>
+    </div>
+    <div class="how-it-works__grid">
+      <div class="how-step">
+        <div class="how-step__num">1</div>
+        <div class="how-step__title">Browse &amp; Filter</div>
+        <div class="how-step__desc">Use filters to find students with the exact skills, budget, and availability you need.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-step__num">2</div>
+        <div class="how-step__title">Review &amp; Hire</div>
+        <div class="how-step__desc">Review portfolios, check ratings, and hire directly in just a few clicks.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-step__num">3</div>
+        <div class="how-step__title">Collaborate &amp; Pay</div>
+        <div class="how-step__desc">Work together seamlessly and release payment securely on completion.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__logo">
+          <div class="footer__logo-icon">⚡</div>
+          Skill<span style="color:var(--primary-light)">Bridge</span>
+        </div>
+        <p class="footer__tagline">Connecting students with opportunity, one project at a time.</p>
+        <div class="footer__socials">
+          <a href="#" class="footer__social-btn" aria-label="Twitter">𝕏</a>
+          <a href="#" class="footer__social-btn" aria-label="LinkedIn">in</a>
+          <a href="#" class="footer__social-btn" aria-label="Instagram">📷</a>
+        </div>
+      </div>
+      <nav aria-label="Platform links">
+        <div class="footer__col-title">Platform</div>
+        <ul class="footer__links">
+          <li><a href="explore.html"        class="footer__link">Explore Talent</a></li>
+          <li><a href="hire.html"           class="footer__link">Hire a Student</a></li>
+          <li><a href="premium-guides.html" class="footer__link">Premium Guides</a></li>
+          <li><a href="signup.html"         class="footer__link">Create Profile</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Company links">
+        <div class="footer__col-title">Company</div>
+        <ul class="footer__links">
+          <li><a href="#" class="footer__link">About</a></li>
+          <li><a href="#" class="footer__link">Blog</a></li>
+          <li><a href="#" class="footer__link">Contact</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Legal links">
+        <div class="footer__col-title">Legal</div>
+        <ul class="footer__links">
+          <li><a href="#" class="footer__link">Privacy Policy</a></li>
+          <li><a href="#" class="footer__link">Terms of Service</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">© 2026 SkillBridge. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/api.js"></script>
+<script src="js/modal.js"></script>
+<script src="js/payment.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

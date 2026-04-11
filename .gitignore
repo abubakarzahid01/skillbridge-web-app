@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+skillbridge-backend/node_modules/
+
+# Environment variables — NEVER commit these
+.env
+.env.local
+.env.production
+skillbridge-backend/.env
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/

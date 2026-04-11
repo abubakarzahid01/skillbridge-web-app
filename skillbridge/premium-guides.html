@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Premium career guides for students — CV optimization, LinkedIn mastery, interview prep, and more." />
+  <title>Premium Guides — SkillBridge</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/payment.css" />
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar" id="navbar">
+  <div class="container navbar__inner">
+    <a href="index.html" class="navbar__logo">
+      <div class="navbar__logo-icon">⚡</div>
+      Skill<span>Bridge</span>
+    </a>
+    <div class="navbar__nav">
+      <a href="explore.html"        class="navbar__link">Explore Skills</a>
+      <a href="hire.html"           class="navbar__link">Hire Students</a>
+      <a href="premium-guides.html" class="navbar__link active">Premium Guides</a>
+      <a href="index.html#about"    class="navbar__link">About Us</a>
+    </div>
+    <div class="navbar__auth">
+      <a href="login.html"  class="btn btn-ghost btn-sm">Log In</a>
+      <a href="signup.html" class="btn btn-primary btn-sm">Sign Up Free</a>
+    </div>
+    <button class="navbar__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="navbar__mobile" id="mobileMenu">
+  <a href="explore.html"        class="navbar__mobile-link">Explore Skills</a>
+  <a href="hire.html"           class="navbar__mobile-link">Hire Students</a>
+  <a href="premium-guides.html" class="navbar__mobile-link">Premium Guides</a>
+  <div class="navbar__mobile-divider"></div>
+  <div class="navbar__mobile-auth">
+    <a href="login.html"  class="btn btn-ghost">Log In</a>
+    <a href="signup.html" class="btn btn-primary">Sign Up Free</a>
+  </div>
+</div>
+
+
+<!-- ── Premium Hero ────────────────────────────────────────── -->
+<section class="premium-page">
+  <div class="premium-hero">
+    <div class="container" style="position:relative;z-index:1">
+      <div class="premium-hero__label">
+        ✨ Expert-Crafted Resources
+      </div>
+      <h1 class="premium-hero__title">
+        Career Guides That Actually<br/>Get You Hired
+      </h1>
+      <p class="premium-hero__sub">
+        Written by recruiters, hiring managers, and career coaches.
+        Trusted by 3,000+ students at top universities.
+      </p>
+    </div>
+  </div>
+
+
+  <!-- ── Guides grid ─────────────────────────────────────────
+       TODO: Load guide data from GET /api/guides
+  ─────────────────────────────────────────────────────────── -->
+  <div class="premium-guides-grid">
+    <div class="container">
+
+      <!-- CV Optimization (featured) -->
+      <div class="premium-card featured" data-animate>
+        <div class="premium-card__badge">⭐ Most Popular</div>
+        <div class="premium-card__header">
+          <div class="premium-card__icon" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE)">📄</div>
+          <div class="premium-card__title">CV Optimization</div>
+          <div class="premium-card__desc">
+            Transform your CV from generic to interview-magnet. Includes 12 proven templates,
+            ATS-beating strategies, and a line-by-line rewrite framework.
+          </div>
+          <div class="premium-card__features">
+            <div class="premium-card__feature">12 professional CV templates</div>
+            <div class="premium-card__feature">ATS optimisation checklist</div>
+            <div class="premium-card__feature">Before &amp; after examples</div>
+            <div class="premium-card__feature">Industry-specific tailoring guide</div>
+            <div class="premium-card__feature">Cover letter templates included</div>
+          </div>
+        </div>
+        <div class="premium-card__footer">
+          <div class="premium-card__price">
+            <span class="premium-card__price-main">£19</span>
+            <span class="premium-card__price-original">£39</span>
+          </div>
+          <div class="premium-card__actions">
+            <button class="btn btn-ghost btn-sm" data-preview-key="guide-cv-optimization" aria-label="Preview CV Optimization guide">Preview</button>
+            <button class="btn btn-primary btn-sm"
+              data-modal-trigger="payment"
+              data-item-id="cv-optimization"
+              data-item-name="CV Optimization Guide"
+              data-item-price="£19"
+              data-item-desc="12 templates + ATS strategies"
+              data-guide-key="guide-cv-optimization">
+              Buy Now
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- LinkedIn Mastery -->
+      <div class="premium-card" data-animate>
+        <div class="premium-card__header">
+          <div class="premium-card__icon" style="background:linear-gradient(135deg,#E0F2FE,#BAE6FD)">💼</div>
+          <div class="premium-card__title">LinkedIn Mastery</div>
+          <div class="premium-card__desc">
+            Build a LinkedIn profile that attracts recruiters daily. Grow your network
+            strategically and position yourself as the top candidate in your field.
+          </div>
+          <div class="premium-card__features">
+            <div class="premium-card__feature">Profile optimisation framework</div>
+            <div class="premium-card__feature">Headline &amp; summary formulas</div>
+            <div class="premium-card__feature">Connection outreach scripts</div>
+            <div class="premium-card__feature">Content strategy playbook</div>
+          </div>
+        </div>
+        <div class="premium-card__footer">
+          <div class="premium-card__price">
+            <span class="premium-card__price-main">£24</span>
+            <span class="premium-card__price-original">£49</span>
+          </div>
+          <div class="premium-card__actions">
+            <button class="btn btn-ghost btn-sm" data-preview-key="guide-linkedin-mastery">Preview</button>
+            <button class="btn btn-primary btn-sm"
+              data-modal-trigger="payment"
+              data-item-id="linkedin-mastery"
+              data-item-name="LinkedIn Mastery Guide"
+              data-item-price="£24"
+              data-item-desc="Full profile optimisation + networking playbook"
+              data-guide-key="guide-linkedin-mastery">
+              Buy Now
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interview Prep Kit -->
+      <div class="premium-card" data-animate>
+        <div class="premium-card__header">
+          <div class="premium-card__icon" style="background:linear-gradient(135deg,#FFF7ED,#FED7AA)">🎯</div>
+          <div class="premium-card__title">Interview Prep Kit</div>
+          <div class="premium-card__desc">
+            Walk into every interview with confidence. Covers behavioural, technical,
+            and case-study formats for roles across tech, finance, design, and more.
+          </div>
+          <div class="premium-card__features">
+            <div class="premium-card__feature">200+ real interview questions</div>
+            <div class="premium-card__feature">STAR method answer framework</div>
+            <div class="premium-card__feature">Technical interview prep</div>
+            <div class="premium-card__feature">Salary negotiation scripts</div>
+            <div class="premium-card__feature">Mock interview recording tips</div>
+          </div>
+        </div>
+        <div class="premium-card__footer">
+          <div class="premium-card__price">
+            <span class="premium-card__price-main">£29</span>
+            <span class="premium-card__price-original">£59</span>
+          </div>
+          <div class="premium-card__actions">
+            <button class="btn btn-ghost btn-sm" data-preview-key="guide-interview-prep">Preview</button>
+            <button class="btn btn-primary btn-sm"
+              data-modal-trigger="payment"
+              data-item-id="interview-prep"
+              data-item-name="Interview Prep Kit"
+              data-item-price="£29"
+              data-item-desc="200+ questions + STAR framework"
+              data-guide-key="guide-interview-prep">
+              Buy Now
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Freelance Starter Kit -->
+      <div class="premium-card" data-animate>
+        <div class="premium-card__header">
+          <div class="premium-card__icon" style="background:linear-gradient(135deg,#F0FDF4,#BBF7D0)">🚀</div>
+          <div class="premium-card__title">Freelance Starter Kit</div>
+          <div class="premium-card__desc">
+            Everything you need to go from zero to your first paid client —
+            pricing strategies, proposal templates, contract guides, and invoicing tools.
+          </div>
+          <div class="premium-card__features">
+            <div class="premium-card__feature">Pricing calculator template</div>
+            <div class="premium-card__feature">Winning proposal templates</div>
+            <div class="premium-card__feature">Freelance contract template</div>
+            <div class="premium-card__feature">Client onboarding checklist</div>
+            <div class="premium-card__feature">Invoice &amp; payment guide</div>
+          </div>
+        </div>
+        <div class="premium-card__footer">
+          <div class="premium-card__price">
+            <span class="premium-card__price-main">£34</span>
+            <span class="premium-card__price-original">£69</span>
+          </div>
+          <div class="premium-card__actions">
+            <button class="btn btn-ghost btn-sm" data-preview-key="guide-freelance-starter">Preview</button>
+            <button class="btn btn-primary btn-sm"
+              data-modal-trigger="payment"
+              data-item-id="freelance-kit"
+              data-item-name="Freelance Starter Kit"
+              data-item-price="£34"
+              data-item-desc="Complete freelance business toolkit"
+              data-guide-key="guide-freelance-starter">
+              Buy Now
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Portfolio Builder -->
+      <div class="premium-card" data-animate>
+        <div class="premium-card__header">
+          <div class="premium-card__icon" style="background:linear-gradient(135deg,#FDF4FF,#E9D5FF)">🎨</div>
+          <div class="premium-card__title">Portfolio Builder Guide</div>
+          <div class="premium-card__desc">
+            Build a portfolio that makes hiring managers stop scrolling.
+            Works for developers, designers, writers, marketers, and more.
+          </div>
+          <div class="premium-card__features">
+            <div class="premium-card__feature">Portfolio structure blueprint</div>
+            <div class="premium-card__feature">Case study writing framework</div>
+            <div class="premium-card__feature">Platform recommendations</div>
+            <div class="premium-card__feature">Personal brand positioning</div>
+          </div>
+        </div>
+        <div class="premium-card__footer">
+          <div class="premium-card__price">
+            <span class="premium-card__price-main">£22</span>
+            <span class="premium-card__price-original">£44</span>
+          </div>
+          <div class="premium-card__actions">
+            <button class="btn btn-ghost btn-sm" data-preview-key="guide-portfolio-building">Preview</button>
+            <button class="btn btn-primary btn-sm"
+              data-modal-trigger="payment"
+              data-item-id="portfolio-guide"
+              data-item-name="Portfolio Builder Guide"
+              data-item-price="£22"
+              data-item-desc="Build a portfolio that gets you hired"
+              data-guide-key="guide-portfolio-building">
+              Buy Now
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Remote Work Mastery -->
+      <div class="premium-card" data-animate>
+        <div class="premium-card__header">
+          <div class="premium-card__icon" style="background:linear-gradient(135deg,#F0F9FF,#BAE6FD)">🌍</div>
+          <div class="premium-card__title">Remote Work Mastery</div>
+          <div class="premium-card__desc">
+            Thrive in remote and hybrid environments from day one.
+            Productivity systems, communication frameworks, and tools used by top remote professionals.
+          </div>
+          <div class="premium-card__features">
+            <div class="premium-card__feature">Remote productivity systems</div>
+            <div class="premium-card__feature">Async communication templates</div>
+            <div class="premium-card__feature">Home office setup guide</div>
+            <div class="premium-card__feature">Remote interview strategy</div>
+            <div class="premium-card__feature">Work-life balance framework</div>
+          </div>
+        </div>
+        <div class="premium-card__footer">
+          <div class="premium-card__price">
+            <span class="premium-card__price-main">£21</span>
+            <span class="premium-card__price-original">£42</span>
+          </div>
+          <div class="premium-card__actions">
+            <button class="btn btn-ghost btn-sm" data-preview-key="guide-remote-work">Preview</button>
+            <button class="btn btn-primary btn-sm"
+              data-modal-trigger="payment"
+              data-item-id="remote-work"
+              data-item-name="Remote Work Mastery"
+              data-item-price="£21"
+              data-item-desc="Productivity systems + remote interview strategy"
+              data-guide-key="guide-remote-work">
+              Buy Now
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- All-In Bundle (featured) -->
+      <div class="premium-card featured" data-animate>
+        <div class="premium-card__badge">🎁 Best Value — Save £80</div>
+        <div class="premium-card__header">
+          <div class="premium-card__icon" style="background:linear-gradient(135deg,#FFFBEB,#FDE68A)">💎</div>
+          <div class="premium-card__title">Complete Career Bundle</div>
+          <div class="premium-card__desc">
+            Get all 5 guides at 60% off. Everything you need to land your
+            dream job or first freelance client — in one comprehensive package.
+          </div>
+          <div class="premium-card__features">
+            <div class="premium-card__feature">All 5 premium guides included</div>
+            <div class="premium-card__feature">Lifetime access to all updates</div>
+            <div class="premium-card__feature">Priority email support</div>
+            <div class="premium-card__feature">Community Discord access</div>
+            <div class="premium-card__feature">Monthly live Q&amp;A sessions</div>
+          </div>
+        </div>
+        <div class="premium-card__footer">
+          <div class="premium-card__price">
+            <span class="premium-card__price-main">£49</span>
+            <span class="premium-card__price-original">£128</span>
+          </div>
+          <div class="premium-card__actions">
+            <button class="btn btn-ghost btn-sm" data-preview-key="guide-cv-optimization">Preview</button>
+            <button class="btn btn-primary btn-sm"
+              data-modal-trigger="payment"
+              data-item-id="complete-bundle"
+              data-item-name="Complete Career Bundle"
+              data-item-price="£49"
+              data-item-desc="All 6 guides + community + support"
+              data-guide-key="guide-bundle">
+              Get Bundle
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ── My Purchased Guides (shown if sb_purchases exists) ──── -->
+  <div class="purchased-guides-section" id="purchasedGuidesSection" style="display:none">
+    <div class="container">
+      <div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-5)">
+        <span style="font-size:1.25rem">📚</span>
+        <h2 style="font-size:var(--text-xl);font-weight:var(--font-bold);color:var(--gray-900);margin:0">My Guides</h2>
+        <span class="badge badge-success" style="margin-left:auto">Purchased</span>
+      </div>
+      <div class="purchased-guides-row" id="purchasedGuidesRow"></div>
+    </div>
+  </div>
+
+  <!-- ── Social proof strip ──────────────────────────────────── -->
+  <div style="background:var(--white);border-top:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200);padding:var(--space-12) 0">
+    <div class="container">
+      <div class="section-header" style="margin-bottom:var(--space-10)">
+        <span class="section-label">What Students Say</span>
+        <h2 class="section-title" style="font-size:var(--text-3xl)">Guides That Deliver Results</h2>
+      </div>
+
+      <div class="testimonials__grid">
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p class="testimonial-card__text">The CV guide completely transformed my job search. Went from zero responses to 5 interviews in two weeks. Genuinely the best £19 I've ever spent.</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">AK</div>
+            <div>
+              <div class="testimonial-card__name">Aisha K.</div>
+              <div class="testimonial-card__role">MBA Graduate, King's College London</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p class="testimonial-card__text">LinkedIn Mastery tripled my profile views in one week. I've now had three recruiters reach out to me proactively. Couldn't recommend this more.</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">DL</div>
+            <div>
+              <div class="testimonial-card__name">David L.</div>
+              <div class="testimonial-card__role">Design Graduate, UAL</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p class="testimonial-card__text">The Freelance Starter Kit saved me months of guesswork. I landed my first paying client 4 days after reading it. The proposal templates are pure gold.</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">TC</div>
+            <div>
+              <div class="testimonial-card__name">Tom C.</div>
+              <div class="testimonial-card__role">CS Student, Oxford</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── FAQ section ──────────────────────────────────────── -->
+  <div style="padding:var(--space-20) 0;background:var(--gray-50)">
+    <div class="container" style="max-width:720px">
+      <div class="section-header">
+        <span class="section-label">FAQ</span>
+        <h2 class="section-title" style="font-size:var(--text-3xl)">Common Questions</h2>
+      </div>
+
+      <div id="faqList" style="display:flex;flex-direction:column;gap:var(--space-3)">
+        <!-- FAQ items — inserted by JS below -->
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ── CTA ─────────────────────────────────────────────────── -->
+<section class="cta-banner">
+  <div class="container cta-banner__inner">
+    <span class="cta-banner__label">🎓 Student Exclusive Pricing</span>
+    <h2 class="cta-banner__title">Start Your Career Journey Today</h2>
+    <p class="cta-banner__subtitle">
+      Join 3,000+ students who've used SkillBridge guides to land internships,
+      graduate jobs, and their first freelance clients.
+    </p>
+    <div class="cta-banner__btns">
+      <button class="btn btn-white btn-lg"
+        data-modal-trigger="payment"
+        data-item-id="complete-bundle"
+        data-item-name="Complete Career Bundle"
+        data-item-price="£49"
+        data-item-desc="All 5 guides + lifetime access">
+        Get the Full Bundle — £49
+      </button>
+      <a href="signup.html" class="btn btn-secondary btn-lg"
+        style="background:transparent;border-color:rgba(255,255,255,0.6);color:var(--white)">
+        Sign Up Free
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__logo"><div class="footer__logo-icon">⚡</div>Skill<span style="color:var(--primary-light)">Bridge</span></div>
+        <p class="footer__tagline">Connecting students with opportunity.</p>
+        <div class="footer__socials">
+          <a href="#" class="footer__social-btn" aria-label="Twitter">𝕏</a>
+          <a href="#" class="footer__social-btn" aria-label="LinkedIn">in</a>
+          <a href="#" class="footer__social-btn" aria-label="Instagram">📷</a>
+        </div>
+      </div>
+      <nav aria-label="Platform"><div class="footer__col-title">Platform</div><ul class="footer__links"><li><a href="explore.html" class="footer__link">Explore Talent</a></li><li><a href="hire.html" class="footer__link">Hire Students</a></li><li><a href="premium-guides.html" class="footer__link">Guides</a></li></ul></nav>
+      <nav aria-label="Company"><div class="footer__col-title">Company</div><ul class="footer__links"><li><a href="#" class="footer__link">About</a></li><li><a href="#" class="footer__link">Blog</a></li><li><a href="#" class="footer__link">Contact</a></li></ul></nav>
+      <nav aria-label="Legal"><div class="footer__col-title">Legal</div><ul class="footer__links"><li><a href="#" class="footer__link">Privacy</a></li><li><a href="#" class="footer__link">Terms</a></li></ul></nav>
+    </div>
+    <div class="footer__bottom"><p class="footer__copy">© 2026 SkillBridge. All rights reserved.</p></div>
+  </div>
+</footer>
+
+
+<!-- Preview Modal -->
+<div class="modal-overlay" id="previewOverlay" role="dialog" aria-modal="true" aria-labelledby="previewModalTitle" style="display:none;opacity:0;pointer-events:none;transition:opacity 0.2s">
+  <div class="modal" style="max-width:620px">
+    <div class="modal__header">
+      <div>
+        <div class="modal__title" id="previewModalTitle">Guide Preview</div>
+        <div class="modal__subtitle" id="previewModalSub">Section 1 — Free Preview</div>
+      </div>
+      <button class="modal__close" id="previewClose" aria-label="Close preview">✕</button>
+    </div>
+    <div class="modal__body" style="max-height:70vh;overflow-y:auto">
+      <div id="previewContent"></div>
+      <div class="preview-cta">
+        <div style="font-size:var(--text-sm);color:var(--gray-500);margin-bottom:var(--space-3)">
+          🔒 Sections 2–6 are locked. Purchase to unlock the full guide.
+        </div>
+        <button class="btn btn-primary" id="previewBuyBtn" style="width:100%">
+          Buy Full Guide
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Payment Modal -->
+<div class="modal-overlay" id="paymentOverlay" role="dialog" aria-modal="true" aria-labelledby="paymentModalTitle">
+  <div class="modal" id="paymentModal">
+    <div class="modal__header">
+      <div><div class="modal__title" id="paymentModalTitle">Complete Purchase</div><div class="modal__subtitle">Secure checkout</div></div>
+      <button class="modal__close" data-modal-close="payment" aria-label="Close">✕</button>
+    </div>
+    <div class="modal__body">
+      <div id="paymentFormWrapper">
+        <div class="modal-order-summary">
+          <div class="modal-order-item">
+            <div class="modal-order-item__icon">📚</div>
+            <div>
+              <div class="modal-order-item__name" id="modalItemName">Guide</div>
+              <div class="modal-order-item__desc" id="modalItemDesc">SkillBridge Premium</div>
+            </div>
+            <div class="modal-order-item__price" id="modalItemPrice">£0</div>
+          </div>
+          <div class="modal-price-rows">
+            <div class="modal-price-row"><span class="modal-price-row__label">Subtotal</span><span class="modal-price-row__value" id="basePrice" data-price="0">£0</span></div>
+            <div class="modal-price-row" id="discountRow" style="display:none"><span class="modal-price-row__label">Discount</span><span class="modal-price-row__value" id="discountValue" style="color:var(--success)">-£0</span></div>
+            <div class="modal-price-row"><span class="modal-price-row__label">Instant download</span><span class="modal-price-row__value">✓ Included</span></div>
+            <div class="modal-price-row modal-price-row--total"><span class="modal-price-row__label">Total</span><span class="modal-price-row__value" id="totalAmount">£0</span></div>
+          </div>
+        </div>
+        <div class="promo-code">
+          <input type="text" class="promo-code__input" id="promoInput" placeholder="Promo code" />
+          <button class="promo-code__btn" id="applyPromo">Apply</button>
+        </div>
+        <div class="promo-code__success" id="promoMsg"></div>
+        <div class="payment-methods-label">Payment Method</div>
+        <div class="payment-methods-tabs">
+          <button class="payment-method-tab active" data-method="card"><span class="payment-method-tab__icon">💳</span>Card</button>
+          <button class="payment-method-tab" data-method="apple"><span class="payment-method-tab__icon">🍎</span>Apple</button>
+          <button class="payment-method-tab" data-method="google"><span class="payment-method-tab__icon">G</span>Google</button>
+          <button class="payment-method-tab" data-method="paypal"><span class="payment-method-tab__icon">🅿</span>PayPal</button>
+        </div>
+        <div class="payment-form-section" data-method="card">
+          <div class="payment-form">
+            <div><label class="payment-form__label" for="cardHolder">Cardholder Name</label><input type="text" class="payment-form__input" id="cardHolder" placeholder="John Smith" autocomplete="cc-name" /></div>
+            <div><label class="payment-form__label" for="cardNumber">Card Number</label><div class="card-number-field"><input type="text" class="payment-form__input" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" inputmode="numeric" /><span class="card-brand-icon" id="cardBrandIcon">💳</span></div></div>
+            <div class="card-row">
+              <div><label class="payment-form__label" for="expiryDate">Expiry</label><input type="text" class="payment-form__input" id="expiryDate" placeholder="MM/YY" maxlength="5" /></div>
+              <div><label class="payment-form__label" for="cvvCode">CVV</label><input type="password" class="payment-form__input" id="cvvCode" placeholder="•••" maxlength="4" /></div>
+            </div>
+          </div>
+        </div>
+        <div class="payment-form-section" data-method="apple" style="display:none"><div class="alt-payment-method"><div class="alt-payment-method__icon">🍎</div><div class="alt-payment-method__title">Apple Pay</div><div class="alt-payment-method__desc">Complete with Touch ID or Face ID.</div></div></div>
+        <div class="payment-form-section" data-method="google" style="display:none"><div class="alt-payment-method"><div class="alt-payment-method__icon" style="font-weight:700;font-size:2rem;color:#4285F4">G</div><div class="alt-payment-method__title">Google Pay</div><div class="alt-payment-method__desc">Pay quickly with Google Pay.</div></div></div>
+        <div class="payment-form-section" data-method="paypal" style="display:none"><div class="alt-payment-method"><div class="alt-payment-method__icon">🅿</div><div class="alt-payment-method__title">PayPal</div><div class="alt-payment-method__desc">You'll be redirected to PayPal.</div></div></div>
+        <button class="pay-btn" id="payNowBtn"><span class="pay-btn__text">Buy Now</span><span class="pay-btn__spinner" aria-hidden="true"></span></button>
+        <div class="secure-badge"><span class="secure-badge__icon">🔒</span>256-bit SSL · Instant download after payment</div>
+      </div>
+      <div id="paymentSuccess" style="display:none">
+        <div class="payment-success">
+          <div class="payment-success__icon">✓</div>
+          <div class="payment-success__title">Purchase Complete!</div>
+          <div class="payment-success__desc" id="paySuccessDesc">Your guide is ready. Redirecting you now…</div>
+          <div class="payment-success__ref">Reference: <strong id="paymentRef">SB-XXXXXXX</strong></div>
+          <div class="payment-success__btns">
+            <a href="dashboard.html" class="btn btn-primary">View in Dashboard</a>
+            <button class="btn btn-ghost" data-modal-close="payment">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/modal.js"></script>
+<script src="js/payment.js"></script>
+<script src="js/main.js"></script>
+<script>
+// Guide metadata for preview modal and purchased section
+const GUIDE_META = {
+  'guide-cv-optimization': {
+    title: 'CV Optimization Guide',
+    file: 'guide-cv-optimization.html',
+    price: '£19',
+    previewTitle: 'Section 1: Understanding What Recruiters Actually Want',
+    previewText: `Recruiters spend an average of 6 seconds on a CV before deciding whether to read further or discard it. This isn't a myth — it's been validated by eye-tracking studies across thousands of hiring decisions. Your CV must immediately signal that you are the right candidate before a human being has consciously engaged with a single word.\n\nThe most common mistake students make is treating a CV as a historical document — a list of everything they've done. Professional recruiters do not want a biography. They want evidence of fit. Every line on your CV should answer one question: "Does this person have what we need for this specific role?"\n\nStart by understanding the two audiences your CV must satisfy. The first audience is the Applicant Tracking System (ATS) — software used by 98% of Fortune 500 companies and most large UK employers to filter applications before a human sees them. ATS systems scan for keywords, formatting compliance, and structural cues. A beautifully designed CV with graphics, tables, and unusual fonts can score zero on an ATS scan and never reach a recruiter's desk.\n\nThe second audience is the human recruiter — typically overworked, reviewing hundreds of applications, and looking for reasons to say no rather than yes. Your CV needs to make their job easier by being scannable, clearly structured, and immediately relevant.`
+  },
+  'guide-linkedin-mastery': {
+    title: 'LinkedIn Mastery Guide',
+    file: 'guide-linkedin-mastery.html',
+    price: '£24',
+    previewTitle: 'Section 1: Why Your LinkedIn Profile Is Your Most Valuable Career Asset',
+    previewText: `LinkedIn has fundamentally changed how careers are built. In 2024, over 87% of recruiters use LinkedIn as their primary tool for finding candidates. More importantly, 70% of jobs are filled through networking — and LinkedIn is where that networking now happens at scale.\n\nFor students and recent graduates, LinkedIn represents an extraordinary opportunity that most fail to capitalise on. While your peers are applying through crowded job boards competing against thousands, a well-optimised LinkedIn profile puts you in front of recruiters who are actively seeking talent — before a vacancy is even posted publicly.\n\nThe platform operates on an algorithm that rewards engagement, completeness, and connection density. Understanding this algorithm is the first step to making LinkedIn work for you rather than against you. Profiles that are 100% complete receive 40 times more opportunities than incomplete ones, according to LinkedIn's own data.`
+  },
+  'guide-interview-prep': {
+    title: 'Interview Prep Kit',
+    file: 'guide-interview-prep.html',
+    price: '£29',
+    previewTitle: 'Section 1: The Interview Mindset — Reframing the Pressure',
+    previewText: `Most candidates approach interviews from entirely the wrong psychological position. They walk in thinking: "I hope they like me. I hope I say the right things. I hope I don't mess this up." This mindset places all the power with the interviewer and sets you up for a performance driven by anxiety rather than confidence.\n\nThe most successful candidates reframe the interview as a mutual assessment. You are evaluating whether this company and role is right for you, just as they are evaluating whether you are right for them. This isn't arrogance — it's the reality of any professional relationship. You have skills, ambitions, and standards. They need to earn your commitment just as you need to earn their offer.\n\nThis reframe does something remarkable: it transforms your emotional state. Instead of desperate-to-please anxiety, you access genuine curiosity. You ask better questions. You listen more carefully. You present as confident and discerning rather than eager and nervous. Paradoxically, this makes you far more attractive as a candidate.`
+  },
+  'guide-freelance-starter': {
+    title: 'Freelance Starter Kit',
+    file: 'guide-freelance-starter.html',
+    price: '£34',
+    previewTitle: 'Section 1: The Freelance Mindset — From Employee to Business Owner',
+    previewText: `The single biggest mistake new freelancers make is thinking like an employee. They wait for work to come to them, undercharge because they feel guilty about pricing, and treat every client relationship like a job interview they're desperate to pass.\n\nFreelancing is running a business. You are not selling your time — you are selling outcomes, expertise, and results. This distinction sounds subtle but it changes everything: how you price, how you communicate, how you handle difficult clients, and how you build a sustainable income.\n\nThe freelance market for students and recent graduates has never been more accessible. Remote work normalisation means geography is no longer a barrier. Companies that once only hired full-time employees are now routinely building teams of specialist freelancers. Platforms like SkillBridge make it possible to find your first client within days rather than months.`
+  },
+  'guide-portfolio-building': {
+    title: 'Portfolio Builder Guide',
+    file: 'guide-portfolio-building.html',
+    price: '£22',
+    previewTitle: 'Section 1: What Makes a Portfolio Actually Work',
+    previewText: `A portfolio is not a gallery of everything you've ever made. It's a curated argument for why you are the right person for the work you want to do. This distinction is critical because most student portfolios suffer from the same fatal flaw: they show too much, explain too little, and leave the viewer with no clear sense of what problem you solve or why you are different.\n\nHiring managers and clients reviewing portfolios are asking a very specific question: "Can this person do what I need, and can I trust them to do it well?" Your portfolio must answer this question within the first 30 seconds of viewing. If it doesn't, they'll move on — not because your work is bad, but because you haven't made it easy enough for them to say yes.\n\nThe most effective portfolios follow what we call the Evidence + Context + Impact framework. For every project you include, you must show the work (evidence), explain the brief and your approach (context), and articulate what changed as a result of your work (impact). Without all three, a portfolio piece is just an image — interesting, perhaps, but not persuasive.`
+  },
+  'guide-remote-work': {
+    title: 'Remote Work Mastery',
+    file: 'guide-remote-work.html',
+    price: '£21',
+    previewTitle: 'Section 1: The Remote Revolution — Why the Rules Have Changed',
+    previewText: `Remote work is no longer a pandemic-era experiment or a perk for senior employees. It has become a permanent structural feature of the professional landscape, and for students entering the workforce, understanding how to thrive in remote and hybrid environments is not optional — it's a core professional competency.\n\nThe research is unambiguous: remote workers who excel are not those with the best home office setups or the fastest broadband. They are the ones who have mastered asynchronous communication, who build trust through consistent delivery rather than physical presence, and who actively manage their professional visibility in environments where "out of sight" can easily become "out of mind".\n\nFor students and recent graduates, remote work presents a unique double opportunity. First, it dramatically expands the geographic range of roles available to you — you can work for a London-based company from Edinburgh, or take on international clients from your student flat. Second, it develops a skillset that every employer — whether remote, hybrid, or in-person — increasingly values: self-direction, written communication clarity, and disciplined time management.`
+  }
+};
+
+// current guide key being purchased
+let currentGuideKey = null;
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  // ── 1. Locked toast ────────────────────────────────────────────
+  const params = new URLSearchParams(window.location.search);
+  const lockedKey = params.get('locked');
+  if (lockedKey && GUIDE_META[lockedKey]) {
+    setTimeout(() => {
+      window.SkillBridge?.Toast?.(
+        '🔒 Purchase required to access "' + GUIDE_META[lockedKey].title + '".',
+        'warning'
+      );
+    }, 500);
+  }
+
+  // ── 2. Purchased guides section ────────────────────────────────
+  renderPurchasedGuides();
+
+  // ── 3. Preview buttons ─────────────────────────────────────────
+  document.querySelectorAll('[data-preview-key]').forEach(btn => {
+    btn.addEventListener('click', function () {
+      const key = this.dataset.previewKey;
+      openPreviewModal(key);
+    });
+  });
+
+  // ── 4. Buy Now: capture guide key before payment modal opens ───
+  document.querySelectorAll('[data-guide-key][data-modal-trigger="payment"]').forEach(btn => {
+    btn.addEventListener('click', function () {
+      currentGuideKey = this.dataset.guideKey || null;
+    });
+  });
+
+  // ── 5. Preview modal close ─────────────────────────────────────
+  document.getElementById('previewClose')?.addEventListener('click', closePreviewModal);
+  document.getElementById('previewOverlay')?.addEventListener('click', function (e) {
+    if (e.target === this) closePreviewModal();
+  });
+
+  // ── 6. Preview modal Buy Now ───────────────────────────────────
+  document.getElementById('previewBuyBtn')?.addEventListener('click', function () {
+    closePreviewModal();
+    // trigger the buy now button for the current preview guide
+    if (window._previewGuideKey) {
+      const buyBtn = document.querySelector('[data-guide-key="' + window._previewGuideKey + '"][data-modal-trigger="payment"]');
+      if (buyBtn) buyBtn.click();
+    }
+  });
+
+  // ── 7. FAQ accordion ───────────────────────────────────────────
+  const FAQS = [
+    { q: 'Are the guides available as instant downloads?', a: 'Yes! All guides are delivered as high-quality PDFs immediately after purchase. You\'ll receive a download link in your email within seconds.' },
+    { q: 'Can I get a refund if I\'m not satisfied?', a: 'Absolutely. We offer a 7-day money-back guarantee on all individual guides and the bundle. Just email us at support@skillbridge.com.' },
+    { q: 'Do the guides include updates?', a: 'Individual guides include 1 year of free updates. The Complete Bundle includes lifetime updates as we revise and improve the content.' },
+    { q: 'Are these guides relevant outside the UK?', a: 'The strategies and frameworks are universal. Some specific platform advice (e.g. salary benchmarks) is UK-focused, but the core methods work globally.' },
+    { q: 'Can I buy guides for a friend or classmate?', a: 'Yes — just note their email at checkout and we\'ll send the download link directly to them as a gift.' },
+  ];
+
+  const container = document.getElementById('faqList');
+  if (container) {
+    container.innerHTML = FAQS.map((faq, i) => `
+      <div style="background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-xl);overflow:hidden">
+        <button
+          style="width:100%;text-align:left;padding:var(--space-5) var(--space-6);font-size:var(--text-base);font-weight:var(--font-semibold);color:var(--gray-900);background:none;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:var(--space-4)"
+          onclick="toggleFAQ(${i})"
+          id="faqBtn${i}"
+          aria-expanded="false"
+          aria-controls="faqAns${i}"
+        >
+          ${faq.q}
+          <span id="faqIcon${i}" style="color:var(--primary);font-size:1.2rem;flex-shrink:0">+</span>
+        </button>
+        <div
+          id="faqAns${i}"
+          style="display:none;padding:0 var(--space-6) var(--space-5);font-size:var(--text-sm);color:var(--gray-600);line-height:1.7"
+          role="region"
+          aria-labelledby="faqBtn${i}"
+        >
+          ${faq.a}
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // ── 8. Intercept payment success to store purchase & redirect ──
+  const payBtn = document.getElementById('payNowBtn');
+  if (payBtn) {
+    payBtn.addEventListener('click', function onPayClick() {
+      // After payment.js processes, watch for success screen
+      const observer = new MutationObserver(function () {
+        const successDiv = document.getElementById('paymentSuccess');
+        if (successDiv && successDiv.style.display !== 'none') {
+          observer.disconnect();
+          handlePurchaseSuccess();
+        }
+      });
+      const formWrapper = document.getElementById('paymentFormWrapper');
+      const successDiv  = document.getElementById('paymentSuccess');
+      if (formWrapper) observer.observe(formWrapper, { attributes: true, attributeFilter: ['style'] });
+      if (successDiv)  observer.observe(successDiv,  { attributes: true, attributeFilter: ['style'] });
+    });
+  }
+});
+
+function handlePurchaseSuccess() {
+  const key = currentGuideKey;
+  if (!key || key === 'guide-bundle') {
+    // For bundle, unlock all guides
+    try {
+      const purchases = JSON.parse(localStorage.getItem('sb_purchases') || '{}');
+      Object.keys(GUIDE_META).forEach(k => { purchases[k] = { purchasedAt: Date.now() }; });
+      localStorage.setItem('sb_purchases', JSON.stringify(purchases));
+    } catch(e) {}
+    renderPurchasedGuides();
+    return;
+  }
+  // Store individual purchase
+  try {
+    const purchases = JSON.parse(localStorage.getItem('sb_purchases') || '{}');
+    purchases[key] = { purchasedAt: Date.now() };
+    localStorage.setItem('sb_purchases', JSON.stringify(purchases));
+  } catch(e) {}
+
+  renderPurchasedGuides();
+
+  // Update success message and redirect
+  const desc = document.getElementById('paySuccessDesc');
+  if (desc && GUIDE_META[key]) {
+    desc.textContent = 'Opening your guide now…';
+  }
+
+  if (GUIDE_META[key]) {
+    setTimeout(() => {
+      window.location.href = GUIDE_META[key].file;
+    }, 2000);
+  }
+}
+
+function renderPurchasedGuides() {
+  let purchases = {};
+  try { purchases = JSON.parse(localStorage.getItem('sb_purchases') || '{}'); } catch(e) {}
+  const keys = Object.keys(purchases).filter(k => GUIDE_META[k]);
+  const section = document.getElementById('purchasedGuidesSection');
+  const row     = document.getElementById('purchasedGuidesRow');
+  if (!section || !row) return;
+
+  if (!keys.length) { section.style.display = 'none'; return; }
+
+  section.style.display = 'block';
+  row.innerHTML = keys.map(k => {
+    const g = GUIDE_META[k];
+    return `
+      <a href="${g.file}" class="purchased-guide-card">
+        <div class="purchased-guide-card__icon">📖</div>
+        <div class="purchased-guide-card__title">${g.title}</div>
+        <div class="purchased-guide-card__cta">Open Guide →</div>
+      </a>
+    `;
+  }).join('');
+}
+
+function openPreviewModal(key) {
+  const meta = GUIDE_META[key];
+  if (!meta) return;
+  window._previewGuideKey = key;
+
+  document.getElementById('previewModalTitle').textContent = meta.title + ' — Preview';
+  document.getElementById('previewModalSub').textContent   = meta.previewTitle;
+
+  const content = document.getElementById('previewContent');
+  content.innerHTML = `
+    <div style="margin-bottom:var(--space-6)">
+      <h3 style="font-size:var(--text-lg);font-weight:var(--font-bold);color:var(--gray-900);margin-bottom:var(--space-4)">${meta.previewTitle}</h3>
+      ${meta.previewText.split('\n\n').map(p => `<p style="font-size:var(--text-sm);color:var(--gray-600);line-height:1.75;margin-bottom:var(--space-4)">${p}</p>`).join('')}
+    </div>
+    <div class="preview-blur">
+      <p style="font-size:var(--text-sm);color:var(--gray-400);line-height:1.7">Section 2 continues with detailed step-by-step frameworks, templates, and worked examples. Purchase to unlock all 6 sections plus key takeaways and bonus resources…</p>
+    </div>
+  `;
+
+  const overlay = document.getElementById('previewOverlay');
+  overlay.style.display = 'flex';
+  overlay.style.pointerEvents = 'all';
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => { overlay.style.opacity = '1'; }, 10);
+}
+
+function closePreviewModal() {
+  const overlay = document.getElementById('previewOverlay');
+  overlay.style.opacity = '0';
+  overlay.style.pointerEvents = 'none';
+  document.body.style.overflow = '';
+  setTimeout(() => { overlay.style.display = 'none'; }, 200);
+}
+
+function toggleFAQ(i) {
+  const ans  = document.getElementById('faqAns' + i);
+  const icon = document.getElementById('faqIcon' + i);
+  const btn  = document.getElementById('faqBtn' + i);
+  if (!ans) return;
+  const open = ans.style.display === 'block';
+  ans.style.display  = open ? 'none' : 'block';
+  icon.textContent   = open ? '+' : '×';
+  btn.setAttribute('aria-expanded', !open);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Alex Johnson — Full Stack Developer. UCL Computer Science student available for freelance projects." />
+  <title>Alex Johnson — Student Profile — SkillBridge</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/payment.css" />
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar" id="navbar">
+  <div class="container navbar__inner">
+    <a href="index.html" class="navbar__logo">
+      <div class="navbar__logo-icon">⚡</div>
+      Skill<span>Bridge</span>
+    </a>
+    <div class="navbar__nav">
+      <a href="explore.html"        class="navbar__link">Explore Skills</a>
+      <a href="hire.html"           class="navbar__link">Hire Students</a>
+      <a href="premium-guides.html" class="navbar__link">Premium Guides</a>
+    </div>
+    <div class="navbar__auth">
+      <a href="login.html"  class="btn btn-ghost btn-sm">Log In</a>
+      <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+    </div>
+    <button class="navbar__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="navbar__mobile" id="mobileMenu">
+  <a href="explore.html"   class="navbar__mobile-link">Explore Skills</a>
+  <a href="hire.html"      class="navbar__mobile-link">Hire Students</a>
+  <a href="premium-guides.html" class="navbar__mobile-link">Premium Guides</a>
+  <div class="navbar__mobile-divider"></div>
+  <div class="navbar__mobile-auth">
+    <a href="login.html"  class="btn btn-ghost">Log In</a>
+    <a href="signup.html" class="btn btn-primary">Sign Up</a>
+  </div>
+</div>
+
+
+<!-- ── Profile cover ──────────────────────────────────────── -->
+<div class="profile-page">
+  <div class="profile-cover" aria-hidden="true">
+    <img class="profile-cover-img"
+      src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&q=80&fit=crop"
+      alt="Alex Johnson cover"
+      loading="lazy" />
+  </div>
+
+  <div class="profile-body">
+
+    <!-- ── Profile header ──────────────────────────────────── -->
+    <div class="profile-header">
+      <div class="profile-header__left">
+        <!-- Avatar -->
+        <div class="profile-avatar" aria-label="Alex Johnson" style="overflow:hidden;background:linear-gradient(135deg,#667EEA,#764BA2)">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80&fit=crop&crop=face"
+            alt="Alex Johnson"
+            loading="lazy"
+            style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block" />
+        </div>
+        <div class="profile-info">
+          <div class="profile-info__name">Alex Johnson</div>
+          <div class="profile-info__role">Full Stack Developer</div>
+          <div class="profile-info__meta">
+            <span class="profile-info__meta-item">🎓 UCL — Computer Science</span>
+            <span class="profile-info__meta-item">📍 London, UK</span>
+            <span class="profile-info__meta-item">⭐ 4.9 (24 reviews)</span>
+            <span class="profile-info__meta-item">✅ Identity Verified</span>
+          </div>
+        </div>
+      </div>
+      <div class="profile-header__actions">
+        <button class="btn btn-ghost" id="saveProfileBtn" aria-label="Save profile">
+          ♡ Save Profile
+        </button>
+        <a href="hire.html?student=1" class="btn btn-primary btn-lg">
+          Hire Now — £35/hr
+        </a>
+      </div>
+    </div>
+
+    <!-- ── Profile layout ─────────────────────────────────── -->
+    <div class="profile-layout">
+
+      <!-- ── Left: Main content ─────────────────────────── -->
+      <div>
+
+        <!-- About -->
+        <div class="profile-section">
+          <h2 class="profile-section__title">About</h2>
+          <p style="font-size:var(--text-base);color:var(--gray-600);line-height:1.75">
+            <!-- TODO: Load from student.bio via API → GET /api/students/:id -->
+            I'm a third-year Computer Science student at UCL with a passion for
+            building scalable web applications. I specialise in React and Node.js,
+            and I've helped over 20 businesses bring their digital products to life.
+          </p>
+          <br/>
+          <p style="font-size:var(--text-base);color:var(--gray-600);line-height:1.75">
+            I care deeply about clean code, user experience, and delivering projects
+            on time. Whether you need a complete web app, an API integration, or a
+            performance audit — I bring the same level of care and professionalism to
+            every project.
+          </p>
+        </div>
+
+        <!-- Skills -->
+        <div class="profile-section">
+          <h2 class="profile-section__title">Skills &amp; Technologies</h2>
+          <!-- TODO: Load from student.skills[] via API -->
+          <div class="skills-grid" role="list" aria-label="Skills">
+            <span class="skill-tag" role="listitem">React</span>
+            <span class="skill-tag" role="listitem">Node.js</span>
+            <span class="skill-tag" role="listitem">TypeScript</span>
+            <span class="skill-tag" role="listitem">MongoDB</span>
+            <span class="skill-tag" role="listitem">PostgreSQL</span>
+            <span class="skill-tag" role="listitem">AWS</span>
+            <span class="skill-tag" role="listitem">Docker</span>
+            <span class="skill-tag" role="listitem">REST APIs</span>
+            <span class="skill-tag" role="listitem">GraphQL</span>
+            <span class="skill-tag" role="listitem">Tailwind CSS</span>
+            <span class="skill-tag" role="listitem">Next.js</span>
+            <span class="skill-tag" role="listitem">Git / GitHub</span>
+          </div>
+        </div>
+
+        <!-- Portfolio -->
+        <div class="profile-section">
+          <h2 class="profile-section__title">Portfolio</h2>
+          <!-- TODO: Load portfolio items from student.portfolio[] via API -->
+          <div class="portfolio-grid" role="list" aria-label="Portfolio projects">
+            <div class="portfolio-item" role="listitem" tabindex="0" aria-label="E-commerce Platform project">
+              <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&q=80&fit=crop"
+                alt="E-commerce platform project" loading="lazy"
+                style="width:100%;height:100%;object-fit:cover;display:block" />
+              <div class="portfolio-item__overlay">View Project</div>
+            </div>
+            <div class="portfolio-item" role="listitem" tabindex="0" aria-label="Dashboard UI project">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=80&fit=crop"
+                alt="Dashboard UI project" loading="lazy"
+                style="width:100%;height:100%;object-fit:cover;display:block" />
+              <div class="portfolio-item__overlay">View Project</div>
+            </div>
+            <div class="portfolio-item" role="listitem" tabindex="0" aria-label="Mobile App project">
+              <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&q=80&fit=crop"
+                alt="Mobile app project" loading="lazy"
+                style="width:100%;height:100%;object-fit:cover;display:block" />
+              <div class="portfolio-item__overlay">View Project</div>
+            </div>
+            <div class="portfolio-item" role="listitem" tabindex="0" aria-label="SaaS Platform project">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&q=80&fit=crop"
+                alt="SaaS platform project" loading="lazy"
+                style="width:100%;height:100%;object-fit:cover;display:block" />
+              <div class="portfolio-item__overlay">View Project</div>
+            </div>
+            <div class="portfolio-item" role="listitem" tabindex="0" aria-label="API Integration project">
+              <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&q=80&fit=crop"
+                alt="API integration project" loading="lazy"
+                style="width:100%;height:100%;object-fit:cover;display:block" />
+              <div class="portfolio-item__overlay">View Project</div>
+            </div>
+            <div class="portfolio-item" role="listitem" tabindex="0" aria-label="Landing Page project">
+              <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=400&q=80&fit=crop"
+                alt="Landing page project" loading="lazy"
+                style="width:100%;height:100%;object-fit:cover;display:block" />
+              <div class="portfolio-item__overlay">View Project</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience -->
+        <div class="profile-section">
+          <h2 class="profile-section__title">Experience &amp; Projects</h2>
+          <!-- TODO: Load from student.experience[] via API -->
+
+          <div class="experience-item">
+            <div class="experience-item__dot">💻</div>
+            <div>
+              <div class="experience-item__title">Full Stack Developer (Freelance)</div>
+              <div class="experience-item__company">SkillBridge — Various Clients</div>
+              <div class="experience-item__dates">Jan 2024 – Present</div>
+              <div class="experience-item__desc">Delivered 24 projects across e-commerce, SaaS, and content platforms using React, Node.js, and cloud infrastructure.</div>
+            </div>
+          </div>
+
+          <div class="experience-item">
+            <div class="experience-item__dot">🏢</div>
+            <div>
+              <div class="experience-item__title">Software Engineering Intern</div>
+              <div class="experience-item__company">TechStart London</div>
+              <div class="experience-item__dates">Jun 2023 – Sep 2023</div>
+              <div class="experience-item__desc">Built internal tooling for product analytics dashboard. Improved API response time by 40% through query optimisation.</div>
+            </div>
+          </div>
+
+          <div class="experience-item">
+            <div class="experience-item__dot">🎓</div>
+            <div>
+              <div class="experience-item__title">BSc Computer Science (Year 3)</div>
+              <div class="experience-item__company">University College London (UCL)</div>
+              <div class="experience-item__dates">Sep 2022 – Present · Expected 2025</div>
+              <div class="experience-item__desc">Specialising in software engineering and distributed systems. Current grade: 2:1 (predicted First Class).</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Reviews -->
+        <div class="profile-section">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--space-5);padding-bottom:var(--space-4);border-bottom:1px solid var(--gray-100)">
+            <h2 style="font-weight:var(--font-bold);font-size:var(--text-lg);color:var(--gray-900)">
+              Reviews
+            </h2>
+            <div style="display:flex;align-items:center;gap:var(--space-2)">
+              <span style="font-size:var(--text-2xl);font-weight:var(--font-extrabold);color:var(--gray-900)">4.9</span>
+              <div>
+                <div style="color:var(--warning);font-size:var(--text-sm)">★★★★★</div>
+                <div style="font-size:var(--text-xs);color:var(--gray-400)">24 reviews</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TODO: Load reviews from student.reviews[] via API → GET /api/students/:id/reviews -->
+          <div class="review-item">
+            <div class="review-item__header">
+              <div style="display:flex;align-items:center;gap:var(--space-3)">
+                <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;color:white;font-size:12px;font-weight:700">JT</div>
+                <div>
+                  <div style="font-size:var(--text-sm);font-weight:var(--font-semibold);color:var(--gray-800)">James T.</div>
+                  <div style="font-size:var(--text-xs);color:var(--gray-400)">TechStart London</div>
+                </div>
+              </div>
+              <div style="text-align:right">
+                <div class="review-item__stars">★★★★★</div>
+                <div class="review-item__date">March 2025</div>
+              </div>
+            </div>
+            <p class="review-item__text" style="margin-top:var(--space-3)">
+              Absolutely excellent work. Alex delivered the complete e-commerce platform two days ahead of schedule. The code quality was outstanding and documentation was thorough. Will definitely hire again.
+            </p>
+          </div>
+
+          <div class="review-item">
+            <div class="review-item__header">
+              <div style="display:flex;align-items:center;gap:var(--space-3)">
+                <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#F093FB,#F5576C);display:flex;align-items:center;justify-content:center;color:white;font-size:12px;font-weight:700">EW</div>
+                <div>
+                  <div style="font-size:var(--text-sm);font-weight:var(--font-semibold);color:var(--gray-800)">Emma W.</div>
+                  <div style="font-size:var(--text-xs);color:var(--gray-400)">FinTech Co</div>
+                </div>
+              </div>
+              <div style="text-align:right">
+                <div class="review-item__stars">★★★★★</div>
+                <div class="review-item__date">February 2025</div>
+              </div>
+            </div>
+            <p class="review-item__text" style="margin-top:var(--space-3)">
+              Alex built our analytics dashboard with incredible attention to detail. Communication was always clear and he proactively flagged potential issues before they became problems.
+            </p>
+          </div>
+
+          <div style="margin-top:var(--space-4)">
+            <button class="btn btn-ghost btn-sm">Load More Reviews</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── Right: Sidebar ─────────────────────────────── -->
+      <div>
+
+        <!-- Hire card -->
+        <div class="sidebar-card">
+          <div class="sidebar-card__price">
+            <div class="sidebar-card__price-num">£35</div>
+            <div class="sidebar-card__price-label">per hour · negotiable for long-term</div>
+          </div>
+          <div class="sidebar-card__availability">
+            Available for new projects
+          </div>
+          <a href="hire.html?student=1" class="btn btn-primary" style="width:100%;margin-bottom:var(--space-3)">
+            Hire Now
+          </a>
+          <button class="btn btn-ghost" style="width:100%" id="saveProfileBtn2" aria-label="Save profile">
+            ♡ Save Profile
+          </button>
+        </div>
+
+        <!-- Quick stats -->
+        <div class="sidebar-card">
+          <h3 style="font-weight:var(--font-bold);font-size:var(--text-base);color:var(--gray-900);margin-bottom:var(--space-4)">
+            Quick Stats
+          </h3>
+          <!-- TODO: Load from student stats API -->
+          <div class="sidebar-stats">
+            <div class="sidebar-stat">
+              <span class="sidebar-stat__label">Projects Completed</span>
+              <span class="sidebar-stat__value">24</span>
+            </div>
+            <div class="sidebar-stat">
+              <span class="sidebar-stat__label">Repeat Clients</span>
+              <span class="sidebar-stat__value">12</span>
+            </div>
+            <div class="sidebar-stat">
+              <span class="sidebar-stat__label">On-Time Delivery</span>
+              <span class="sidebar-stat__value">100%</span>
+            </div>
+            <div class="sidebar-stat">
+              <span class="sidebar-stat__label">Response Time</span>
+              <span class="sidebar-stat__value">&lt; 2 hours</span>
+            </div>
+            <div class="sidebar-stat">
+              <span class="sidebar-stat__label">Member Since</span>
+              <span class="sidebar-stat__value">Jan 2024</span>
+            </div>
+            <div class="sidebar-stat">
+              <span class="sidebar-stat__label">Total Earnings</span>
+              <span class="sidebar-stat__value">£28,400+</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="sidebar-card">
+          <h3 style="font-weight:var(--font-bold);font-size:var(--text-base);color:var(--gray-900);margin-bottom:var(--space-4)">
+            Languages
+          </h3>
+          <div class="sidebar-stats">
+            <div class="sidebar-stat">
+              <span class="sidebar-stat__label">English</span>
+              <span class="sidebar-stat__value badge badge-success">Native</span>
+            </div>
+            <div class="sidebar-stat">
+              <span class="sidebar-stat__label">French</span>
+              <span class="sidebar-stat__value">Conversational</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Similar profiles -->
+        <div class="sidebar-card">
+          <h3 style="font-weight:var(--font-bold);font-size:var(--text-base);color:var(--gray-900);margin-bottom:var(--space-4)">
+            Similar Profiles
+          </h3>
+          <div style="display:flex;flex-direction:column;gap:var(--space-3)">
+            <a href="student-profile.html" style="display:flex;align-items:center;gap:var(--space-3);text-decoration:none;padding:var(--space-2) 0">
+              <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#F093FB,#F5576C);display:flex;align-items:center;justify-content:center;color:white;font-size:12px;font-weight:700;flex-shrink:0">SM</div>
+              <div>
+                <div style="font-size:var(--text-sm);font-weight:var(--font-semibold);color:var(--gray-800)">Sophie M.</div>
+                <div style="font-size:var(--text-xs);color:var(--gray-400)">UI/UX · £40/hr</div>
+              </div>
+            </a>
+            <a href="student-profile.html" style="display:flex;align-items:center;gap:var(--space-3);text-decoration:none;padding:var(--space-2) 0">
+              <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#4FACFE,#00F2FE);display:flex;align-items:center;justify-content:center;color:white;font-size:12px;font-weight:700;flex-shrink:0">TC</div>
+              <div>
+                <div style="font-size:var(--text-sm);font-weight:var(--font-semibold);color:var(--gray-800)">Tom C.</div>
+                <div style="font-size:var(--text-xs);color:var(--gray-400)">Backend Dev · £50/hr</div>
+              </div>
+            </a>
+          </div>
+          <a href="explore.html" class="btn btn-ghost btn-sm" style="width:100%;margin-top:var(--space-4)">
+            Browse More Talent
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div><!-- /profile-body -->
+</div><!-- /profile-page -->
+
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__logo">
+          <div class="footer__logo-icon">⚡</div>
+          Skill<span style="color:var(--primary-light)">Bridge</span>
+        </div>
+        <p class="footer__tagline">Connecting students with opportunity.</p>
+        <div class="footer__socials">
+          <a href="#" class="footer__social-btn" aria-label="Twitter">𝕏</a>
+          <a href="#" class="footer__social-btn" aria-label="LinkedIn">in</a>
+          <a href="#" class="footer__social-btn" aria-label="Instagram">📷</a>
+        </div>
+      </div>
+      <nav aria-label="Platform links">
+        <div class="footer__col-title">Platform</div>
+        <ul class="footer__links">
+          <li><a href="explore.html" class="footer__link">Explore Talent</a></li>
+          <li><a href="hire.html"    class="footer__link">Hire a Student</a></li>
+          <li><a href="premium-guides.html" class="footer__link">Premium Guides</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Company links">
+        <div class="footer__col-title">Company</div>
+        <ul class="footer__links">
+          <li><a href="#" class="footer__link">About</a></li>
+          <li><a href="#" class="footer__link">Contact</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Legal links">
+        <div class="footer__col-title">Legal</div>
+        <ul class="footer__links">
+          <li><a href="#" class="footer__link">Privacy Policy</a></li>
+          <li><a href="#" class="footer__link">Terms</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">© 2026 SkillBridge. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/modal.js"></script>
+<script src="js/main.js"></script>
+<script>
+  // Save profile button toggle
+  document.addEventListener('DOMContentLoaded', function () {
+    ['saveProfileBtn','saveProfileBtn2'].forEach(id => {
+      const btn = document.getElementById(id);
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        const saved = this.textContent.includes('♡');
+        this.textContent = saved ? '♥ Saved' : '♡ Save Profile';
+        this.style.color = saved ? 'var(--danger)' : '';
+        // TODO: POST /api/saved-profiles { studentId: 1 } to persist save
+        window.SkillBridge?.Toast?.(
+          saved ? 'Profile saved!' : 'Removed from saved profiles',
+          saved ? 'success' : 'info'
+        );
+      });
+    });
+  });
+</script>
+</body>
+</html>

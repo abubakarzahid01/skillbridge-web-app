@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signing you in… — SkillBridge</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f8fafc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      color: #1e293b;
+    }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,.08);
+      padding: 48px 40px;
+      text-align: center;
+      max-width: 360px;
+      width: 90%;
+    }
+    .logo { font-size: 28px; font-weight: 800; color: #2563EB; margin-bottom: 24px; }
+    .spinner {
+      width: 48px; height: 48px;
+      border: 4px solid #e2e8f0;
+      border-top-color: #2563EB;
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+      margin: 0 auto 20px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    h2 { font-size: 18px; margin-bottom: 8px; }
+    p  { font-size: 14px; color: #64748b; }
+    .error-box {
+      display: none;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      border-radius: 8px;
+      padding: 14px;
+      color: #991b1b;
+      font-size: 14px;
+      margin-top: 16px;
+    }
+    .error-box a { color: #2563EB; text-decoration: none; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">SkillBridge</div>
+    <div class="spinner" id="spinner"></div>
+    <h2 id="msg">Signing you in…</h2>
+    <p id="sub">Please wait a moment</p>
+    <div class="error-box" id="errBox">
+      <p id="errMsg">Something went wrong.</p>
+      <p style="margin-top:8px"><a href="login.html">← Back to login</a></p>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const token  = params.get('token');
+      const name   = params.get('name')   || '';
+      const role   = params.get('role')   || 'student';
+      const avatar = params.get('avatar') || '';
+      const error  = params.get('error');
+
+      function showError(msg) {
+        document.getElementById('spinner').style.display = 'none';
+        document.getElementById('msg').textContent  = 'Sign-in failed';
+        document.getElementById('sub').textContent  = '';
+        const box = document.getElementById('errBox');
+        document.getElementById('errMsg').textContent = msg;
+        box.style.display = 'block';
+      }
+
+      if (error) {
+        showError('Google sign-in was cancelled or failed. Please try again.');
+        return;
+      }
+
+      if (!token) {
+        showError('No authentication token received. Please try again.');
+        return;
+      }
+
+      // Store token + basic user info
+      localStorage.setItem('sb_token', token);
+      localStorage.setItem('sb_user', JSON.stringify({ name, role, avatar }));
+
+      document.getElementById('msg').textContent = `Welcome, ${name || 'there'}!`;
+      document.getElementById('sub').textContent = 'Redirecting to your dashboard…';
+
+      setTimeout(() => {
+        window.location.href = 'dashboard.html';
+      }, 1200);
+    })();
+  </script>
+</body>
+</html>

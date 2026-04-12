@@ -489,6 +489,20 @@ const SkillBridgeDash = (function () {
 
     if (!toggleBtn || !form) return;
 
+    let pendingAvatar = null; // holds base64 data URL until save
+
+    // Render avatar circle (image or initials) inside a container element
+    function renderAvatarCircle(container, avatarUrl, name) {
+      if (!container) return;
+      if (avatarUrl) {
+        container.innerHTML = `<img src="${avatarUrl}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block" />`;
+      } else {
+        const initials = (name || 'U').split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
+        container.textContent = initials;
+        container.style.background = 'linear-gradient(135deg,#667EEA,#764BA2)';
+      }
+    }
+
     // Load existing user data into form and preview
     function loadCurrentData() {
       try {
@@ -501,10 +515,34 @@ const SkillBridgeDash = (function () {
           document.getElementById('editSkills').value = user.skills.join(', ');
           document.getElementById('previewSkills').textContent = user.skills.join(', ');
         }
+        // Show avatar in edit preview circle
+        renderAvatarCircle(document.getElementById('avatarEditPreview'), user.avatar, user.name);
       } catch(e) {}
     }
 
     loadCurrentData();
+
+    // Avatar upload handling
+    const changeAvatarBtn = document.getElementById('changeAvatarBtn');
+    const avatarFileInput = document.getElementById('avatarFileInput');
+    if (changeAvatarBtn && avatarFileInput) {
+      changeAvatarBtn.addEventListener('click', () => avatarFileInput.click());
+      avatarFileInput.addEventListener('change', function() {
+        const file = this.files[0];
+        if (!file) return;
+        if (file.size > 2 * 1024 * 1024) { alert('Image must be under 2 MB.'); return; }
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          pendingAvatar = e.target.result;
+          // Show preview in form circle
+          const editPreview = document.getElementById('avatarEditPreview');
+          if (editPreview) {
+            editPreview.innerHTML = `<img src="${pendingAvatar}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block" />`;
+          }
+        };
+        reader.readAsDataURL(file);
+      });
+    }
 
     toggleBtn.addEventListener('click', function() {
       const isEditing = form.style.display !== 'none';
@@ -531,17 +569,19 @@ const SkillBridgeDash = (function () {
       const skillsRaw  = document.getElementById('editSkills').value.trim();
       const skills     = skillsRaw ? skillsRaw.split(',').map(s => s.trim()).filter(Boolean) : [];
       const rateValue  = parseInt((rate.match(/\d+/) || ['30'])[0]);
+      const updates    = { bio, university, rate, skills, rateValue };
+      if (pendingAvatar) updates.avatar = pendingAvatar;
 
       if (!window.SB) {
         saveBtn.textContent = 'Save Profile'; saveBtn.disabled = false;
         return;
       }
 
-      SB.UserAPI.updateProfile({ bio, university, rate, skills, rateValue })
+      SB.UserAPI.updateProfile(updates)
         .then(data => {
           // Update localStorage with new data
           const user = SB.Auth.getUser() || {};
-          const updated = Object.assign(user, { bio, university, rate, skills });
+          const updated = Object.assign(user, updates);
           SB.Auth.setUser(updated);
 
           // Update preview
@@ -549,6 +589,16 @@ const SkillBridgeDash = (function () {
           if (university) document.getElementById('previewUni').textContent    = university;
           if (rate)       document.getElementById('previewRate').textContent   = rate;
           if (skills.length) document.getElementById('previewSkills').textContent = skills.join(', ');
+
+          // Update sidebar avatar immediately
+          if (pendingAvatar) {
+            const sidebarAvatar = document.querySelector('.sidebar__user-avatar');
+            if (sidebarAvatar) {
+              sidebarAvatar.innerHTML = `<img src="${pendingAvatar}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block" />`;
+              sidebarAvatar.style.background = 'transparent';
+            }
+            pendingAvatar = null;
+          }
 
           // Show success, close form
           if (saveMsg) { saveMsg.style.display = 'inline'; setTimeout(() => { saveMsg.style.display = 'none'; }, 3000); }

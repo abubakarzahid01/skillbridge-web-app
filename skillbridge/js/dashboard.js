@@ -396,6 +396,14 @@ const SkillBridgeDash = (function () {
       const sidebarRole = document.querySelector('.sidebar__user-role');
       if (sidebarRole) sidebarRole.textContent = user.role === 'client' ? 'Client · Company' : 'Student · SkillBridge';
 
+      // Update "My Profile" links to point to this user's profile
+      const userId = user._id || user.id;
+      if (userId) {
+        document.querySelectorAll('a[href*="student-profile.html"]').forEach(link => {
+          link.href = `student-profile.html?id=${userId}`;
+        });
+      }
+
       // Update avatar — show initials if no avatar URL
       const avatarDiv = document.querySelector('.sidebar__user-avatar');
       if (avatarDiv) {

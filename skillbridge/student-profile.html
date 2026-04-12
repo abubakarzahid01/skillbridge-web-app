@@ -482,12 +482,36 @@
 
   var rawId = new URLSearchParams(window.location.search).get('id');
 
-  // 1. Try sessionStorage first (set by explore page — works for both numeric and MongoDB IDs)
+  // 0. Check if this is the logged-in user's own profile
   var student = null;
   try {
-    var cached = JSON.parse(sessionStorage.getItem('sb_students') || '[]');
-    student = cached.find(function(s){ return String(s.id) === String(rawId); });
+    var loggedIn = JSON.parse(localStorage.getItem('sb_user') || 'null');
+    if (loggedIn && rawId && (String(loggedIn._id) === String(rawId) || String(loggedIn.id) === String(rawId))) {
+      student = {
+        id:         loggedIn._id || loggedIn.id,
+        name:       loggedIn.name || 'You',
+        role:       loggedIn.bio ? loggedIn.bio.split('.')[0] : (loggedIn.category || 'Student'),
+        university: loggedIn.university || 'Not set',
+        location:   'London, UK',
+        avatarUrl:  loggedIn.avatar || null,
+        color:      'linear-gradient(135deg,#667EEA,#764BA2)',
+        skills:     loggedIn.skills || [],
+        rate:       loggedIn.rate || '£30/hr',
+        rating:     loggedIn.rating || 0,
+        reviews:    loggedIn.reviewCount || 0,
+        projects:   loggedIn.projects || 0,
+        desc:       loggedIn.bio || 'No bio added yet.'
+      };
+    }
   } catch(e) {}
+
+  // 1. Try sessionStorage first (set by explore page — works for both numeric and MongoDB IDs)
+  if (!student) {
+    try {
+      var cached = JSON.parse(sessionStorage.getItem('sb_students') || '[]');
+      student = cached.find(function(s){ return String(s.id) === String(rawId); });
+    } catch(e) {}
+  }
 
   // 2. Fallback to static list by numeric ID
   if (!student) {

@@ -39,10 +39,10 @@ async function apiFetch(path, options = {}) {
 
 // ── Auth API ──────────────────────────────────────────────────────
 const AuthAPI = {
-  async signup(name, email, password) {
+  async signup(name, email, password, role) {
     const data = await apiFetch('/api/auth/signup', {
       method: 'POST',
-      body: JSON.stringify({ name, email, password })
+      body: JSON.stringify({ name, email, password, role: role || 'student' })
     });
     Auth.setToken(data.token);
     Auth.setUser(data.user);

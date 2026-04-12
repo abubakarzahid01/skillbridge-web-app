@@ -379,6 +379,44 @@ const SkillBridgeDash = (function () {
     if (percent) percent.textContent = value + '%';
   }
 
+  /* ── Load user from localStorage immediately ────────────── */
+  function loadUserFromStorage() {
+    try {
+      const user = JSON.parse(localStorage.getItem('sb_user') || 'null');
+      if (!user) return;
+
+      // Update greeting
+      renderGreeting(user.name);
+
+      // Update sidebar name
+      const sidebarName = document.querySelector('.sidebar__user-name');
+      if (sidebarName) sidebarName.textContent = user.name;
+
+      // Update sidebar role
+      const sidebarRole = document.querySelector('.sidebar__user-role');
+      if (sidebarRole) sidebarRole.textContent = user.role === 'client' ? 'Client · Company' : 'Student · SkillBridge';
+
+      // Update avatar — show initials if no avatar URL
+      const avatarDiv = document.querySelector('.sidebar__user-avatar');
+      if (avatarDiv) {
+        if (user.avatar) {
+          avatarDiv.innerHTML = `<img src="${user.avatar}" alt="${user.name}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block">`;
+        } else {
+          const initials = user.name.split(' ').map(w => w[0]).join('').slice(0,2).toUpperCase();
+          avatarDiv.innerHTML = '';
+          avatarDiv.style.background = 'linear-gradient(135deg,#667EEA,#764BA2)';
+          avatarDiv.style.display = 'flex';
+          avatarDiv.style.alignItems = 'center';
+          avatarDiv.style.justifyContent = 'center';
+          avatarDiv.style.color = '#fff';
+          avatarDiv.style.fontWeight = '700';
+          avatarDiv.style.fontSize = '1.1rem';
+          avatarDiv.textContent = initials;
+        }
+      }
+    } catch(e) {}
+  }
+
   /* ── Greeting ────────────────────────────────────────────── */
   function renderGreeting(name) {
     const el = document.getElementById('dashGreeting');
@@ -403,7 +441,7 @@ const SkillBridgeDash = (function () {
         // Update sidebar avatar/name if elements exist
         const sidebarName  = document.querySelector('.sidebar__user-name');
         const sidebarEmail = document.querySelector('.sidebar__user-email');
-        const sidebarAvatar = document.querySelector('.sidebar__avatar');
+        const sidebarAvatar = document.querySelector('.sidebar__user-avatar');
         if (sidebarName)  sidebarName.textContent  = u.name  || '';
         if (sidebarEmail) sidebarEmail.textContent  = u.email || '';
         if (sidebarAvatar && u.avatar) {
@@ -456,19 +494,8 @@ const SkillBridgeDash = (function () {
     renderSavedTalent();
     renderBudgetOverview();
     renderProfileCompletion();
-    // Load name from localStorage immediately — no API wait needed
-    try {
-      const cached = JSON.parse(localStorage.getItem('sb_user') || 'null');
-      if (cached && cached.name) {
-        renderGreeting(cached.name);
-        const sidebarName = document.querySelector('.sidebar__user-name');
-        if (sidebarName) sidebarName.textContent = cached.name;
-        const sidebarRole = document.querySelector('.sidebar__user-role');
-        if (sidebarRole && cached.role) sidebarRole.textContent = cached.role;
-      } else {
-        renderGreeting();
-      }
-    } catch(e) { renderGreeting(); }
+    // Load real user immediately from localStorage — no API wait
+    loadUserFromStorage();
     loadFromAPI();
   }
 

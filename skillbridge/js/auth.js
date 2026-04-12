@@ -257,7 +257,7 @@ const SkillBridgeAuth = (function () {
         industry:   form.querySelector('#industry')?.value || null,
       };
 
-      SB.AuthAPI.signup(formData.fullName, formData.email, formData.password)
+      SB.AuthAPI.signup(formData.fullName, formData.email, formData.password, formData.role)
         .then(() => {
           showGlobalSuccess(form, 'Account created! Welcome to SkillBridge. Redirecting...');
           setTimeout(() => { window.location.href = 'dashboard.html'; }, 1000);

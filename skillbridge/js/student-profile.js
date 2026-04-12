@@ -79,10 +79,8 @@ const STUDENTS = [
   }
 ];
 
-function loadProfile() {
-  const params = new URLSearchParams(window.location.search);
-  const id = parseInt(params.get('id'));
-  const student = STUDENTS.find(s => s.id === id) || STUDENTS[0];
+function renderStudent(student) {
+  if (!student) return;
 
   // Name & title
   document.querySelector('.profile-info__name').textContent = student.name;
@@ -128,7 +126,48 @@ function loadProfile() {
 
   // Sidebar stat: projects completed
   const sidebarStats = document.querySelectorAll('.sidebar-stat__value');
-  if (sidebarStats[0]) sidebarStats[0].textContent = student.projects + '+';
+  if (sidebarStats[0]) sidebarStats[0].textContent = (student.projects || student.projectsDone || 0) + '+';
+}
+
+function loadProfile() {
+  const params  = new URLSearchParams(window.location.search);
+  const rawId   = params.get('id');
+
+  if (!rawId) { renderStudent(STUDENTS[0]); return; }
+
+  // Numeric ID → static student list
+  const numId = parseInt(rawId);
+  if (!isNaN(numId)) {
+    const match = STUDENTS.find(s => s.id === numId);
+    if (match) { renderStudent(match); return; }
+  }
+
+  // MongoDB string ID → try API first, fallback to first static student
+  const API_BASE = 'https://skillbridge-backend-wpo5.onrender.com';
+  fetch(`${API_BASE}/api/students/${rawId}`)
+    .then(r => r.ok ? r.json() : null)
+    .then(data => {
+      if (data && data.data) {
+        const s = data.data;
+        renderStudent({
+          name:      s.name,
+          role:      s.bio ? s.bio.split('.')[0] : (s.category || 'Student'),
+          university: s.university || '',
+          location:  s.location || 'UK',
+          desc:      s.bio || '',
+          skills:    s.skills || [],
+          rate:      s.rate || '£30/hr',
+          rating:    s.rating || 4.8,
+          reviews:   s.reviewCount || 0,
+          projects:  s.projectsDone || 0,
+          avatarUrl: s.avatar || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80&fit=crop&crop=face',
+          color:     'linear-gradient(135deg,#667EEA,#764BA2)'
+        });
+      } else {
+        renderStudent(STUDENTS[0]);
+      }
+    })
+    .catch(() => renderStudent(STUDENTS[0]));
 }
 
 document.addEventListener('DOMContentLoaded', loadProfile);

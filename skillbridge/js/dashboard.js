@@ -456,7 +456,19 @@ const SkillBridgeDash = (function () {
     renderSavedTalent();
     renderBudgetOverview();
     renderProfileCompletion();
-    renderGreeting();
+    // Load name from localStorage immediately — no API wait needed
+    try {
+      const cached = JSON.parse(localStorage.getItem('sb_user') || 'null');
+      if (cached && cached.name) {
+        renderGreeting(cached.name);
+        const sidebarName = document.querySelector('.sidebar__user-name');
+        if (sidebarName) sidebarName.textContent = cached.name;
+        const sidebarRole = document.querySelector('.sidebar__user-role');
+        if (sidebarRole && cached.role) sidebarRole.textContent = cached.role;
+      } else {
+        renderGreeting();
+      }
+    } catch(e) { renderGreeting(); }
     loadFromAPI();
   }
 

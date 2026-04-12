@@ -451,10 +451,16 @@
     if (meta[1]) meta[1].textContent = '📍 ' + s.location;
     if (meta[2]) meta[2].textContent = '⭐ ' + s.rating + ' (' + s.reviews + ' reviews)';
 
-    var img = q('.profile-avatar img');
-    if (img) { img.src = s.avatarUrl; img.alt = s.name; }
     var av = q('.profile-avatar');
-    if (av) av.style.background = s.color;
+    if (av) {
+      av.style.background = s.color;
+      if (s.avatarUrl) {
+        av.innerHTML = '<img src="'+s.avatarUrl+'" alt="'+s.name+'" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block" />';
+      } else {
+        var initials = s.name.split(' ').map(function(w){return w[0];}).join('').slice(0,2).toUpperCase();
+        av.innerHTML = '<span style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2.5rem;font-weight:700;color:#fff">' + initials + '</span>';
+      }
+    }
 
     var hireBtn = q('.profile-header__actions .btn-primary');
     if (hireBtn) hireBtn.textContent = 'Hire Now, ' + s.rate;

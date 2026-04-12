@@ -499,7 +499,7 @@ SkillBridge.ExploreFilter = (function () {
         const students = (data.students || []).map(s => ({
           id: s._id, initials: s.name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase(),
           color: 'linear-gradient(135deg,#667EEA,#764BA2)',
-          avatarUrl: s.avatar || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&q=80&fit=crop&crop=face',
+          avatarUrl: s.avatar || null,
           name: s.name, role: s.bio ? s.bio.split('.')[0] : (s.category || 'Student'),
           university: s.university || '', desc: s.bio || '',
           skills: s.skills || [], rate: s.rate || '£30/hr',
@@ -535,8 +535,10 @@ SkillBridge.ExploreFilter = (function () {
       <div class="talent-card" data-animate>
         <div class="talent-card__header">
           <div class="talent-card__avatar" style="overflow:hidden;background:${s.color}">
-            <img src="${s.avatarUrl}" alt="${s.name}" loading="lazy"
-              style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block" />
+            ${s.avatarUrl
+              ? `<img src="${s.avatarUrl}" alt="${s.name}" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block" />`
+              : `<span style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:700;color:#fff;border-radius:50%">${s.initials}</span>`
+            }
           </div>
           <div>
             <div class="talent-card__name">${s.name}</div>

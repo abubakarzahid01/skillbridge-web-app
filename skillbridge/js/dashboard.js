@@ -434,6 +434,31 @@ const SkillBridgeDash = (function () {
     el.textContent = `${greet}, ${(name || 'there').split(' ')[0]} 👋`;
   }
 
+  /* ── Refresh the Complete Your Profile widget from a user object ── */
+  function refreshProfileWidget(user) {
+    if (!user) return;
+    if (user.bio)        { const e = document.getElementById('previewBio');    if (e) e.textContent = user.bio;                    const f = document.getElementById('editBio');       if (f) f.value       = user.bio; }
+    if (user.university) { const e = document.getElementById('previewUni');    if (e) e.textContent = user.university;             const f = document.getElementById('editUni');       if (f) f.value       = user.university; }
+    if (user.rate)       { const e = document.getElementById('previewRate');   if (e) e.textContent = user.rate;                   const f = document.getElementById('editRate');      if (f) f.value       = user.rate; }
+    if (user.skills && user.skills.length) {
+      const e = document.getElementById('previewSkills'); if (e) e.textContent = user.skills.join(', ');
+      const f = document.getElementById('editSkills');    if (f) f.value       = user.skills.join(', ');
+    }
+    // Update sidebar avatar if saved on profile
+    if (user.avatar) {
+      const avatarDiv = document.querySelector('.sidebar__user-avatar');
+      if (avatarDiv) {
+        avatarDiv.innerHTML = `<img src="${user.avatar}" alt="${user.name}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block">`;
+        avatarDiv.style.background = 'transparent';
+      }
+      // Update avatar in edit form preview too
+      const editPreview = document.getElementById('avatarEditPreview');
+      if (editPreview) {
+        editPreview.innerHTML = `<img src="${user.avatar}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block" />`;
+      }
+    }
+  }
+
   /* ── Load real user data from API ────────────────────────── */
   function loadFromAPI() {
     if (!window.SB) return;
@@ -441,6 +466,25 @@ const SkillBridgeDash = (function () {
       window.location.href = 'login.html';
       return;
     }
+
+    // Fetch full profile (bio, university, skills, rate, avatar) and persist to localStorage
+    SB.UserAPI.getProfile()
+      .then(data => {
+        const profile = data.user || data;
+        const stored  = SB.Auth.getUser() || {};
+        const merged  = Object.assign(stored, {
+          bio:        profile.bio        !== undefined ? profile.bio        : stored.bio,
+          university: profile.university !== undefined ? profile.university : stored.university,
+          skills:     profile.skills     || stored.skills,
+          rate:       profile.rate       || stored.rate,
+          avatar:     profile.avatar     || stored.avatar,
+          name:       profile.name       || stored.name,
+        });
+        SB.Auth.setUser(merged);
+        refreshProfileWidget(merged);
+      })
+      .catch(() => {});  // silently ignore — localStorage data already shown
+
     SB.DashboardAPI.get()
       .then(data => {
         const u = data.user || {};

@@ -425,25 +425,73 @@
 
 <script src="js/modal.js"></script>
 <script src="js/main.js"></script>
-<script src="js/student-profile.js"></script>
 <script>
+(function () {
+  var STUDENTS = [
+    { id:1, name:'Alex Johnson',    role:'Full Stack Developer',    university:'UCL, Computer Science',        location:'London, UK',    avatarUrl:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80&fit=crop&crop=face', color:'linear-gradient(135deg,#667EEA,#764BA2)', skills:['React','Node.js','TypeScript','MongoDB','PostgreSQL','AWS','Docker','REST APIs','GraphQL','Tailwind CSS','Next.js','Git / GitHub'], rate:'£35/hr', rating:4.9, reviews:24, projects:20, desc:"I'm a third-year Computer Science student at UCL with a passion for building scalable web applications. I specialise in React and Node.js, and I've helped over 20 businesses bring their digital products to life.\n\nI care deeply about clean code, user experience, and delivering projects on time." },
+    { id:2, name:'Sophie Martinez', role:'UI/UX Designer',          university:'RCA, Design',                  location:'London, UK',    avatarUrl:'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&q=80&fit=crop&crop=face', color:'linear-gradient(135deg,#F093FB,#F5576C)', skills:['Figma','Prototyping','User Research','Framer','Sketch','Adobe XD','Wireframing','Design Systems','Usability Testing','Interaction Design'], rate:'£40/hr', rating:5.0, reviews:18, projects:15, desc:"I'm a UI/UX Designer at the Royal College of Art with a passion for creating intuitive digital experiences. I combine user research, wireframing, and high-fidelity prototyping to deliver designs that are both beautiful and functional.\n\nI've worked with startups and established brands to redesign their products and significantly improve user satisfaction." },
+    { id:3, name:'Michael Kim',     role:'Data Analyst',            university:'Imperial College, Data Science',location:'London, UK',    avatarUrl:'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&q=80&fit=crop&crop=face', color:'linear-gradient(135deg,#4FACFE,#00F2FE)', skills:['Python','SQL','Power BI','Machine Learning','Pandas','NumPy','Tableau','R','Statistics','Data Visualisation'], rate:'£45/hr', rating:4.8, reviews:31, projects:25, desc:"Data Analyst at Imperial College London specialising in turning complex datasets into clear, actionable insights. I work with Python, SQL, and modern BI tools to help businesses make data-driven decisions.\n\nFrom building dashboards to training machine learning models, I bring analytical rigour and strong communication skills to every project." },
+    { id:4, name:'Emma Williams',   role:'Graphic Designer',        university:'UAL, Graphic Design',          location:'London, UK',    avatarUrl:'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&q=80&fit=crop&crop=face', color:'linear-gradient(135deg,#43E97B,#38F9D7)', skills:['Illustrator','Photoshop','Branding','Print Design','InDesign','Typography','Logo Design','Packaging','Brand Identity','Motion Graphics'], rate:'£28/hr', rating:4.7, reviews:42, projects:35, desc:"Award-winning Graphic Designer from UAL with a passion for creating visual identities that resonate. I've designed logos, brand kits, and marketing materials for startups and established companies.\n\nI focus on delivering clean, memorable designs that communicate your brand values effectively across all platforms." },
+    { id:5, name:'Daniel Lee',      role:'Video Editor',            university:'Goldsmiths, Media',            location:'London, UK',    avatarUrl:'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&q=80&fit=crop&crop=face', color:'linear-gradient(135deg,#FA709A,#FEE140)', skills:['Premiere Pro','After Effects','DaVinci Resolve','Motion Graphics','Colour Grading','Sound Design','YouTube','Social Media','Storytelling','Animation'], rate:'£32/hr', rating:4.6, reviews:15, projects:18, desc:"Video Editor at Goldsmiths with a cinematic eye and fast turnaround. I specialise in YouTube content, corporate videos, and social media reels that engage and convert.\n\nWith experience in colour grading, motion graphics, and sound design, I deliver polished final products that make your brand stand out." },
+    { id:6, name:'Rachel Brown',    role:'Social Media Manager',    university:'KCL, Marketing',               location:'London, UK',    avatarUrl:'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&q=80&fit=crop&crop=face', color:'linear-gradient(135deg,#A18CD1,#FBC2EB)', skills:['Instagram','TikTok','Copywriting','Analytics','LinkedIn Ads','Content Planning','Community Management','Paid Social','SEO','Email Marketing'], rate:'£25/hr', rating:4.9, reviews:38, projects:30, desc:"Social Media Manager at King's College London with a proven track record of growing brand audiences organically and through paid campaigns.\n\nI combine data analytics with creative storytelling to build communities that convert followers into loyal customers." },
+    { id:7, name:'Tom Chen',        role:'Backend Developer',       university:'Oxford, Computer Science',     location:'Oxford, UK',    avatarUrl:'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&q=80&fit=crop&crop=face', color:'linear-gradient(135deg,#96FBC4,#F9F586)', skills:['Go','Python','AWS','Docker','Kubernetes','PostgreSQL','Redis','REST APIs','gRPC','CI/CD'], rate:'£50/hr', rating:4.9, reviews:12, projects:14, desc:"Backend Developer at Oxford building reliable, high-performance APIs and microservices. I specialise in Go and Python with a strong focus on clean architecture and test coverage.\n\nI've built systems that handle thousands of concurrent users with deep understanding of distributed systems and cloud infrastructure." },
+    { id:8, name:'Isabelle Adams',  role:'Content Strategist',      university:'Edinburgh, English Literature', location:'Edinburgh, UK', avatarUrl:'https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=150&q=80&fit=crop&crop=face', color:'linear-gradient(135deg,#FDDB92,#D1FDFF)', skills:['SEO','Copywriting','Blogging','HubSpot','Content Strategy','Email Marketing','WordPress','Keyword Research','Analytics','Social Media'], rate:'£22/hr', rating:4.8, reviews:27, projects:22, desc:"Content Strategist at the University of Edinburgh with a talent for crafting SEO-driven content that drives organic traffic and converts readers into customers.\n\nMy work has helped clients rank on page one of Google and grow their email lists by thousands of subscribers." }
+  ];
+
+  function applyStudent(s) {
+    var q = function(sel){ return document.querySelector(sel); };
+    var qa = function(sel){ return document.querySelectorAll(sel); };
+
+    q('.profile-info__name').textContent = s.name;
+    q('.profile-info__role').textContent = s.role;
+    document.title = s.name + ' | SkillBridge';
+
+    var meta = qa('.profile-info__meta-item');
+    if (meta[0]) meta[0].textContent = '🎓 ' + s.university;
+    if (meta[1]) meta[1].textContent = '📍 ' + s.location;
+    if (meta[2]) meta[2].textContent = '⭐ ' + s.rating + ' (' + s.reviews + ' reviews)';
+
+    var img = q('.profile-avatar img');
+    if (img) { img.src = s.avatarUrl; img.alt = s.name; }
+    var av = q('.profile-avatar');
+    if (av) av.style.background = s.color;
+
+    var hireBtn = q('.profile-header__actions .btn-primary');
+    if (hireBtn) hireBtn.textContent = 'Hire Now, ' + s.rate;
+
+    var paras = qa('.profile-section p');
+    var bio = s.desc.split('\n\n');
+    if (paras[0]) paras[0].textContent = bio[0] || '';
+    if (paras[1]) paras[1].textContent = bio[1] || '';
+
+    var grid = q('.skills-grid');
+    if (grid) grid.innerHTML = s.skills.map(function(sk){ return '<span class="skill-tag">'+sk+'</span>'; }).join('');
+
+    var price = q('.sidebar-card__price-num');
+    if (price) price.textContent = s.rate.replace('/hr','');
+
+    var stats = qa('.sidebar-stat__value');
+    if (stats[0]) stats[0].textContent = (s.projects || 0) + '+';
+  }
+
+  var rawId = new URLSearchParams(window.location.search).get('id');
+  var numId = parseInt(rawId);
+  var student = isNaN(numId) ? null : STUDENTS.find(function(s){ return s.id === numId; });
+  if (student) {
+    applyStudent(student);
+  }
+
   // Save profile button toggle
-  document.addEventListener('DOMContentLoaded', function () {
-    ['saveProfileBtn','saveProfileBtn2'].forEach(id => {
-      const btn = document.getElementById(id);
-      if (!btn) return;
-      btn.addEventListener('click', function () {
-        const saved = this.textContent.includes('♡');
-        this.textContent = saved ? '♥ Saved' : '♡ Save Profile';
-        this.style.color = saved ? 'var(--danger)' : '';
-        // TODO: POST /api/saved-profiles { studentId: 1 } to persist save
-        window.SkillBridge?.Toast?.(
-          saved ? 'Profile saved!' : 'Removed from saved profiles',
-          saved ? 'success' : 'info'
-        );
-      });
+  ['saveProfileBtn','saveProfileBtn2'].forEach(function(id) {
+    var btn = document.getElementById(id);
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var saved = this.textContent.includes('♡');
+      this.textContent = saved ? '♥ Saved' : '♡ Save Profile';
+      this.style.color = saved ? 'var(--danger)' : '';
     });
   });
+})();
 </script>
 </body>
 </html>

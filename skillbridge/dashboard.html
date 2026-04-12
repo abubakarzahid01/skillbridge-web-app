@@ -180,6 +180,65 @@
     ═══════════════════════════════════════════════════════ -->
     <div id="studentDash" role="tabpanel" aria-labelledby="student tab">
 
+      <!-- ── Edit Profile Widget ── -->
+      <div class="dash-widget" id="editProfileWidget" style="margin-bottom:var(--space-6)">
+        <div class="dash-widget__header">
+          <div class="dash-widget__title">✏️ Complete Your Profile</div>
+          <button class="dash-widget__action" id="toggleEditProfile" style="cursor:pointer;background:none;border:none;color:var(--primary);font-size:var(--text-sm);font-weight:600">Edit</button>
+        </div>
+
+        <!-- Profile preview (shown when not editing) -->
+        <div id="profilePreview" style="display:flex;gap:var(--space-4);align-items:flex-start;flex-wrap:wrap">
+          <div style="flex:1;min-width:200px">
+            <div style="font-size:var(--text-sm);color:var(--gray-500);margin-bottom:4px">Bio</div>
+            <div id="previewBio" style="color:var(--gray-700);font-size:var(--text-sm)">Not set yet — click Edit to add your description</div>
+          </div>
+          <div style="min-width:140px">
+            <div style="font-size:var(--text-sm);color:var(--gray-500);margin-bottom:4px">University</div>
+            <div id="previewUni" style="color:var(--gray-700);font-size:var(--text-sm)">Not set</div>
+          </div>
+          <div style="min-width:100px">
+            <div style="font-size:var(--text-sm);color:var(--gray-500);margin-bottom:4px">Rate</div>
+            <div id="previewRate" style="color:var(--gray-700);font-size:var(--text-sm)">£30/hr</div>
+          </div>
+          <div style="flex:1;min-width:200px">
+            <div style="font-size:var(--text-sm);color:var(--gray-500);margin-bottom:4px">Skills</div>
+            <div id="previewSkills" style="color:var(--gray-700);font-size:var(--text-sm)">Not set</div>
+          </div>
+        </div>
+
+        <!-- Edit form (hidden by default) -->
+        <form id="editProfileForm" style="display:none;margin-top:var(--space-4)">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4);margin-bottom:var(--space-4)">
+            <div>
+              <label style="display:block;font-size:var(--text-sm);font-weight:600;color:var(--gray-700);margin-bottom:6px">University</label>
+              <input type="text" id="editUni" placeholder="e.g. UCL, Computer Science"
+                style="width:100%;padding:10px 14px;border:1px solid var(--gray-200);border-radius:var(--radius-md);font-size:var(--text-sm);outline:none" />
+            </div>
+            <div>
+              <label style="display:block;font-size:var(--text-sm);font-weight:600;color:var(--gray-700);margin-bottom:6px">Hourly Rate</label>
+              <input type="text" id="editRate" placeholder="e.g. £30/hr"
+                style="width:100%;padding:10px 14px;border:1px solid var(--gray-200);border-radius:var(--radius-md);font-size:var(--text-sm);outline:none" />
+            </div>
+          </div>
+          <div style="margin-bottom:var(--space-4)">
+            <label style="display:block;font-size:var(--text-sm);font-weight:600;color:var(--gray-700);margin-bottom:6px">Bio / Description</label>
+            <textarea id="editBio" rows="3" placeholder="Tell clients about yourself, your experience, and what you specialise in..."
+              style="width:100%;padding:10px 14px;border:1px solid var(--gray-200);border-radius:var(--radius-md);font-size:var(--text-sm);outline:none;resize:vertical;font-family:inherit"></textarea>
+          </div>
+          <div style="margin-bottom:var(--space-4)">
+            <label style="display:block;font-size:var(--text-sm);font-weight:600;color:var(--gray-700);margin-bottom:6px">Skills <span style="font-weight:400;color:var(--gray-400)">(comma separated)</span></label>
+            <input type="text" id="editSkills" placeholder="e.g. React, Node.js, Figma, Python"
+              style="width:100%;padding:10px 14px;border:1px solid var(--gray-200);border-radius:var(--radius-md);font-size:var(--text-sm);outline:none" />
+          </div>
+          <div style="display:flex;gap:var(--space-3);align-items:center">
+            <button type="submit" class="btn btn-primary btn-sm" id="saveProfileBtn2">Save Profile</button>
+            <button type="button" class="btn btn-ghost btn-sm" id="cancelEditProfile">Cancel</button>
+            <span id="profileSaveMsg" style="font-size:var(--text-sm);color:var(--success);display:none">✓ Profile saved!</span>
+          </div>
+        </form>
+      </div>
+
       <!-- Stats cards, populated by dashboard.js -->
       <div class="dash-stats" id="studentStats">
         <!-- Dynamic content -->

@@ -479,6 +479,93 @@ const SkillBridgeDash = (function () {
       });
   }
 
+  /* ── Edit Profile Widget ─────────────────────────────────── */
+  function initEditProfile() {
+    const toggleBtn   = document.getElementById('toggleEditProfile');
+    const cancelBtn   = document.getElementById('cancelEditProfile');
+    const form        = document.getElementById('editProfileForm');
+    const preview     = document.getElementById('profilePreview');
+    const saveMsg     = document.getElementById('profileSaveMsg');
+
+    if (!toggleBtn || !form) return;
+
+    // Load existing user data into form and preview
+    function loadCurrentData() {
+      try {
+        const user = JSON.parse(localStorage.getItem('sb_user') || 'null');
+        if (!user) return;
+        if (user.bio)        { document.getElementById('editBio').value    = user.bio;        document.getElementById('previewBio').textContent    = user.bio; }
+        if (user.university) { document.getElementById('editUni').value    = user.university;  document.getElementById('previewUni').textContent    = user.university; }
+        if (user.rate)       { document.getElementById('editRate').value   = user.rate;        document.getElementById('previewRate').textContent   = user.rate; }
+        if (user.skills && user.skills.length) {
+          document.getElementById('editSkills').value = user.skills.join(', ');
+          document.getElementById('previewSkills').textContent = user.skills.join(', ');
+        }
+      } catch(e) {}
+    }
+
+    loadCurrentData();
+
+    toggleBtn.addEventListener('click', function() {
+      const isEditing = form.style.display !== 'none';
+      form.style.display    = isEditing ? 'none' : 'block';
+      preview.style.display = isEditing ? 'flex'  : 'none';
+      toggleBtn.textContent = isEditing ? 'Edit'  : 'Cancel';
+    });
+
+    cancelBtn.addEventListener('click', function() {
+      form.style.display    = 'none';
+      preview.style.display = 'flex';
+      toggleBtn.textContent = 'Edit';
+    });
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const saveBtn = document.getElementById('saveProfileBtn2');
+      saveBtn.textContent = 'Saving...';
+      saveBtn.disabled = true;
+
+      const bio        = document.getElementById('editBio').value.trim();
+      const university = document.getElementById('editUni').value.trim();
+      const rate       = document.getElementById('editRate').value.trim();
+      const skillsRaw  = document.getElementById('editSkills').value.trim();
+      const skills     = skillsRaw ? skillsRaw.split(',').map(s => s.trim()).filter(Boolean) : [];
+      const rateValue  = parseInt((rate.match(/\d+/) || ['30'])[0]);
+
+      if (!window.SB) {
+        saveBtn.textContent = 'Save Profile'; saveBtn.disabled = false;
+        return;
+      }
+
+      SB.UserAPI.updateProfile({ bio, university, rate, skills, rateValue })
+        .then(data => {
+          // Update localStorage with new data
+          const user = SB.Auth.getUser() || {};
+          const updated = Object.assign(user, { bio, university, rate, skills });
+          SB.Auth.setUser(updated);
+
+          // Update preview
+          if (bio)        document.getElementById('previewBio').textContent    = bio;
+          if (university) document.getElementById('previewUni').textContent    = university;
+          if (rate)       document.getElementById('previewRate').textContent   = rate;
+          if (skills.length) document.getElementById('previewSkills').textContent = skills.join(', ');
+
+          // Show success, close form
+          if (saveMsg) { saveMsg.style.display = 'inline'; setTimeout(() => { saveMsg.style.display = 'none'; }, 3000); }
+          form.style.display    = 'none';
+          preview.style.display = 'flex';
+          toggleBtn.textContent = 'Edit';
+        })
+        .catch(err => {
+          alert(err.message || 'Failed to save profile. Please try again.');
+        })
+        .finally(() => {
+          saveBtn.textContent = 'Save Profile';
+          saveBtn.disabled = false;
+        });
+    });
+  }
+
   /* ── Init ────────────────────────────────────────────────── */
   function init() {
     initSidebar();
@@ -496,6 +583,7 @@ const SkillBridgeDash = (function () {
     renderProfileCompletion();
     // Load real user immediately from localStorage — no API wait
     loadUserFromStorage();
+    initEditProfile();
     loadFromAPI();
   }
 

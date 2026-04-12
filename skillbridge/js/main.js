@@ -508,11 +508,12 @@ SkillBridge.ExploreFilter = (function () {
           budget: s.rateValue <= 30 ? 'low' : s.rateValue <= 45 ? 'mid' : 'high'
         }));
         filtered = students.length ? students : [...STUDENTS];
+        sessionStorage.setItem('sb_students', JSON.stringify(filtered));
         renderTalent(filtered);
         const count = document.getElementById('talentCount');
         if (count) count.textContent = `${filtered.length} student${filtered.length !== 1 ? 's' : ''} found`;
       })
-      .catch(() => { filtered = [...STUDENTS]; renderTalent(filtered); });
+      .catch(() => { filtered = [...STUDENTS]; sessionStorage.setItem('sb_students', JSON.stringify(filtered)); renderTalent(filtered); });
   }
 
   function renderTalent(data) {

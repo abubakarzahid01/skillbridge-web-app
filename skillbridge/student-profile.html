@@ -475,11 +475,21 @@
   }
 
   var rawId = new URLSearchParams(window.location.search).get('id');
-  var numId = parseInt(rawId);
-  var student = isNaN(numId) ? null : STUDENTS.find(function(s){ return s.id === numId; });
-  if (student) {
-    applyStudent(student);
+
+  // 1. Try sessionStorage first (set by explore page — works for both numeric and MongoDB IDs)
+  var student = null;
+  try {
+    var cached = JSON.parse(sessionStorage.getItem('sb_students') || '[]');
+    student = cached.find(function(s){ return String(s.id) === String(rawId); });
+  } catch(e) {}
+
+  // 2. Fallback to static list by numeric ID
+  if (!student) {
+    var numId = parseInt(rawId);
+    if (!isNaN(numId)) student = STUDENTS.find(function(s){ return s.id === numId; });
   }
+
+  if (student) applyStudent(student);
 
   // Save profile button toggle
   ['saveProfileBtn','saveProfileBtn2'].forEach(function(id) {

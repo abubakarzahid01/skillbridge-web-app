@@ -1178,14 +1178,12 @@ button {
 }
 
 .footer__logo-icon {
-  width: 32px; height: 32px;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--white);
-  font-size: 0.9rem;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border-radius: 0;
+  display: block;
+  object-fit: contain;
 }
 
 .footer__tagline {
